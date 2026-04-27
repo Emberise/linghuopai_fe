@@ -62,7 +62,7 @@ npm run dev
 | 个人端 / 企业端 | 11 位手机号 + 任意 6 位验证码 |
 | 运营后台 | 账号 / 密码任意非空 |
 
-> 进 `/login` 在顶部切换「个人端 / 企业端」；底部小字「平台管理后台入口」进入后台登录。
+> 进 `/login` 在顶部切换「个人端 / 企业端」；底部小字「平台管理后台入口」点击后**在同页**切到后台账密表单。第一版没有独立的后台登录路由。
 
 ### 构建
 
@@ -92,12 +92,12 @@ npm run preview    # 预览生产构建
 │       ├── app/layouts/              # UserLayout / EnterpriseLayout / AdminLayout
 │       ├── shared/
 │       │   ├── auth/                 # store + RealmGuard（三区严格分跳）
-│       │   ├── ui/                   # Button / Badge / Card / Field / Icon
+│       │   ├── ui/                   # Button / Badge / Card / Field / Icon / RadarPolygon / RingGauge
 │       │   ├── mock/data.ts          # 唯一数据源（接真实 API 时只改这）
 │       │   └── utils/cn.ts
 │       ├── features/user-message-center/
 │       └── pages/
-│           ├── login/                # 2 张
+│           ├── login/                # LoginPage（三入口同页）
 │           ├── user/                 # 8 张
 │           ├── enterprise/           # 5 张
 │           └── admin/                # 5 张
@@ -110,8 +110,7 @@ npm run preview    # 预览生产构建
 
 ### 公共
 
-- `/login` — 登录页（个人端 + 企业端 + 后台入口）
-- `/admin/login` — 后台单独登录入口
+- `/login` — 登录页（个人端 + 企业端 + 底部「平台管理后台入口」同页切换）
 - `/403` `/404`
 
 ### 个人端 `/u/*`

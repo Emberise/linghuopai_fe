@@ -66,13 +66,13 @@
 │       │   └── layouts/          # UserLayout / EnterpriseLayout / AdminLayout / ErrorPage
 │       ├── shared/
 │       │   ├── auth/             # store + RealmGuard（三区严格分跳的核心）
-│       │   ├── ui/               # Button / Badge / Card / Field / Icon
+│       │   ├── ui/               # Button / Badge / Card / Field / Icon / RadarPolygon / RingGauge
 │       │   ├── mock/data.ts      # 唯一的数据源（接真实 API 时只改这一处）
 │       │   └── utils/cn.ts
 │       ├── features/
 │       │   └── user-message-center/MessageCenter.tsx  # 仅个人端
 │       └── pages/
-│           ├── login/            # LoginPage / AdminLoginPage
+│           ├── login/            # LoginPage（三入口同页：个人 / 企业 / 后台）
 │           ├── user/             # 8 张
 │           ├── enterprise/       # 5 张
 │           └── admin/            # 5 张（含 Enterprises、Config）
@@ -128,6 +128,12 @@ npm run preview  # 预览构建产物
 
 **严格双账号体系**：同一手机号在个人端 / 企业端是两个独立账号。不要写「同账号双身份」的代码路径。
 
+**登录页规则**（spec 第 5 节）：登录页**唯一入口** = `/login`。它在同一页面承载三入口：
+- 顶部 Tab 切换「个人端 / 企业端」
+- 底部小字「平台管理后台入口」点击后切到后台账密表单（**同页**，不再有独立 `/admin/login`）
+
+**不要重新引入** 独立后台登录页或路由。后台登录就是 LoginPage 的一种 mode。
+
 **企业资质锁**：企业端未认证账号仍可登录、看到导航，但岗位发布、候选人列表、AI 报告、站内沟通**表面可见但锁定**（`disabled` 或拦截 + 引导到 `/b/qualification`）。锁的来源是 `session.qualified` 字段。
 
 ---
@@ -147,6 +153,7 @@ npm run preview  # 预览构建产物
 - ✅ Body 文本容器宽度 ≤ 75ch（用 `max-w-body`）。
 - ✅ 三设备重排：Mobile（底 Tab）/ Pad（折叠侧栏 / 列表-详情）/ PC（侧栏 + 多列）。
 - ✅ 中文标点优先：用逗号、分号、冒号、句号或括号。
+- ✅ 数据可视化优先复用 `RadarPolygon`（雷达，5 维能力画像）和 `RingGauge`（圆环 conic-gradient，gauge 类指标）；不要引第三方图表库。
 
 ### 一定不要做
 
@@ -161,6 +168,7 @@ npm run preview  # 预览构建产物
 - ❌ 不要做批量发布岗位、批量验收任务。第一版明确不做。
 - ❌ 不要做实时 IM。第一版站内沟通是异步线程，按 `候选人 × 任务` 绑定。
 - ❌ 不要做候选状态机的「邀约 / 暂不推进 / 负面反馈」之外的子状态。
+- ❌ **不要重新引入独立的后台登录路由**（如 `/admin/login`）。后台从 `/login` 底部入口同页切换进入。
 
 ---
 
@@ -229,28 +237,27 @@ type CandidateSubStage = "邀约沟通" | "负面反馈" | "暂不推进";  // I
 
 | 路径 | 文件 | 说明 |
 | --- | --- | --- |
-| `/login` | `pages/login/LoginPage.tsx` | 三入口（个人 / 企业 + 底部后台小字） |
-| `/admin/login` | `pages/login/AdminLoginPage.tsx` | 后台单独登录 |
+| `/login` | `pages/login/LoginPage.tsx` | 三入口（个人 / 企业 + 底部小字「平台管理后台入口」同页切换） |
 | `/u/home` | `pages/user/HomePage.tsx` | 个人首页 |
-| `/u/tasks` | `pages/user/TaskHallPage.tsx` | 任务大厅（个人 + 企业混展） |
-| `/u/tasks/:taskId` | `pages/user/TaskDetailPage.tsx` | 任务详情 |
-| `/u/profile` | `pages/user/ResumePortraitPage.tsx` | 简历 + 画像合并页 |
-| `/u/applications` | `pages/user/ApplicationsPage.tsx` | 我的报名 |
+| `/u/tasks` | `pages/user/TaskHallPage.tsx` | 任务大厅（个人 + 企业混展，含本周热门 banner 卡） |
+| `/u/tasks/:taskId` | `pages/user/TaskDetailPage.tsx` | 任务详情（含 AI 核心摘要 + verified 徽章） |
+| `/u/profile` | `pages/user/ResumePortraitPage.tsx` | 简历 + 画像合并页（含 SVG 雷达 + 技能 chip + AI 优化建议） |
+| `/u/applications` | `pages/user/ApplicationsPage.tsx` | 我的报名（sticky Tab + 3 格 stat + 邀约卡） |
 | `/u/posted-tasks` | `pages/user/PostedTasksPage.tsx` | 我发布的任务（个人发） |
-| `/u/assistant` | `pages/user/AssistantPage.tsx` | 个人 AI 助手 |
-| `/u/screening/:sessionId` | `pages/user/ScreeningPage.tsx` | 任务级 AI 面试 |
+| `/u/assistant` | `pages/user/AssistantPage.tsx` | 个人 AI 助手（AI 回复可嵌入任务 mini 卡） |
+| `/u/screening/:sessionId` | `pages/user/ScreeningPage.tsx` | 任务级 AI 面试（Enter 送出 / Shift+Enter 换行） |
 | `/u/me` | `pages/user/MePage.tsx` | 我的页 |
 | `/u/me/agreements` | `pages/user/AgreementsPage.tsx` | 我的协议（占位说明页） |
-| `/b/home` | `pages/enterprise/HomePage.tsx` | 企业工作台 |
-| `/b/qualification` | `pages/enterprise/QualificationPage.tsx` | 资质认证 |
+| `/b/home` | `pages/enterprise/HomePage.tsx` | 企业工作台（AI 数据看板用 RingGauge） |
+| `/b/qualification` | `pages/enterprise/QualificationPage.tsx` | 资质认证（顶部 3 步 step tracker） |
 | `/b/jobs` | `pages/enterprise/JobsPage.tsx` | 岗位列表 |
-| `/b/jobs/new` | `pages/enterprise/JobPublishPage.tsx` | AI 主导发布岗位 |
-| `/b/candidates` | `pages/enterprise/CandidatesPage.tsx` | 候选人管理（仅初筛后） |
-| `/b/me` | `pages/enterprise/EnterpriseInfoPage.tsx` | 企业信息 |
-| `/admin/dashboard` | `pages/admin/DashboardPage.tsx` | 三类指标看板 |
+| `/b/jobs/new` | `pages/enterprise/JobPublishPage.tsx` | AI 主导发布岗位（含快捷模板 chip） |
+| `/b/candidates` | `pages/enterprise/CandidatesPage.tsx` | 候选人管理（仅初筛后，右上角 score badge） |
+| `/b/me` | `pages/enterprise/EnterpriseInfoPage.tsx` | 企业信息（Logo + 资质文件 + 企业智能洞察） |
+| `/admin/dashboard` | `pages/admin/DashboardPage.tsx` | 运营看板（4 KPI） |
 | `/admin/users` | `pages/admin/UsersPage.tsx` | 个人用户管理 |
 | `/admin/enterprises` | `pages/admin/EnterprisesPage.tsx` | 企业用户管理 |
-| `/admin/tasks` | `pages/admin/TasksPage.tsx` | 任务管理（不发布） |
+| `/admin/tasks` | `pages/admin/TasksPage.tsx` | 任务管理（4 格 stat 顶栏；不发布） |
 | `/admin/config` | `pages/admin/ConfigPage.tsx` | 基础配置 |
 
 ---
@@ -304,6 +311,7 @@ type CandidateSubStage = "邀约沟通" | "负面反馈" | "暂不推进";  // I
 - [ ] 没有引入新组件库
 - [ ] Token 都来自 DESIGN.md
 - [ ] 验证了三区分跳没破坏
+- [ ] 没有重新引入独立后台登录路由
 - [ ] Mobile / PC 两个宽度下都看过
 - [ ] AI 面试不展示题数上限
 - [ ] 占位模块仍是「仅展示不可点」
