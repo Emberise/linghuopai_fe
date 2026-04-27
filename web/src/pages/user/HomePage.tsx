@@ -128,8 +128,32 @@ export function UserHomePage() {
               className="p-lg cursor-pointer"
             >
               <div className="flex justify-between items-start mb-sm">
-                <div className="h-12 w-12 rounded-lg border border-ash-veil bg-white flex items-center justify-center text-misty-slate">
-                  <Icon name="apartment" />
+                <div className="h-12 w-12 rounded-lg border border-ash-veil bg-surface-container-lowest flex items-center justify-center text-misty-slate overflow-hidden">
+                  {/* 同色系几何 logo 占位，避免远程图，保持品牌克制 */}
+                  <svg
+                    viewBox="0 0 32 32"
+                    width={28}
+                    height={28}
+                    aria-hidden
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="26"
+                      height="26"
+                      rx="6"
+                      fill="oklch(96% 0.008 60)"
+                    />
+                    <path
+                      d="M9 22 L16 9 L23 22 Z"
+                      fill="#EA5614"
+                      fillOpacity="0.18"
+                      stroke="#EA5614"
+                      strokeWidth="1.5"
+                      strokeLinejoin="round"
+                    />
+                    <circle cx="16" cy="14" r="2.5" fill="#4A616F" />
+                  </svg>
                 </div>
                 <div className="text-right">
                   <span className="block text-linghuo-amber font-bold">

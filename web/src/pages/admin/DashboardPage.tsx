@@ -32,6 +32,14 @@ const sections = [
     sub: `报告转化率 ${(adminDashboardMetrics.aiScreening.convertRate * 100).toFixed(0)}%`,
     title: adminDashboardMetrics.aiScreening.title,
   },
+  {
+    key: "completion",
+    icon: "check_circle",
+    headline: 312,
+    deltaLabel: "+5.2% / 周",
+    sub: "已结束任务 / 总任务",
+    title: "任务完成率",
+  },
 ];
 
 const eventLog = [
@@ -71,7 +79,7 @@ export function AdminDashboardPage() {
         </p>
       </header>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-md">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
         {sections.map((s) => (
           <Card key={s.key} className="p-lg">
             <header className="flex items-start justify-between">

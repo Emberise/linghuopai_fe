@@ -10,7 +10,6 @@ import { ErrorPage } from "@/app/layouts/ErrorPage";
 import { RealmGuard } from "@/shared/auth/RealmGuard";
 
 import { LoginPage } from "@/pages/login/LoginPage";
-import { AdminLoginPage } from "@/pages/login/AdminLoginPage";
 
 import { UserHomePage } from "@/pages/user/HomePage";
 import { TaskHallPage } from "@/pages/user/TaskHallPage";
@@ -41,7 +40,6 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/admin/login" element={<AdminLoginPage />} />
 
       {/* 个人端 */}
       <Route element={<RealmGuard realm="user" />}>

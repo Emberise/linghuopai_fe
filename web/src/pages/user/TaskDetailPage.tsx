@@ -47,8 +47,17 @@ export function TaskDetailPage() {
             <h1 className="font-headline text-headline text-deep-char">
               {task.title}
             </h1>
-            <p className="text-graphite text-[13px] mt-xs">
+            <p className="text-graphite text-[13px] mt-xs flex items-center gap-1">
               {task.publisher}
+              {task.source === "enterprise" ? (
+                <Icon
+                  name="verified"
+                  filled
+                  size={14}
+                  className="text-linghuo-amber"
+                  ariaLabel="已认证企业"
+                />
+              ) : null}
             </p>
           </header>
           <div className="flex flex-wrap gap-md text-[13px] text-graphite">
@@ -63,6 +72,21 @@ export function TaskDetailPage() {
               </span>
             ))}
           </div>
+          {task.matchHint ? (
+            <div className="bg-bone-cream-dim border border-ash-veil rounded-lg px-md py-sm flex items-start gap-sm">
+              <span className="h-7 w-7 rounded-md bg-linghuo-amber/10 text-linghuo-amber flex items-center justify-center shrink-0 mt-0.5">
+                <Icon name="auto_awesome" filled size={14} />
+              </span>
+              <div className="flex-1 min-w-0">
+                <p className="text-[11px] text-warm-ash uppercase tracking-widest">
+                  AI 核心摘要
+                </p>
+                <p className="text-[13px] text-deep-char leading-relaxed mt-1">
+                  与你的能力画像契合度高，可在 3 天内完成首轮交付，预算与你的期望区间一致。
+                </p>
+              </div>
+            </div>
+          ) : null}
         </Card>
 
         {task.matchHint ? (

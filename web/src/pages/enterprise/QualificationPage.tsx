@@ -32,9 +32,62 @@ export function QualificationPage() {
     setQualified(true);
   };
 
+  // 当前 step：0 基础信息（默认进入即完成）/ 1 上传证件 / 2 提交审核
+  const stepIndex = submitted ? 2 : allUploaded ? 1 : 1;
+
+  const steps = [
+    { label: "基础信息", icon: "edit_note" },
+    { label: "上传证件", icon: "upload_file" },
+    { label: "提交审核", icon: "send" },
+  ];
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-lg">
       <div className="lg:col-span-2 space-y-lg">
+        {/* Step Tracker */}
+        <Card className="p-md md:p-lg">
+          <ol className="flex items-center gap-sm md:gap-md">
+            {steps.map((s, i) => {
+              const isDone = submitted ? true : i < stepIndex;
+              const isActive = !submitted && i === stepIndex;
+              return (
+                <li key={s.label} className="flex-1 flex items-center gap-sm">
+                  <span
+                    className={`h-9 w-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                      isDone
+                        ? "bg-linghuo-amber text-white"
+                        : isActive
+                          ? "bg-linghuo-amber/15 text-linghuo-amber"
+                          : "bg-bone-cream-dim text-graphite border border-ash-veil"
+                    }`}
+                  >
+                    <Icon name={isDone ? "check" : s.icon} size={18} />
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p
+                      className={`text-[13px] font-medium ${
+                        isDone || isActive
+                          ? "text-deep-char"
+                          : "text-graphite"
+                      }`}
+                    >
+                      第 {i + 1} 步
+                    </p>
+                    <p className="text-[11px] text-warm-ash">{s.label}</p>
+                  </div>
+                  {i < steps.length - 1 ? (
+                    <span
+                      className={`h-px flex-1 ${
+                        isDone ? "bg-linghuo-amber/40" : "bg-ash-veil"
+                      } hidden sm:block`}
+                    />
+                  ) : null}
+                </li>
+              );
+            })}
+          </ol>
+        </Card>
+
         <Card className="p-lg space-y-md">
           <header className="flex items-center gap-sm">
             <span

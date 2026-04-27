@@ -42,6 +42,57 @@ export function AdminTasksPage() {
         </p>
       </header>
 
+      {/* 4 格 stat 顶栏 */}
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-md">
+        {[
+          {
+            label: "总任务",
+            value: adminTasks.length,
+            icon: "checklist",
+            tone: "slate",
+          },
+          {
+            label: "进行中",
+            value: adminTasks.filter((t) => t.status === "IN_PROGRESS").length,
+            icon: "play_arrow",
+            tone: "amber",
+          },
+          {
+            label: "已发布",
+            value: adminTasks.filter((t) => t.status === "PUBLISHED").length,
+            icon: "campaign",
+            tone: "slate",
+          },
+          {
+            label: "AI 报告",
+            value: adminTasks.reduce((sum, t) => sum + t.reportCount, 0),
+            icon: "description",
+            tone: "amber",
+          },
+        ].map((s) => (
+          <Card key={s.label} className="p-md md:p-lg">
+            <header className="flex items-start justify-between">
+              <span
+                className={cn(
+                  "h-9 w-9 rounded-lg flex items-center justify-center",
+                  s.tone === "amber"
+                    ? "bg-linghuo-amber/10 text-linghuo-amber"
+                    : "bg-bone-cream-dim text-misty-slate",
+                )}
+              >
+                <Icon name={s.icon} />
+              </span>
+              <span className="text-[10px] text-warm-ash uppercase tracking-widest font-bold">
+                {s.label}
+              </span>
+            </header>
+            <p className="mt-md font-headline text-[24px] text-deep-char">
+              {s.value}
+            </p>
+          </Card>
+        ))}
+      </section>
+
       <Card className="p-lg space-y-md">
         <div className="flex flex-col md:flex-row gap-md">
           <div className="flex-1 relative">

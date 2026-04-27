@@ -93,6 +93,35 @@ export function TaskHallPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+        {/* 热门活动 banner（克制：占一格而不是横通栏） */}
+        <Card
+          className="relative overflow-hidden p-lg text-white bg-gradient-to-br from-linghuo-amber to-primary cursor-pointer md:col-span-2 lg:col-span-1"
+        >
+          <div className="relative z-10">
+            <p className="text-[11px] uppercase tracking-widest text-white/80">
+              本周热门
+            </p>
+            <h3 className="font-headline text-[20px] mt-1">
+              城市青年作品季
+            </h3>
+            <p className="text-white/85 text-[13px] mt-xs leading-relaxed max-w-[28ch]">
+              50 个设计向任务集中开放，AI 优先按你的画像推荐入选项。
+            </p>
+            <button
+              type="button"
+              className="mt-md inline-flex items-center gap-1 text-[13px] font-medium bg-white/15 hover:bg-white/25 backdrop-blur-sm px-md h-9 rounded-full transition-colors"
+            >
+              查看入选任务
+              <Icon name="arrow_forward" size={14} />
+            </button>
+          </div>
+          <Icon
+            name="local_fire_department"
+            className="absolute -right-3 -bottom-3 text-white/15"
+            size={120}
+            filled
+          />
+        </Card>
         {list.map((t) => (
           <Card
             key={t.id}

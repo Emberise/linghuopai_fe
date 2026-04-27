@@ -83,36 +83,47 @@ export function CandidatesPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-lg">
         <ul className="lg:col-span-2 space-y-md">
-          {list.map((c) => {
+          {list.map((c, idx) => {
             const isActive = active?.id === c.id;
             const meta = stageMeta[c.stage];
+            // Restrained：仅当前选中候选用 amber 高亮，其他用 slate
+            const scoreBadgeTone =
+              isActive || idx === 0 ? "amber" : "slate";
             return (
               <li key={c.id}>
                 <button
                   type="button"
                   onClick={() => setActive(c)}
                   className={cn(
-                    "w-full text-left rounded-xl border bg-surface-container-lowest p-lg transition-all duration-300 ease-out-quart",
+                    "w-full text-left rounded-xl border bg-surface-container-lowest p-lg transition-all duration-300 ease-out-quart relative",
                     isActive
                       ? "border-linghuo-amber shadow-ambient-hover"
                       : "border-ash-veil hover:shadow-ambient-hover",
                   )}
                 >
-                  <header className="flex items-center justify-between gap-sm mb-sm">
-                    <div className="flex items-center gap-sm min-w-0">
-                      <span className="h-10 w-10 rounded-full bg-bone-cream-dim text-deep-char flex items-center justify-center font-headline">
-                        {c.name.slice(0, 1)}
-                      </span>
-                      <div className="min-w-0">
-                        <p className="font-title text-title text-deep-char truncate">
-                          {c.name}
-                        </p>
-                        <p className="text-[12px] text-graphite truncate">
-                          {c.title}
-                        </p>
-                      </div>
+                  {/* 右上角彩色 score badge */}
+                  <span
+                    className={cn(
+                      "absolute top-md right-md inline-flex items-center justify-center px-2 py-1 rounded-md text-[11px] font-bold",
+                      scoreBadgeTone === "amber"
+                        ? "bg-linghuo-amber text-white"
+                        : "bg-secondary/10 text-misty-slate border border-misty-slate/20",
+                    )}
+                  >
+                    {c.matchScore}%
+                  </span>
+                  <header className="flex items-center gap-sm pr-xl mb-sm">
+                    <span className="h-14 w-14 rounded-full bg-bone-cream-dim text-deep-char flex items-center justify-center font-headline text-[20px] shrink-0">
+                      {c.name.slice(0, 1)}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="font-title text-title text-deep-char truncate">
+                        {c.name}
+                      </p>
+                      <p className="text-[12px] text-graphite truncate">
+                        {c.title}
+                      </p>
                     </div>
-                    <Badge tone={meta.tone}>{meta.label}</Badge>
                   </header>
                   <p className="text-[12px] text-graphite line-clamp-2 leading-relaxed">
                     {c.highlight}
@@ -122,9 +133,7 @@ export function CandidatesPage() {
                       <Icon name="schedule" size={14} />
                       {c.appliedAt}
                     </span>
-                    <span className="font-headline text-misty-slate">
-                      匹配度 {c.matchScore}%
-                    </span>
+                    <Badge tone={meta.tone}>{meta.label}</Badge>
                   </footer>
                 </button>
               </li>

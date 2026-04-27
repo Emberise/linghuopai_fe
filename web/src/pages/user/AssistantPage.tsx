@@ -4,9 +4,11 @@
  * - 不承接任务级 AI 面试
  */
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@/shared/ui/Icon";
 import { Card } from "@/shared/ui/Card";
 import { Button } from "@/shared/ui/Button";
+import { taskHall } from "@/shared/mock/data";
 import { cn } from "@/shared/utils/cn";
 
 interface Bubble {
@@ -14,6 +16,7 @@ interface Bubble {
   from: "ai" | "user";
   text: string;
   hint?: string;
+  taskCardIds?: string[]; // 嵌入的「猜你想做」任务卡
 }
 
 const initial: Bubble[] = [
@@ -37,6 +40,7 @@ export function AssistantPage() {
   const [text, setText] = useState("");
   const [pending, setPending] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -54,13 +58,24 @@ export function AssistantPage() {
     setText("");
     setPending(true);
     setTimeout(() => {
+      const wantsTaskRecommendation = /推荐|任务|工作/.test(content);
       setMessages((m) => [
         ...m,
         {
           id: `a-${Date.now()}`,
           from: "ai",
-          text: "已记录。我会用你刚才说的内容更新草案，你可以在「简历与能力画像」里确认是否写入。",
-          hint: "本次回答仅生成草案，不会直接改写正式资料。",
+          text: wantsTaskRecommendation
+            ? "已根据你的画像挑了 2 个匹配度较高的任务。点击卡片可以直接看详情。"
+            : "已记录。我会用你刚才说的内容更新草案，你可以在「简历与能力画像」里确认是否写入。",
+          hint: wantsTaskRecommendation
+            ? undefined
+            : "本次回答仅生成草案，不会直接改写正式资料。",
+          taskCardIds: wantsTaskRecommendation
+            ? taskHall
+                .filter((t) => t.matchScore && t.matchScore >= 88)
+                .slice(0, 2)
+                .map((t) => t.id)
+            : undefined,
         },
       ]);
       setPending(false);
@@ -107,6 +122,38 @@ export function AssistantPage() {
                 <p className="text-[14px] leading-relaxed">{m.text}</p>
                 {m.hint ? (
                   <p className="mt-1 text-[11px] opacity-70">{m.hint}</p>
+                ) : null}
+                {m.taskCardIds?.length ? (
+                  <div className="mt-sm space-y-sm">
+                    {m.taskCardIds
+                      .map((id) => taskHall.find((t) => t.id === id))
+                      .filter((t): t is NonNullable<typeof t> => Boolean(t))
+                      .map((t) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => navigate(`/u/tasks/${t.id}`)}
+                          className="w-full text-left bg-surface-container-lowest border border-ash-veil rounded-lg px-sm py-sm flex items-center gap-sm hover:border-linghuo-amber transition-colors"
+                        >
+                          <span className="h-9 w-9 rounded-md bg-bone-cream-dim text-misty-slate flex items-center justify-center shrink-0">
+                            <Icon name="work_outline" size={18} />
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-[13px] font-medium text-deep-char truncate">
+                              {t.title}
+                            </p>
+                            <p className="text-[11px] text-graphite mt-0.5 truncate">
+                              {t.publisher} · {t.budget}
+                            </p>
+                          </div>
+                          {t.matchScore ? (
+                            <span className="text-[11px] text-linghuo-amber font-bold whitespace-nowrap">
+                              {t.matchScore}%
+                            </span>
+                          ) : null}
+                        </button>
+                      ))}
+                  </div>
                 ) : null}
               </div>
             </div>

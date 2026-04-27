@@ -67,6 +67,29 @@ export function JobPublishPage() {
           <Icon name="auto_awesome" filled className="text-linghuo-amber" />
           一句话描述你的需求
         </h3>
+        {/* 快捷模板 chip */}
+        <div className="flex flex-wrap gap-2">
+          {[
+            "UI 设计 · 远程",
+            "内容运营 · 兼职",
+            "前端协作 · 项目制",
+            "活动主持 · 周末",
+            "插画绘制 · 按件",
+          ].map((tpl) => (
+            <button
+              key={tpl}
+              type="button"
+              onClick={() =>
+                setIntent(
+                  `招一位${tpl}的合作者，预算可议，希望能在两周内交付。`,
+                )
+              }
+              className="px-md h-8 rounded-full bg-surface-container-lowest border border-ash-veil text-[12px] text-graphite hover:border-linghuo-amber hover:text-linghuo-amber transition-colors"
+            >
+              {tpl}
+            </button>
+          ))}
+        </div>
         <textarea
           rows={3}
           value={intent}

@@ -169,10 +169,16 @@ export function ScreeningPage() {
               className="flex flex-col md:flex-row gap-sm"
             >
               <textarea
-                rows={2}
+                rows={1}
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
-                placeholder="你的回答…"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    submit();
+                  }
+                }}
+                placeholder="你的回答…回车发送，Shift + 回车换行"
                 className="flex-1 px-md py-sm rounded-lg bg-bone-cream-dim border border-ash-veil text-[14px] placeholder:text-warm-ash focus:border-linghuo-amber focus:ring-1 focus:ring-linghuo-amber outline-none resize-none"
               />
               <Button type="submit" disabled={!draft.trim() || thinking}>

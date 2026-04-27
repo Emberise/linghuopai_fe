@@ -9,6 +9,7 @@ import { Icon } from "@/shared/ui/Icon";
 import { Card } from "@/shared/ui/Card";
 import { Badge } from "@/shared/ui/Badge";
 import { Button } from "@/shared/ui/Button";
+import { RingGauge } from "@/shared/ui/RingGauge";
 import { useAuth } from "@/shared/auth/store";
 import { enterpriseJobs, enterpriseCandidates } from "@/shared/mock/data";
 
@@ -202,27 +203,18 @@ export function EnterpriseHomePage() {
             <h3 className="font-title text-title text-deep-char">AI 数据看板</h3>
             <span className="text-[10px] text-warm-ash">实时更新</span>
           </header>
-          <ul className="space-y-md">
-            {[
-              { label: "匹配准确度", value: 94, tone: "linghuo-amber" },
-              { label: "候选人质量评分", value: 82, tone: "misty-slate" },
-            ].map((m) => (
-              <li key={m.label}>
-                <div className="flex items-center justify-between text-[12px] mb-xs">
-                  <span className="text-graphite">{m.label}</span>
-                  <span className="font-bold text-deep-char">
-                    {m.label.includes("评分") ? (m.value / 10).toFixed(1) : `${m.value}%`}
-                  </span>
-                </div>
-                <div className="h-1 bg-ash-veil rounded-full overflow-hidden">
-                  <div
-                    className={`h-full ${m.tone === "linghuo-amber" ? "bg-linghuo-amber" : "bg-misty-slate"}`}
-                    style={{ width: `${m.value}%` }}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className="grid grid-cols-2 gap-sm">
+            <RingGauge value={0.94} label="匹配准确度" tone="amber" />
+            <RingGauge
+              value={0.82}
+              label="候选人质量评分"
+              display="8.2"
+              tone="slate"
+            />
+          </div>
+          <p className="mt-md text-[11px] text-warm-ash leading-relaxed">
+            数据由 AI 在每次报告生成后异步刷新；前端不提供「刷新」按钮。
+          </p>
         </Card>
       </aside>
     </div>
