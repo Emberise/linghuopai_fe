@@ -1,0 +1,90 @@
+- generic [ref=e871]:
+  - banner [ref=e872]:
+    - generic [ref=e873]:
+      - button "返回总览" [ref=e874]:
+        - img [ref=e875]
+        - text: 返回总览
+      - generic [ref=e877]: 岗位详情与匹配
+  - main [ref=e878]:
+    - generic [ref=e880]:
+      - generic [ref=e881]:
+        - generic [ref=e882]:
+          - heading "SaaS 平台前端重构" [level=1] [ref=e883]
+          - generic [ref=e884]:
+            - generic [ref=e885]:
+              - img [ref=e886]
+              - text: 某独角兽科技
+            - generic [ref=e890]:
+              - img [ref=e891]
+              - text: 支持远程
+        - generic [ref=e894]:
+          - generic [ref=e895]: ¥ 12,000 / 月
+          - generic [ref=e896]:
+            - img [ref=e897]
+            - generic [ref=e899]: 98% 高度匹配
+      - generic [ref=e900]:
+        - generic [ref=e901]: React
+        - generic [ref=e902]: TypeScript
+      - generic [ref=e903]:
+        - heading "AI 匹配分析报告" [level=3] [ref=e904]:
+          - img [ref=e905]
+          - text: AI 匹配分析报告
+        - list [ref=e908]:
+          - listitem [ref=e909]:
+            - img [ref=e910]
+            - generic [ref=e913]:
+              - text: 您在“某大型企业零工管理平台”的
+              - strong [ref=e914]: React 重构经验
+              - text: 完美契合该项目初期的技术改造需求。
+          - listitem [ref=e915]:
+            - img [ref=e916]
+            - generic [ref=e919]:
+              - text: 您的预算期望与企业方提供的
+              - strong [ref=e920]: ¥ 12,000 / 月
+              - text: 高度一致。
+          - listitem [ref=e921]:
+            - img [ref=e922]
+            - generic [ref=e925]: 当前状态为“可接单”，具有极高的意向优待度。
+      - generic [ref=e927]:
+        - generic [ref=e928]:
+          - img [ref=e930]
+          - generic [ref=e934]: "2"
+        - generic [ref=e935]:
+          - generic [ref=e936]:
+            - generic [ref=e937]: AI 初步评估
+            - generic [ref=e938]: 由平台智能体进行技术栈与经验匹配
+          - generic [ref=e939]:
+            - generic [ref=e940]: 负责人直接沟通
+            - generic [ref=e941]: 通过 AI 初筛后将为您直接连线企业方
+      - generic [ref=e942]:
+        - heading "任务详细说明" [level=3] [ref=e943]:
+          - img [ref=e944]
+          - text: 任务详细说明
+        - generic [ref=e947]:
+          - paragraph [ref=e948]: 我们正在寻找一位资深的前端开发工程师，协助我们将现有的老旧 Vue 2.0 系统逐步重构为最新的 React 18 + Next.js 架构。
+          - paragraph [ref=e949]:
+            - strong [ref=e950]: 核心职责：
+          - list [ref=e951]:
+            - listitem [ref=e952]: 主导核心业务模块的 React 迁移与组件库搭建。
+            - listitem [ref=e953]: 优化系统首屏加载与长列表渲染性能。
+            - listitem [ref=e954]: 配合后端团队，完成 GraphQL 接口的对接。
+          - paragraph [ref=e955]:
+            - strong [ref=e956]: 加分项：
+          - list [ref=e957]:
+            - listitem [ref=e958]: 有 SaaS 平台重构经验者优先。
+            - listitem [ref=e959]: 熟悉 Tailwind CSS 与现代 UI 动效设计。
+    - generic [ref=e960]:
+      - generic [ref=e962]:
+        - img [ref=e964]
+        - generic [ref=e967]:
+          - generic [ref=e968]: AI 初筛面试官
+          - generic [ref=e971]: AI 在线评估中
+      - generic [ref=e973]:
+        - img [ref=e975]
+        - generic [ref=e978]: 你好，林工。我是 某独角兽科技 的专属 AI 面试官。根据平台的深度解析，您与【SaaS 平台前端重构】的综合匹配度高达 98%，特别是您的 React 重构经验非常符合我们的需求。 为了加快流程，我们现在可以进行一轮简单的 AI 初步沟通。准备好的话，请简单分享一下您在过往项目中处理复杂状态管理的经验。
+      - generic [ref=e979]:
+        - generic [ref=e980]:
+          - textbox "直接回复 AI 的面试问题..." [ref=e981]
+          - button [disabled] [ref=e982]:
+            - img [ref=e983]
+        - generic [ref=e985]: 回答内容将被 AI 评估并生成报告提供给企业

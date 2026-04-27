@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>领活派运营中心 - 任务管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fdfcff",
+                        "surface-container-highest": "#f8ddd4",
+                        "on-tertiary-fixed": "#001c37",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3d2d27",
+                        "linghuo-amber": "#EA5614",
+                        "surface": "#fff8f6",
+                        "surface-container-high": "#fee2da",
+                        "on-surface-variant": "#5a4138",
+                        "on-primary-container": "#fffbff",
+                        "inverse-on-surface": "#ffede8",
+                        "on-background": "#261813",
+                        "misty-slate": "#4A616F",
+                        "secondary": "#4a616f",
+                        "surface-tint": "#a93700",
+                        "warm-ash": "oklch(75% 0.005 60)",
+                        "surface-container": "#ffe9e3",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#334a57",
+                        "bone-cream-dim": "oklch(96% 0.008 60)",
+                        "on-primary-fixed": "#380d00",
+                        "on-secondary-fixed": "#041e2a",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "tertiary": "#005ea3",
+                        "deep-char": "oklch(22% 0.008 60)",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff1ec",
+                        "ash-veil": "oklch(92% 0.006 60)",
+                        "bone-cream": "oklch(98% 0.008 60)",
+                        "graphite": "oklch(45% 0.005 60)",
+                        "on-secondary": "#ffffff",
+                        "primary": "#a53600",
+                        "surface-variant": "#f8ddd4",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#efd4cc",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb59b",
+                        "outline-variant": "#e2bfb3",
+                        "primary-fixed": "#ffdbcf",
+                        "secondary-fixed-dim": "#b2cada",
+                        "primary-container": "#cf4600",
+                        "secondary-container": "#cde6f7",
+                        "on-surface": "#261813",
+                        "primary-fixed-dim": "#ffb59b",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "outline": "#8e7066",
+                        "on-secondary-container": "#506776",
+                        "tertiary-fixed": "#d2e4ff",
+                        "secondary-fixed": "#cde6f7",
+                        "on-primary-fixed-variant": "#812800",
+                        "tertiary-container": "#0077cd",
+                        "background": "#fff8f6",
+                        "surface-bright": "#fff8f6",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-body": "75ch",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xl": "40px"
+                    },
+                    "fontFamily": {
+                        "body": ["Manrope"],
+                        "display": ["Manrope"],
+                        "title": ["Manrope"],
+                        "headline": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                        "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                        "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-hover:hover {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            background-color: oklch(96% 0.008 60);
+        }
+        body {
+            background-color: #fff8f6;
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen text-on-background">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-screen w-64 border-r border-[#E2E2E2] bg-[#F5F2ED] py-4 space-y-2 overflow-y-auto sticky top-0 shrink-0">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-linghuo-amber flex items-center justify-center text-white overflow-hidden">
+<img alt="系统Logo" class="w-full h-full object-cover" data-alt="A minimalist geometric logo for a professional task management platform with amber and white tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1aIeHci1E5kPxVKSLA1kWnae_7qaWvABUE9GRuQT3VWubU-ziLTv_am97uI2HbBCn5fF_9tqOPy38bEVV4bLdChBqeji1woyyGik6eXjOHVDtiwTmn9e2RMY34Kysc8FJRqkbwRTtOJKnBM25wkDvQhsKyyRn44fe2G3pIWc3nTr-BVR7bSe5w4jARxvrySEZhyKbp4rCxxzwP7kYitOPOK78-ftPGwi_ueOE4qcYVKswd50QdwmPgpBqa0VBK3dZJGKyKX8Pxp7X"/>
+</div>
+<div>
+<h1 class="text-xl font-black text-[#2D2D2D]">领活派 Admin</h1>
+<p class="text-[10px] text-graphite opacity-70 tracking-widest uppercase">Workstation Active</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">运营看板</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium text-sm">用户管理</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-medium text-sm">企业管理</span>
+</a>
+<!-- Active State Logic Applied: Task Management Page -->
+<a class="flex items-center gap-3 px-6 py-3 text-[#EA5614] font-semibold border-r-4 border-[#EA5614] bg-[#EBE7E0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-medium text-sm">任务管理</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">基础配置</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-[#E2E2E2] mx-4">
+<a class="flex items-center gap-3 px-4 py-3 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-medium text-sm">系统日志</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#666666] hover:text-error hover:bg-[#EBE7E0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium text-sm">退出登录</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-6 w-full sticky top-0 z-40 bg-[#F5F2ED] border-b border-[#E2E2E2]">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold text-[#2D2D2D]">任务管理中心</span>
+<span class="h-4 w-px bg-ash-veil"></span>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+<span class="text-[#EA5614] font-semibold">全部任务</span>
+<span class="text-[#666666] cursor-pointer hover:text-[#EA5614]">审核队列</span>
+<span class="text-[#666666] cursor-pointer hover:text-[#EA5614]">违规任务</span>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="text-sm font-medium text-[#666666]">管理员</span>
+<img alt="管理员头像" class="w-8 h-8 rounded-full border border-ash-veil" data-alt="Close up portrait of a professional system administrator in a modern workspace environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2_34ddh90amQ8zdpkYhJ2NhqUCsaaWoRs3F7h0CtF105ze3Jb501M7pQ58Ehaa1elIN3seU9tVBqx1brZyTqIPeA6p66c99x68FUkNcm9G47aEBtRxgptNtZAEMKYpdVBhbl0rvdikvtggROuDVWvqre-bk8Uwq9zOvHC1j7cW4hFD-1FQxonQU1D-ZfY-oQFU0MWE7SdXUsJrPqTkTOk4_ltqCYkTjDJ1J67OMpBPN-hrBarRMeGxKGwiBufVbREOqSnb60qkleS"/>
+</div>
+<div class="flex items-center gap-3 text-misty-slate">
+<span class="material-symbols-outlined cursor-pointer hover:text-[#EA5614] transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-[#EA5614] transition-colors">settings</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="p-lg overflow-y-auto">
+<!-- Bento Stats Summary -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md mb-lg">
+<div class="bg-bone-cream p-md rounded-xl border border-ash-veil">
+<p class="text-label text-graphite mb-xs uppercase tracking-wider">当前在线任务</p>
+<div class="flex items-baseline gap-sm">
+<span class="text-headline font-bold text-deep-char">1,284</span>
+<span class="text-xs text-linghuo-amber font-semibold">+12%</span>
+</div>
+</div>
+<div class="bg-bone-cream p-md rounded-xl border border-ash-veil">
+<p class="text-label text-graphite mb-xs uppercase tracking-wider">待处理申诉</p>
+<div class="flex items-baseline gap-sm">
+<span class="text-headline font-bold text-deep-char">28</span>
+<span class="text-xs text-error font-semibold">需加急</span>
+</div>
+</div>
+<div class="bg-bone-cream p-md rounded-xl border border-ash-veil">
+<p class="text-label text-graphite mb-xs uppercase tracking-wider">今日新增任务</p>
+<div class="flex items-baseline gap-sm">
+<span class="text-headline font-bold text-deep-char">156</span>
+<span class="material-symbols-outlined text-sm text-green-600">trending_up</span>
+</div>
+</div>
+<div class="bg-linghuo-amber/5 p-md rounded-xl border border-linghuo-amber/20">
+<p class="text-label text-linghuo-amber mb-xs uppercase tracking-wider">AI 辅助预警</p>
+<div class="flex items-baseline gap-sm">
+<span class="text-headline font-bold text-linghuo-amber">3</span>
+<span class="text-xs text-linghuo-amber/70">高风险项</span>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-bone-cream-dim p-md rounded-xl mb-md flex flex-wrap items-center justify-between gap-md border border-ash-veil">
+<div class="flex items-center gap-md flex-1">
+<div class="relative flex-1 max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-graphite text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-bone-cream border border-ash-veil rounded-lg text-sm focus:outline-none focus:border-linghuo-amber transition-colors" placeholder="搜索任务标题、发布人或 ID..." type="text"/>
+</div>
+<select class="bg-bone-cream border border-ash-veil rounded-lg px-4 py-2 text-sm text-deep-char focus:outline-none">
+<option>所有状态</option>
+<option>已发布</option>
+<option>进行中</option>
+<option>已关闭</option>
+</select>
+<select class="bg-bone-cream border border-ash-veil rounded-lg px-4 py-2 text-sm text-deep-char focus:outline-none">
+<option>发布人类型</option>
+<option>企业</option>
+<option>个人</option>
+</select>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-deep-char text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 hover:bg-black transition-colors">
+<span class="material-symbols-outlined text-sm">download</span> 导出报表
+                    </button>
+</div>
+</div>
+<!-- Data Table / List -->
+<div class="bg-white rounded-xl border border-ash-veil overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-bone-cream-dim border-b border-ash-veil">
+<th class="px-6 py-4 text-label text-graphite font-bold uppercase tracking-widest">任务信息</th>
+<th class="px-6 py-4 text-label text-graphite font-bold uppercase tracking-widest">发布人</th>
+<th class="px-6 py-4 text-label text-graphite font-bold uppercase tracking-widest">薪资/类型</th>
+<th class="px-6 py-4 text-label text-graphite font-bold uppercase tracking-widest">报名状态</th>
+<th class="px-6 py-4 text-label text-graphite font-bold uppercase tracking-widest">状态/时间</th>
+<th class="px-6 py-4 text-label text-graphite font-bold uppercase tracking-widest text-right">操作治理</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-ash-veil">
+<!-- Row 1 -->
+<tr class="ambient-hover transition-all group">
+<td class="px-6 py-5">
+<div>
+<p class="text-body font-bold text-deep-char group-hover:text-linghuo-amber transition-colors">电商产品详情页视觉设计</p>
+<p class="text-[11px] text-graphite mt-1">ID: TASK-20230812-001</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-misty-slate/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-misty-slate">business</span>
+</div>
+<span class="text-sm font-medium text-on-surface">杭州悦动科技有限公司</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-bold text-linghuo-amber">¥3,500 - 5,000</p>
+<p class="text-xs text-graphite">设计美化</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-ash-veil rounded-full overflow-hidden">
+<div class="h-full bg-linghuo-amber w-[65%]"></div>
+</div>
+<span class="text-xs font-medium">12/20</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full w-fit">
+<span class="w-1 h-1 rounded-full bg-green-700"></span> 已发布
+                                    </span>
+<p class="text-[11px] text-graphite mt-1">2023-08-12 14:30</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-3">
+<button class="p-2 hover:bg-bone-cream-dim rounded-lg text-graphite transition-colors" title="查看详情">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-lg text-error transition-colors" title="强制下架">
+<span class="material-symbols-outlined">block</span>
+</button>
+<button class="p-2 hover:bg-linghuo-amber/10 rounded-lg text-linghuo-amber transition-colors" title="违规标记">
+<span class="material-symbols-outlined">report</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="ambient-hover transition-all group">
+<td class="px-6 py-5">
+<div>
+<p class="text-body font-bold text-deep-char group-hover:text-linghuo-amber transition-colors">某高校校园推广宣讲大使</p>
+<p class="text-[11px] text-graphite mt-1">ID: TASK-20230812-042</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-linghuo-amber/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-linghuo-amber">person</span>
+</div>
+<span class="text-sm font-medium text-on-surface">张*华 (个人开发者)</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-bold text-linghuo-amber">¥150/天</p>
+<p class="text-xs text-graphite">地推营销</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-ash-veil rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[100%]"></div>
+</div>
+<span class="text-xs font-medium">5/5</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1.5 text-xs font-semibold text-tertiary bg-blue-50 px-2 py-0.5 rounded-full w-fit">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> 进行中
+                                    </span>
+<p class="text-[11px] text-graphite mt-1">2023-08-11 09:15</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-3">
+<button class="p-2 hover:bg-bone-cream-dim rounded-lg text-graphite transition-colors" title="查看详情">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 hover:bg-error/10 rounded-lg text-error transition-colors" title="强制下架">
+<span class="material-symbols-outlined">block</span>
+</button>
+<button class="p-2 hover:bg-linghuo-amber/10 rounded-lg text-linghuo-amber transition-colors" title="违规标记">
+<span class="material-symbols-outlined">report</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 - Warning State -->
+<tr class="bg-red-50/30 ambient-hover transition-all group">
+<td class="px-6 py-5 border-l-4 border-error">
+<div>
+<p class="text-body font-bold text-deep-char group-hover:text-error transition-colors flex items-center gap-2">
+                                        快速赚佣金群发项目 <span class="material-symbols-outlined text-error text-sm">warning</span>
+</p>
+<p class="text-[11px] text-graphite mt-1">ID: TASK-20230812-109</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-linghuo-amber/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-linghuo-amber">person</span>
+</div>
+<span class="text-sm font-medium text-on-surface">新注册用户-920</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-bold text-linghuo-amber">¥1,000 - 10,000</p>
+<p class="text-xs text-graphite">其他</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-ash-veil rounded-full overflow-hidden">
+<div class="h-full bg-error w-[5%]"></div>
+</div>
+<span class="text-xs font-medium text-error">1/100</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1.5 text-xs font-semibold text-error bg-red-50 px-2 py-0.5 rounded-full w-fit">
+<span class="w-1 h-1 rounded-full bg-error"></span> 高风险
+                                    </span>
+<p class="text-[11px] text-graphite mt-1">2023-08-12 16:55</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-3">
+<button class="p-2 hover:bg-bone-cream-dim rounded-lg text-graphite transition-colors" title="查看详情">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 bg-error text-white rounded-lg transition-colors" title="紧急强制下架">
+<span class="material-symbols-outlined">block</span>
+</button>
+<button class="p-2 bg-linghuo-amber text-white rounded-lg transition-colors" title="违规标记并冻结">
+<span class="material-symbols-outlined">report</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="ambient-hover transition-all group opacity-60">
+<td class="px-6 py-5">
+<div>
+<p class="text-body font-bold text-deep-char group-hover:text-linghuo-amber transition-colors">[已过期] 短视频后期剪辑外包</p>
+<p class="text-[11px] text-graphite mt-1">ID: TASK-20230801-088</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-misty-slate/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-misty-slate">business</span>
+</div>
+<span class="text-sm font-medium text-on-surface">杭州橙子互娱</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<p class="text-sm font-bold text-graphite">¥800/条</p>
+<p class="text-xs text-graphite">后期制作</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-ash-veil rounded-full overflow-hidden">
+<div class="h-full bg-graphite w-[100%]"></div>
+</div>
+<span class="text-xs font-medium">10/10</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex flex-col">
+<span class="inline-flex items-center gap-1.5 text-xs font-semibold text-graphite bg-ash-veil/30 px-2 py-0.5 rounded-full w-fit">
+<span class="w-1 h-1 rounded-full bg-graphite"></span> 已关闭
+                                    </span>
+<p class="text-[11px] text-graphite mt-1">2023-08-01 11:20</p>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center justify-end gap-3 text-ash-veil">
+<button class="p-2 cursor-not-allowed">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+<button class="p-2 cursor-not-allowed">
+<span class="material-symbols-outlined">block</span>
+</button>
+<button class="p-2 cursor-not-allowed">
+<span class="material-symbols-outlined">report</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between border-t border-ash-veil bg-bone-cream-dim/50">
+<p class="text-label text-graphite">显示 1 到 4 共 1,284 条数据</p>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-ash-veil hover:bg-white text-graphite">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-linghuo-amber text-white font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-ash-veil hover:bg-white text-graphite text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-ash-veil hover:bg-white text-graphite text-xs">3</button>
+<span class="px-2 text-graphite">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-ash-veil hover:bg-white text-graphite text-xs">321</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-ash-veil hover:bg-white text-graphite">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

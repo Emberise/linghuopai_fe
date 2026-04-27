@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbcf",
+                        "on-surface": "#261813",
+                        "background": "#fff8f6",
+                        "primary-fixed-dim": "#ffb59b",
+                        "bone-cream": "oklch(98% 0.008 60)",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#cde6f7",
+                        "on-tertiary-fixed": "#001c37",
+                        "warm-ash": "oklch(75% 0.005 60)",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#0077cd",
+                        "surface-container-low": "#fff1ec",
+                        "surface-tint": "#a93700",
+                        "bone-cream-dim": "oklch(96% 0.008 60)",
+                        "deep-char": "oklch(22% 0.008 60)",
+                        "outline": "#8e7066",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#d2e4ff",
+                        "surface-container-high": "#fee2da",
+                        "misty-slate": "#4A616F",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#fffbff",
+                        "ash-veil": "oklch(92% 0.006 60)",
+                        "surface-variant": "#f8ddd4",
+                        "secondary-fixed-dim": "#b2cada",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "primary": "#a53600",
+                        "on-primary-fixed": "#380d00",
+                        "on-background": "#261813",
+                        "outline-variant": "#e2bfb3",
+                        "on-surface-variant": "#5a4138",
+                        "surface-container": "#ffe9e3",
+                        "on-primary-fixed-variant": "#812800",
+                        "secondary": "#4a616f",
+                        "on-secondary-fixed-variant": "#334a57",
+                        "inverse-surface": "#3d2d27",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "surface": "#fff8f6",
+                        "primary-container": "#cf4600",
+                        "on-secondary-fixed": "#041e2a",
+                        "surface-dim": "#efd4cc",
+                        "secondary-container": "#cde6f7",
+                        "linghuo-amber": "#EA5614",
+                        "error": "#ba1a1a",
+                        "tertiary": "#005ea3",
+                        "inverse-on-surface": "#ffede8",
+                        "surface-container-highest": "#f8ddd4",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "on-secondary-container": "#506776",
+                        "graphite": "oklch(45% 0.005 60)",
+                        "inverse-primary": "#ffb59b",
+                        "on-tertiary-container": "#fdfcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "container-max-body": "75ch",
+                        "lg": "24px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "title": ["Manrope"],
+                        "body": ["Manrope"],
+                        "display": ["Manrope"],
+                        "label": ["Manrope"],
+                        "headline": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                        "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                        "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ambient-hover:hover {
+            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+            border-color: transparent;
+        }
+        body { background-color: oklch(98% 0.008 60); }
+    </style>
+</head>
+<body class="font-body text-deep-char selection:bg-primary-fixed">
+<!-- SideNavBar: Matched to SCREEN_44 Shell -->
+<nav class="fixed left-0 top-0 bottom-0 w-64 border-r border-stone-200 dark:border-stone-800 bg-[#F2F0EB] dark:bg-stone-900 flex flex-col py-6 px-4 space-y-2 z-50">
+<div class="mb-10 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[#EA5614]" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<p class="text-[#EA5614] font-black tracking-widest text-xs">企业管理中心</p>
+<p class="text-stone-500 text-[10px] uppercase font-bold">资质状态：已认证</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col space-y-1">
+<!-- 工作台 -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-[0.98]">dashboard</span>
+<span class="font-['Manrope'] text-sm font-medium">工作台</span>
+</a>
+<!-- 资质认证 -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-[0.98]">verified_user</span>
+<span class="font-['Manrope'] text-sm font-medium">资质认证</span>
+</a>
+<!-- 岗位管理 -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-[0.98]">work_outline</span>
+<span class="font-['Manrope'] text-sm font-medium">岗位管理</span>
+</a>
+<!-- 候选人管理 -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-[0.98]">group</span>
+<span class="font-['Manrope'] text-sm font-medium">候选人管理</span>
+</a>
+<!-- 企业信息 (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-100 dark:bg-stone-800 text-[#EA5614] border-r-4 border-[#EA5614] shadow-sm hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-l-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-[0.98]" style="font-variation-settings: 'FILL' 1;">domain</span>
+<span class="font-['Manrope'] text-sm font-medium">企业信息</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar: Matched to SCREEN_44 Shell -->
+<header class="fixed top-0 right-0 left-64 h-16 border-b border-stone-200/60 dark:border-stone-800 bg-[#FAF9F6] dark:bg-stone-950 flex justify-between items-center px-8 bg-opacity-90 backdrop-blur-sm z-40">
+<div class="flex items-center gap-6 flex-1">
+<h1 class="text-lg font-bold tracking-tight text-stone-900 dark:text-stone-50 font-['Manrope']">WarmLight Enterprise</h1>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm">search</span>
+<input class="w-full bg-bone-cream-dim border-none rounded-full py-1.5 pl-10 pr-4 text-sm focus:ring-1 focus:ring-[#EA5614]/30 placeholder-warm-ash" placeholder="搜索功能或岗位..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-stone-100/50 transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined text-stone-600">notifications</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-stone-100/50 transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined text-stone-600">help_outline</span>
+</button>
+<div class="h-8 w-px bg-stone-200 mx-2"></div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<img alt="Admin" class="w-8 h-8 rounded-full border border-stone-200 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACduccurCfkpMT2nrxxLbZJmIcKRMZ83ySR3mhuOoYoXZCYfnwxD5u6urOB4qnIHvNvkZI4mMbtMGKuU3rZvh4eG5bGefFUtNpMxppTx-eH0Np-XAejQf9U11YXcasuHYhPdjsbcVKhUGFpNaT7hHFxVrpHzrznC5KyGaMK2JV3BytrRKwCNc5nARtAy2ICzJi5fDkpdbxDaLj9XAgne_lqxxBc0poTbVA1ztRBevTTcLma3EAnxjz6J4riOtUBRyDPAWFlnUXbk0g"/>
+<span class="text-sm font-medium text-stone-800 group-hover:text-[#EA5614] transition-colors">Admin</span>
+</div>
+</div>
+</header>
+<!-- Main Wrapper -->
+<main class="ml-64 pt-24 px-8 pb-12 max-w-screen-2xl mx-auto space-y-8">
+<!-- Company Overview Card (Functional content from SCREEN_46) -->
+<section class="bg-white rounded-xl p-8 border border-ash-veil shadow-sm flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
+<div class="flex flex-col md:flex-row items-center gap-6">
+<div class="w-24 h-24 rounded-2xl bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="WarmLight Logo" class="w-full h-full object-cover" data-alt="minimalist orange geometric company logo on clean white background representing warmth and innovation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsHmMfpqTuKmXVTCMpU4nlmngvVwnslHB5l5YWXf6jjsfNkKJiMXnzDhDojIo65i5bDwTlegsqxBFnsEgFGZLc6MxcsvCHwkN9pexCcSGGNbfci2GU1Y-heLD3xyxe-_QroJ7pZRgd-QkpDa_7HzKNwVTacskZAWE05UDeblaHeOo6d_Cy59SZysDZfdiEI-x-IWEkLTAsiD6T9xZan5g7vy0nigkpTBYkOkyKFqu1tChW-qeTc43-vDlfZaPvi2_fjIJ9rINqcvaC"/>
+</div>
+<div class="text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2 mb-1">
+<h2 class="text-headline font-headline text-deep-char">深圳暖光科技有限公司</h2>
+<span class="material-symbols-outlined text-linghuo-amber" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-misty-slate text-body mb-4">人力资源服务 / 数字化人才解决方案</p>
+<div class="flex gap-2 justify-center md:justify-start">
+<span class="px-2.5 py-0.5 rounded-full bg-bone-cream-dim text-graphite text-label border border-ash-veil">高新企业</span>
+<span class="px-2.5 py-0.5 rounded-full bg-bone-cream-dim text-graphite text-label border border-ash-veil">A轮融资</span>
+<span class="px-2.5 py-0.5 rounded-full bg-bone-cream-dim text-graphite text-label border border-ash-veil">200-500人</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-6 py-2.5 rounded-lg border border-deep-char text-deep-char font-medium text-sm hover:bg-bone-cream-dim transition-all">
+                预览门户
+            </button>
+<button class="flex-1 md:flex-none px-6 py-2.5 rounded-lg bg-linghuo-amber text-white font-medium text-sm shadow-sm hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                编辑资料
+            </button>
+</div>
+</section>
+<!-- Grid Layout for Detailed Info -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Main Info Section (Left 2 Columns) -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Basic Information -->
+<div class="bg-white rounded-xl border border-ash-veil overflow-hidden">
+<div class="px-6 py-4 border-b border-ash-veil flex justify-between items-center bg-bone-cream/30">
+<h3 class="font-title text-title flex items-center gap-2">
+<span class="material-symbols-outlined text-misty-slate">info</span>
+                        基础资料
+                    </h3>
+</div>
+<div class="p-6 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="text-label text-warm-ash block mb-2">企业全称</label>
+<p class="text-body font-medium">深圳暖光科技有限公司</p>
+</div>
+<div>
+<label class="text-label text-warm-ash block mb-2">统一社会信用代码</label>
+<p class="text-body font-medium">91440300MA5EXXXX1X</p>
+</div>
+<div>
+<label class="text-label text-warm-ash block mb-2">官方网站</label>
+<a class="text-body font-medium text-linghuo-amber hover:underline" href="#">www.warmlight-tech.com</a>
+</div>
+<div>
+<label class="text-label text-warm-ash block mb-2">联系电话</label>
+<p class="text-body font-medium">0755-8888-XXXX</p>
+</div>
+</div>
+<div class="pt-4 border-t border-ash-veil/50">
+<label class="text-label text-warm-ash block mb-2">企业简介</label>
+<div class="bg-bone-cream-dim p-4 rounded-lg text-body text-graphite leading-relaxed max-w-[75ch]">
+                            暖光科技是领先的数字化人才服务商，致力于为高增长企业提供灵活的弹性用工方案。我们通过自主研发的AI匹配算法与灵活用工平台，连接优质青年专业人才与创新型企业，助力组织在不确定环境下实现降本增效与敏捷进化。
+                        </div>
+</div>
+</div>
+</div>
+<!-- Credentials & Documents -->
+<div class="bg-white rounded-xl border border-ash-veil overflow-hidden">
+<div class="px-6 py-4 border-b border-ash-veil flex justify-between items-center bg-bone-cream/30">
+<h3 class="font-title text-title flex items-center gap-2">
+<span class="material-symbols-outlined text-misty-slate">verified_user</span>
+                        资质文件管理
+                    </h3>
+</div>
+<div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Doc Card -->
+<div class="group relative bg-bone-cream-dim rounded-xl border border-ash-veil p-4 flex items-center gap-4 ambient-hover transition-all cursor-pointer">
+<div class="w-16 h-20 bg-white rounded border border-ash-veil flex items-center justify-center overflow-hidden">
+<img alt="Business License" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="official document business license with red stamp and chinese characters on textured paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2DMNLAZEdbWkTB78x6XVrZ94d8wbr0Fx5y84Eo1ns0wY_jfZX8b2TdpT8nB8cch81G-HqrynDwXSZFAfSGedi9Oyyb7Hfdm2abu5pIdcftfjWr6bVkFBoivcF0YYQI7GSw88NwIA1RtHSroizktKAvAHoxryfElc3KufQiwRgUL6qB0LHD5b5RrCrj5wYrZ4Wlnr6ZkteRABSNEsZd3jHcR3vLolYvT-_Y0m5aLPp0o1suEttl1gT9DQpe2WcxoSI3I6y_JqYSLJp"/>
+</div>
+<div class="flex-1">
+<h4 class="text-body font-medium mb-1">营业执照</h4>
+<p class="text-label text-warm-ash">已上传 (2024-03-15)</p>
+</div>
+<button class="text-linghuo-amber text-label font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">更新</button>
+</div>
+<!-- Doc Card -->
+<div class="group relative bg-bone-cream-dim rounded-xl border border-ash-veil p-4 flex items-center gap-4 ambient-hover transition-all cursor-pointer">
+<div class="w-16 h-20 bg-white rounded border border-ash-veil flex items-center justify-center overflow-hidden">
+<img alt="Industry Permit" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="professional certification document with official seals and regulatory text on heavy cream paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ3gSWvcR5UAP5OSu-pMh8cS4BajsfzYGqOF0358Q3QAvPP6HTrHcbpY4WiI41nQiYx_lmZFOnX062HBXIrnWXkHNEhAxwnU1OLvWyRHNGeUigY5GzjX6cM3kKPZI_Bly3Yj3oRempZ9LuFvSjog-Qy_zSjI1U9bWpSittN5OLt7tYyM_Aqk1HxGRX5cfAR1OTZRO0pP80aMR6rEMaNI1YnVlUKNachdatavD7_6UsnDKVDB2xdBefJOgybdm2hMYDUJ6gOuLR3lxR"/>
+</div>
+<div class="flex-1">
+<h4 class="text-body font-medium mb-1">人力资源许可</h4>
+<p class="text-label text-warm-ash">已上传 (2023-11-20)</p>
+</div>
+<button class="text-linghuo-amber text-label font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">更新</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Content (Right 1 Column) -->
+<div class="space-y-8">
+<!-- Team Management -->
+<div class="bg-white rounded-xl border border-ash-veil overflow-hidden">
+<div class="px-6 py-4 border-b border-ash-veil flex justify-between items-center bg-bone-cream/30">
+<h3 class="font-title text-title flex items-center gap-2">
+<span class="material-symbols-outlined text-misty-slate">badge</span>
+                        团队成员
+                    </h3>
+<button class="text-linghuo-amber text-label font-bold hover:underline">管理团队</button>
+</div>
+<div class="p-6 space-y-5">
+<!-- Member -->
+<div class="flex items-center gap-3">
+<img alt="Chen Wei" class="w-10 h-10 rounded-full object-cover ring-1 ring-ash-veil" data-alt="portrait of an asian male executive with glasses in a professional white shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2sefeLHm5iWMlZWvYczn1LmVXCGMPIgq2qLUnGUEwxQJFBd0J71SEO9QOlvKTQSZGBw7tn7qX3wgLctGnDgJD6zXWmj9wNJQ7ovgYd5H_p2aHHaOcLrs07TpiWb0MI5DKg_CPKGXxwlLAg5qhQKX3EBANc88Lmyup0gXofjHCJVPqRSWzcX2tZEXq44TCFTpwBnyDjU1iT7TpvX8L154pH-yjWayTW4Mndq3z_Glq7QZXCSQGx1Os8yyZQD-wzgm3MocaDd_ZuQhZ"/>
+<div class="flex-1 min-w-0">
+<p class="text-body font-bold truncate">陈伟</p>
+<p class="text-label text-warm-ash truncate">首席人才官 (CHRO)</p>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-[10px] text-primary font-bold">主管理员</span>
+</div>
+<!-- Member -->
+<div class="flex items-center gap-3">
+<img alt="Li Xiaoran" class="w-10 h-10 rounded-full object-cover ring-1 ring-ash-veil" data-alt="portrait of a young asian woman with smiling expression in a minimalist office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKRJucKjyN0tomIm_f5Xu57W5h0wzfOuXquR6T9bTSBcU_cCDMh98WNAsY-jwk160cJ-0acxie1OkwUdS_5WprbY36nJiniC3ZbUJpxC1gpD9Nqx8usV3AZVIchV_MzujS_jsUDmHfFBcXCZPxek77FO0Mnjuw3UX2ZHFZhlY1Ztm4Mi14UVbxrJNLzy50Uoy-sTnJIbnnyYEYyhYZ6eaPvv63onDGKiCv-3oIa_10jWxcY2Q-wiCoNIi56kuyeEL8E8thLMe7ZbOL"/>
+<div class="flex-1 min-w-0">
+<p class="text-body font-bold truncate">李小冉</p>
+<p class="text-label text-warm-ash truncate">高级招聘顾问</p>
+</div>
+</div>
+<!-- Member -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-bone-cream-dim flex items-center justify-center text-warm-ash border border-dashed border-ash-veil">
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-body font-medium text-warm-ash">邀请新成员</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Insights Snippet -->
+<div class="bg-gradient-to-br from-linghuo-amber/5 to-transparent rounded-xl border border-linghuo-amber/20 p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-linghuo-amber text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="font-title text-sm font-bold text-linghuo-amber uppercase tracking-tight">企业智能洞察</h4>
+</div>
+<p class="text-sm text-graphite leading-relaxed">
+                    您的企业简介中关于“数字化”的关键词匹配度极高，建议在招聘岗位中增加“技术敏感度”标签，以吸引更精准的复合型人才。
+                </p>
+<button class="mt-4 text-label font-bold text-linghuo-amber flex items-center gap-1 hover:gap-2 transition-all">
+                    查看详细建议 <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

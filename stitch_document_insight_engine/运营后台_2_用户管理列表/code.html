@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fdfcff",
+                        "surface-container-highest": "#f8ddd4",
+                        "on-tertiary-fixed": "#001c37",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3d2d27",
+                        "linghuo-amber": "#EA5614",
+                        "surface": "#fff8f6",
+                        "surface-container-high": "#fee2da",
+                        "on-surface-variant": "#5a4138",
+                        "on-primary-container": "#fffbff",
+                        "inverse-on-surface": "#ffede8",
+                        "on-background": "#261813",
+                        "misty-slate": "#4A616F",
+                        "secondary": "#4a616f",
+                        "surface-tint": "#a93700",
+                        "warm-ash": "oklch(75% 0.005 60)",
+                        "surface-container": "#ffe9e3",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#334a57",
+                        "bone-cream-dim": "oklch(96% 0.008 60)",
+                        "on-primary-fixed": "#380d00",
+                        "on-secondary-fixed": "#041e2a",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "tertiary": "#005ea3",
+                        "deep-char": "oklch(22% 0.008 60)",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff1ec",
+                        "ash-veil": "oklch(92% 0.006 60)",
+                        "bone-cream": "oklch(98% 0.008 60)",
+                        "graphite": "oklch(45% 0.005 60)",
+                        "on-secondary": "#ffffff",
+                        "primary": "#a53600",
+                        "surface-variant": "#f8ddd4",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#efd4cc",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#ffb59b",
+                        "outline-variant": "#e2bfb3",
+                        "primary-fixed": "#ffdbcf",
+                        "secondary-fixed-dim": "#b2cada",
+                        "primary-container": "#cf4600",
+                        "secondary-container": "#cde6f7",
+                        "on-surface": "#261813",
+                        "primary-fixed-dim": "#ffb59b",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "outline": "#8e7066",
+                        "on-secondary-container": "#506776",
+                        "tertiary-fixed": "#d2e4ff",
+                        "secondary-fixed": "#cde6f7",
+                        "on-primary-fixed-variant": "#812800",
+                        "tertiary-container": "#0077cd",
+                        "background": "#fff8f6",
+                        "surface-bright": "#fff8f6",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-body": "75ch",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xl": "40px"
+                    },
+                    "fontFamily": {
+                        "body": ["Manrope"],
+                        "display": ["Manrope"],
+                        "title": ["Manrope"],
+                        "headline": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                        "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                        "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .ambient-hover:hover {
+            box-shadow: 0 4px 20px -2px rgba(234, 86, 20, 0.08);
+            transform: translateY(-1px);
+            transition: all 0.3s ease;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E2E2E2;
+            border-radius: 10px;
+        }
+        body {
+            background-color: #fff8f6;
+            color: #261813;
+        }
+    </style>
+</head>
+<body class="font-body text-body min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-[#E2E2E2] bg-[#F5F2ED] sticky top-0 z-50">
+<div class="px-6 py-8 flex flex-col items-start">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-linghuo-amber flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-[#2D2D2D] leading-tight">领活派 Admin</h1>
+<p class="text-[10px] uppercase tracking-widest text-graphite opacity-70">工作站模式已开启</p>
+</div>
+</div>
+<nav class="flex flex-col w-full space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">运营看板</span>
+</a>
+<!-- Active Item: 用户管理 -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-[#EA5614] font-semibold border-r-4 border-[#EA5614] bg-[#EBE7E0]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-medium text-sm">用户管理</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0]" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-medium text-sm">企业管理</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0]" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-medium text-sm">任务管理</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">基础配置</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto px-6 py-6 border-t border-[#E2E2E2]">
+<nav class="flex flex-col w-full space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 text-[#666666] hover:text-[#EA5614] hover:bg-[#EBE7E0]" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="font-medium text-sm">系统日志</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 text-error hover:bg-red-50" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium text-sm">退出登录</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-8 w-full sticky top-0 z-40 bg-[#F5F2ED] border-b border-[#E2E2E2]">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold text-[#2D2D2D]">用户管理列表</span>
+<span class="text-warm-ash">/</span>
+<span class="text-sm text-graphite">查看并管理平台所有注册用户</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-graphite">
+<button class="p-2 hover:bg-[#EBE7E0] rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#EBE7E0] rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-px bg-[#E2E2E2]"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-semibold text-[#2D2D2D]">管理员</p>
+<p class="text-[10px] text-graphite">超级权限</p>
+</div>
+<img alt="管理员头像" class="w-10 h-10 rounded-full border-2 border-white shadow-sm" data-alt="close-up of a professional male administrator in his 40s with a kind expression and clean-cut appearance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnyRR6QMz1Zb_a9K0txGKQHQ01TeRvpLONFzoCaT1hNq88oYjU_ql-3rBJ1g7yNiwZhczhy4MQocYwTOi7230UAHjvexqo-3tqRuwijWq3Tl6aArQRUu1IlpXiqnapx9k3PvEAMGVJU3T-ibcVQhQFLm7cQOYNzXZWArek6BOLkxxLJWMEHlQ2D1dYyMigl9sdcA5lMY8Vv3CoYiAYFWqiHgI8ke7fNH_NOZYDZazvOe-6ap_K43s-9tjKsFuKoxi4iIiy1uE3Dq9x"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8 flex flex-col gap-8">
+<!-- Filter Section -->
+<section class="bg-bone-cream border border-ash-veil rounded-xl p-6 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+<div class="space-y-2">
+<label class="font-label text-on-surface-variant block">关键词搜索</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-warm-ash">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-bone-cream-dim border-none rounded-lg focus:ring-2 focus:ring-linghuo-amber/20 text-sm transition-all placeholder:text-warm-ash" placeholder="姓名、昵称、手机号..." type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label text-on-surface-variant block">用户状态</label>
+<select class="w-full px-4 py-2.5 bg-bone-cream-dim border-none rounded-lg focus:ring-2 focus:ring-linghuo-amber/20 text-sm transition-all appearance-none cursor-pointer">
+<option>全部状态</option>
+<option>正常</option>
+<option>已封禁</option>
+<option>待审核</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label text-on-surface-variant block">注册时间</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-warm-ash">calendar_month</span>
+<input class="w-full px-4 py-2.5 bg-bone-cream-dim border-none rounded-lg focus:ring-2 focus:ring-linghuo-amber/20 text-sm transition-all placeholder:text-warm-ash" placeholder="选择日期范围" type="text"/>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-linghuo-amber text-white py-2.5 px-6 rounded-lg font-medium text-sm transition-all active:scale-95 shadow-lg shadow-linghuo-amber/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+                            执行筛选
+                        </button>
+<button class="px-4 py-2.5 bg-bone-cream-dim text-graphite rounded-lg font-medium text-sm hover:bg-ash-veil transition-all">
+                            重置
+                        </button>
+</div>
+</div>
+</section>
+<!-- Table Section -->
+<section class="bg-white border border-ash-veil rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-bone-cream border-b border-ash-veil">
+<th class="px-6 py-4 font-label text-graphite uppercase tracking-wider">用户信息</th>
+<th class="px-6 py-4 font-label text-graphite uppercase tracking-wider text-center">注册端</th>
+<th class="px-6 py-4 font-label text-graphite uppercase tracking-wider text-center">实名状态</th>
+<th class="px-6 py-4 font-label text-graphite uppercase tracking-wider text-center">账号状态</th>
+<th class="px-6 py-4 font-label text-graphite uppercase tracking-wider">最后登录时间</th>
+<th class="px-6 py-4 font-label text-graphite uppercase tracking-wider text-right">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-ash-veil">
+<!-- Row 1 -->
+<tr class="hover:bg-bone-cream transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="用户" class="w-10 h-10 rounded-lg object-cover" data-alt="headshot of a young professional woman with glasses and a friendly smile, clean studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgzSjbA190ilYXNfdaxNwHzcGaKis3YzDbnDs-4-LqnuepzP6Gk6l5hMqsHASNa_SVfjRQOup6-DFoiHa0-kj4ffVyQuDg3dLPmsf3amK7qeEqc4Ij6Nu5wPJY1EFC7HuYhHaTehvKFSL8La_uX_OkokalcBgrJ2nqhM4s0PEtyDzdUK8RDclxpVx3v8zOw1I307zktks1cojekVgZzET86ZKMbioBjrutMZQhyzuZz9AnQPD9GyPdhz6dUhmxbw1rkpm89dZMS1FU"/>
+<div>
+<p class="font-semibold text-deep-char">陆小雨</p>
+<p class="text-xs text-graphite">ID: 882910</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-600">个人</span>
+</td>
+<td class="px-6 py-4 text-center">
+<div class="flex items-center justify-center gap-1.5 text-green-600">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">已实名</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-green-50 text-green-600">正常</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">
+                                    2023-11-24 14:20:10
+                                </td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="详情">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="重置密码">
+<span class="material-symbols-outlined text-xl">lock_reset</span>
+</button>
+<button class="p-1.5 hover:text-error transition-colors" title="封禁">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-bone-cream transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="用户" class="w-10 h-10 rounded-lg object-cover" data-alt="headshot of a young professional man with short dark hair, wearing a neutral colored polo shirt, bright workspace background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtcxj38LWQr1sD_wci3vfSbffg2gHQzwTJJBWDNTF1F49g-5IStAFrZ6DCARLBN-yHOknGDT7VQW_rk4wPIMa698qBceOLYTlakZEKKe3BoRcPRkYQS-jktbKzUBFGkzj1JGxeOJzTPGVmVJRYXuu8SyE98C-GTgkj-iWfjuDVf9_khk9alWizyh_IP4m2WIKCbV9bsPxp5l9bBpg3U0AvzzWiGk7BBnBs2pzPvgDjLkNiTzvdXxD7h3exf-8xeIatZmdpBsTl4wmd"/>
+<div>
+<p class="font-semibold text-deep-char">深蓝科技-王工</p>
+<p class="text-xs text-graphite">ID: 882915</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-50 text-purple-600">企业</span>
+</td>
+<td class="px-6 py-4 text-center">
+<div class="flex items-center justify-center gap-1.5 text-green-600">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-xs font-medium">企业认证</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-green-50 text-green-600">正常</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">
+                                    2023-11-24 12:45:33
+                                </td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="详情">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="重置密码">
+<span class="material-symbols-outlined text-xl">lock_reset</span>
+</button>
+<button class="p-1.5 hover:text-error transition-colors" title="封禁">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-bone-cream transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="用户" class="w-10 h-10 rounded-lg object-cover" data-alt="headshot of a stylish person with short blonde hair and minimalist accessories, soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiNZ2tyHU41Ho4bhIqXIvjr2m_FaPyzb-uc1SkjIVP-GWELsqTrqMxsgskUtsJW9Y2Kc_8qc0Pks5vftKSFf_LPtVTKekGKPQ9nSCyTVoAVFPJXZ8h4qPf7Eb2hogUoy27pDE2o16bwPtPiJGYo03b7u0XR1nswcyJYdYken8bvdkfwpwsdRnQYYWpOv7qzTWVuQuVF4sY_uJScE3Zsc-pW_vLrpg9_0CJLURqRCWnjVBznvDBGVHY73DwlTJiuS6cEy-PVrdiHIkQ"/>
+<div>
+<p class="font-semibold text-deep-char">MomoCat</p>
+<p class="text-xs text-graphite">ID: 882922</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-50 text-blue-600">个人</span>
+</td>
+<td class="px-6 py-4 text-center">
+<div class="flex items-center justify-center gap-1.5 text-warm-ash">
+<span class="material-symbols-outlined text-sm">pending</span>
+<span class="text-xs font-medium">未实名</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-red-50 text-red-600">已封禁</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">
+                                    2023-11-20 09:12:05
+                                </td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="详情">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="重置密码">
+<span class="material-symbols-outlined text-xl">lock_reset</span>
+</button>
+<button class="p-1.5 hover:text-green-600 transition-colors" title="解封">
+<span class="material-symbols-outlined text-xl">lock_open</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-bone-cream transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="用户" class="w-10 h-10 rounded-lg object-cover" data-alt="headshot of a middle-aged woman with a confident smile, wearing a professional navy suit, blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChs0UEUjD_al4WdB4MZllKuAUlPreED6yn_M1EyFkQD7oImSX9GGrOfcdWGJO9emgQmNNe6JKRIj64-ISbzIldp9qmO1MMp-uGckiJqnAC25NQ7LMpDyjZyi2ifKQg_rVyomqXsz0mDhhPWi2iI394OV8St0mGtxYAf9xlw0npoPSiRFWAbuwIdO5XDQ8cxFAGr7fISFG8wYSSljNRXQD-nDYIW6guyHAsoidJNTw9PXu_bK-y0wZ1Agte_vl9oQHGM9um0FcGZOuZ"/>
+<div>
+<p class="font-semibold text-deep-char">设计总监-陈悦</p>
+<p class="text-xs text-graphite">ID: 882945</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-purple-50 text-purple-600">企业</span>
+</td>
+<td class="px-6 py-4 text-center">
+<div class="flex items-center justify-center gap-1.5 text-green-600">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-xs font-medium">企业认证</span>
+</div>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-green-50 text-green-600">正常</span>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">
+                                    2023-11-24 15:55:20
+                                </td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="详情">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button class="p-1.5 hover:text-linghuo-amber transition-colors" title="重置密码">
+<span class="material-symbols-outlined text-xl">lock_reset</span>
+</button>
+<button class="p-1.5 hover:text-error transition-colors" title="封禁">
+<span class="material-symbols-outlined text-xl">block</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Area -->
+<div class="px-6 py-4 bg-bone-cream border-t border-ash-veil flex items-center justify-between">
+<div class="text-sm text-graphite">
+                        显示第 <span class="font-medium text-deep-char">1</span> 到 <span class="font-medium text-deep-char">10</span> 条，共 <span class="font-medium text-deep-char">128</span> 条记录
+                    </div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-ash-veil text-graphite hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-linghuo-amber text-white font-medium text-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded text-graphite hover:bg-white transition-colors text-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded text-graphite hover:bg-white transition-colors text-sm">3</button>
+<span class="mx-1 text-warm-ash">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded text-graphite hover:bg-white transition-colors text-sm">13</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-ash-veil text-graphite hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Matching Interface Overlay (Briefly mentioned in style guide) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="bg-linghuo-amber text-white p-4 rounded-full shadow-xl shadow-linghuo-amber/30 flex items-center justify-center ambient-hover group relative">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">bolt</span>
+<div class="absolute right-full mr-4 bg-white px-4 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none text-sm font-semibold border border-ash-veil text-deep-char">
+                    智能用户分析
+                </div>
+</button>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,28 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e7]: AI
+    - heading "登录 AI 零工平台" [level=1] [ref=e8]
+    - paragraph [ref=e9]: 使用您的企业或零工账号继续
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - textbox "邮箱地址或手机号码" [ref=e13]
+        - textbox "密码" [ref=e14]
+      - button "继续" [ref=e16]:
+        - generic [ref=e17]: 继续
+        - img [ref=e18]
+    - generic [ref=e20]:
+      - paragraph [ref=e21]: 其他登录方式
+      - generic [ref=e22]:
+        - button "微信登录" [ref=e23]:
+          - img [ref=e24]
+          - text: 微信登录
+        - button "验证码登录" [ref=e30]:
+          - img [ref=e31]
+          - text: 验证码登录
+      - generic [ref=e40]:
+        - paragraph [ref=e41]:
+          - text: 还没有账号？
+          - link "立即注册" [ref=e42] [cursor=pointer]:
+            - /url: "#"
+        - button "平台管理后台入口 →" [ref=e43]

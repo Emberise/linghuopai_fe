@@ -1,0 +1,62 @@
+- generic [ref=e1160]:
+  - banner [ref=e1161]:
+    - generic [ref=e1162]:
+      - button "返回工作台" [ref=e1163]:
+        - img [ref=e1164]
+        - text: 返回工作台
+      - generic [ref=e1166]: 个人情况与画像
+  - main [ref=e1167]:
+    - generic [ref=e1168]:
+      - generic [ref=e1171]:
+        - img [ref=e1173]
+        - generic [ref=e1176]:
+          - generic [ref=e1177]:
+            - heading "林工" [level=1] [ref=e1178]
+            - generic [ref=e1179]: 高级前端开发
+          - generic [ref=e1180]:
+            - generic [ref=e1181]:
+              - img [ref=e1182]
+              - text: 远程 / 深圳
+            - generic [ref=e1185]:
+              - img [ref=e1186]
+              - text: 5年经验
+            - generic [ref=e1189]: 28岁
+          - generic [ref=e1190]:
+            - button "可接单" [ref=e1191]: 可接单
+            - button "可排单" [ref=e1193]: 可排单
+            - button "不接单" [ref=e1195]: 不接单
+      - generic [ref=e1197]:
+        - generic [ref=e1198]:
+          - img [ref=e1199]
+          - heading "AI 提炼能力画像" [level=2] [ref=e1202]
+        - generic [ref=e1203]:
+          - generic [ref=e1204]:
+            - heading "核心技能结构" [level=3] [ref=e1205]
+            - generic [ref=e1206]:
+              - generic [ref=e1207]: React / Next.js
+              - generic [ref=e1208]: TypeScript
+              - generic [ref=e1209]: Node.js
+              - generic [ref=e1210]: Tailwind CSS
+              - generic [ref=e1211]: 敏捷开发
+              - generic [ref=e1212]: AI 平台搭建
+          - generic [ref=e1213]:
+            - heading "项目经验" [level=3] [ref=e1214]
+            - generic [ref=e1216]:
+              - generic [ref=e1217]: 某大型企业零工管理平台前端重构
+              - generic [ref=e1218]: 2023.05 - 2024.01
+              - paragraph [ref=e1219]: 主导前端技术栈向 React 迁移，实现复杂的任务看板与人才匹配流交互，提升页面响应速度 40%，配合 AI Agent 团队完成 API 对接与流式对话渲染。
+    - generic [ref=e1220]:
+      - generic [ref=e1221]:
+        - generic [ref=e1222]:
+          - img [ref=e1223]
+          - generic [ref=e1226]: 画像补全助手
+        - button "上传简历" [ref=e1227]:
+          - img [ref=e1228]
+          - text: 上传简历
+      - generic [ref=e1231]:
+        - img [ref=e1233]
+        - generic [ref=e1236]: 你好，我是你的 AI 职业助手。您可以直接上传简历文档，或者在这里通过对话告诉我您的最新项目经验，我会自动帮您提取能力标签并更新左侧的个人画像。
+      - generic [ref=e1238]:
+        - textbox "告诉 AI 您的新经历..." [ref=e1239]
+        - button [disabled] [ref=e1240]:
+          - img [ref=e1241]

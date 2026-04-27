@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#e2bfb3",
+                    "tertiary": "#005ea3",
+                    "outline": "#8e7066",
+                    "on-secondary-fixed": "#041e2a",
+                    "ash-veil": "oklch(92% 0.006 60)",
+                    "on-secondary-fixed-variant": "#334a57",
+                    "secondary-fixed": "#cde6f7",
+                    "on-background": "#261813",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#efd4cc",
+                    "on-surface": "#261813",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#506776",
+                    "on-surface-variant": "#5a4138",
+                    "deep-char": "oklch(22% 0.008 60)",
+                    "tertiary-container": "#0077cd",
+                    "surface-bright": "#fff8f6",
+                    "secondary-container": "#cde6f7",
+                    "tertiary-fixed-dim": "#a1c9ff",
+                    "on-tertiary-container": "#fdfcff",
+                    "secondary-fixed-dim": "#b2cada",
+                    "bone-cream": "oklch(98% 0.008 60)",
+                    "bone-cream-dim": "oklch(96% 0.008 60)",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#fff1ec",
+                    "inverse-surface": "#3d2d27",
+                    "inverse-primary": "#ffb59b",
+                    "warm-ash": "oklch(75% 0.005 60)",
+                    "surface-tint": "#a93700",
+                    "on-primary-fixed": "#380d00",
+                    "primary-container": "#cf4600",
+                    "on-primary-fixed-variant": "#812800",
+                    "on-tertiary-fixed": "#001c37",
+                    "on-primary": "#ffffff",
+                    "misty-slate": "#4A616F",
+                    "background": "#fff8f6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#d2e4ff",
+                    "on-tertiary-fixed-variant": "#004880",
+                    "on-primary-container": "#fffbff",
+                    "surface-container": "#ffe9e3",
+                    "secondary": "#4a616f",
+                    "linghuo-amber": "#EA5614",
+                    "inverse-on-surface": "#ffede8",
+                    "surface-variant": "#f8ddd4",
+                    "surface-container-high": "#fee2da",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#f8ddd4",
+                    "primary-fixed": "#ffdbcf",
+                    "primary-fixed-dim": "#ffb59b",
+                    "graphite": "oklch(45% 0.005 60)",
+                    "surface": "#fff8f6",
+                    "primary": "#a53600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "xl": "40px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "container-max-body": "75ch",
+                    "md": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "title": ["Manrope"],
+                    "body": ["Manrope"],
+                    "display": ["Manrope"],
+                    "label": ["Manrope"],
+                    "headline": ["Manrope"]
+            },
+            "fontSize": {
+                    "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                    "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                    "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ease-out-quart {
+            transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+    </style>
+</head>
+<body class="bg-bone-cream font-body text-deep-char min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="fixed left-0 top-0 bottom-0 w-64 border-r border-stone-200 bg-[#F2F0EB] flex flex-col py-6 px-4 space-y-2 z-50">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-linghuo-amber flex items-center justify-center text-white shadow-sm overflow-hidden">
+<img alt="Company Logo" class="w-full h-full object-cover" data-alt="Geometric minimalist logo icon with abstract shapes in shades of amber and stone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAr9UElb18hCpqqd3NW81fcg_nk2rEx9Pc986PYVA2fWUG0gwMX2-shWxJxgFAB-9Gyn18JjHlf39Zdpp2VO3MzmTvS9C6o5l_okOvFb0sDvfNGoypsJeEUSrLRyYMezKZwwIEkbM-KRu7KTwKW4UO8DTZpIOarb7z42Pkyv8bywDj7sXGNyWRc2yCKSoNrSWjlmQY_K-goOPxqdZZwB96yleavpFw184mvMtce9tGvkasMyoQ0E41KAg31f5pSlhDRPrt9FY0X5L5"/>
+</div>
+<div>
+<h1 class="text-linghuo-amber font-black tracking-widest text-sm">企业管理中心</h1>
+<p class="text-[10px] text-stone-500 font-medium">资质状态：已认证</p>
+</div>
+</div>
+</div>
+<nav class="space-y-1">
+<!-- tab_labels: ["工作台", "资质认证", "岗位管理", "候选人管理", "企业信息"] -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-all duration-200 ease-out-quart active:scale-[0.98] font-['Manrope'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span>工作台</span>
+</a>
+<!-- Active State: 资质认证 -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg bg-stone-100 text-[#EA5614] border-r-4 border-[#EA5614] shadow-sm font-['Manrope'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="verified_user">verified_user</span>
+<span>资质认证</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-all duration-200 ease-out-quart active:scale-[0.98] font-['Manrope'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="work_outline">work_outline</span>
+<span>岗位管理</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-all duration-200 ease-out-quart active:scale-[0.98] font-['Manrope'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="group">group</span>
+<span>候选人管理</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-all duration-200 ease-out-quart active:scale-[0.98] font-['Manrope'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="domain">domain</span>
+<span>企业信息</span>
+</a>
+</nav>
+</aside>
+<!-- TopAppBar (Authority: JSON) -->
+<header class="fixed top-0 right-0 left-64 h-16 border-b border-stone-200/60 bg-[#FAF9F6] bg-opacity-90 backdrop-blur-sm flex justify-between items-center px-8 z-40">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold tracking-tight text-stone-900 font-title">WarmLight Enterprise</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-stone-500 hover:text-stone-800 transition-colors cursor-pointer" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-stone-500 hover:text-stone-800 transition-colors cursor-pointer" data-icon="help_outline">help_outline</button>
+</div>
+<div class="h-8 w-[1px] bg-stone-200"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold text-stone-800">Admin User</p>
+<p class="text-[10px] text-stone-400">系统管理员</p>
+</div>
+<img alt="Administrator Avatar" class="w-8 h-8 rounded-full border border-stone-100 group-hover:opacity-80 transition-opacity" data-alt="Professional avatar of a corporate administrator in a clean minimalist style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRIXn0od-2iqKRaZ5kuk119SZAStl5GChAP9gAKkajm7cYhN7Hur5rXV95_jlSH8IRjTCLIK_3XGFTyzCIgm_baFaBHzRXF7aSrDb4yTFu0RLp-9m5GeKdVMKFV07TTQ0npn_P0sRdbt9jahlU5zL5EkYwOB0YYDlL_whbkXi4ymk-BMr3H-d92EweDWH9RX9m1WWkoEgtV-W2IA2VtrszXTvoICutluzF8WMkYlMAFEaX7DxhY7L9O8zJAorov-iK3icsZ21_y04W"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="max-w-[1000px] mx-auto px-8 py-12">
+<!-- Header Section -->
+<div class="mb-12">
+<h2 class="font-headline text-headline text-stone-900 mb-2">企业资质认证</h2>
+<p class="text-graphite text-body opacity-70">完成资质认证后，您即可发布职位并邀约候选人。</p>
+</div>
+<!-- Progress Indicator -->
+<div class="relative flex justify-between items-center mb-16 max-w-2xl">
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-ash-veil -z-10 -translate-y-1/2"></div>
+<!-- Step 1: Done -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-linghuo-amber text-white flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-lg" data-icon="check" style="font-variation-settings: 'wght' 600;">check</span>
+</div>
+<span class="text-label text-stone-500 font-semibold">基本信息</span>
+</div>
+<!-- Step 2: Active -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-linghuo-amber text-linghuo-amber flex items-center justify-center shadow-sm">
+<span class="text-sm font-bold">02</span>
+</div>
+<span class="text-label text-linghuo-amber font-bold">资质上传</span>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-bone-cream-dim border border-ash-veil text-warm-ash flex items-center justify-center">
+<span class="text-sm font-bold">03</span>
+</div>
+<span class="text-label text-warm-ash font-medium">等待审核</span>
+</div>
+</div>
+<!-- Content Bento Grid / Asymmetric Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Form Section -->
+<div class="lg:col-span-7 space-y-8">
+<div class="bg-white p-8 rounded-xl border border-ash-veil shadow-sm">
+<h3 class="font-title text-title text-stone-800 mb-6 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-linghuo-amber"></span>
+                            主体信息确认
+                        </h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-label text-graphite uppercase tracking-wider">企业法定名称</label>
+<input class="w-full bg-bone-cream-dim border-none rounded-lg px-4 py-3 text-body focus:ring-1 focus:ring-misty-slate transition-all placeholder:text-warm-ash" placeholder="请与营业执照保持一致" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label text-graphite uppercase tracking-wider">统一社会信用代码</label>
+<input class="w-full bg-bone-cream-dim border-none rounded-lg px-4 py-3 text-body focus:ring-1 focus:ring-misty-slate transition-all placeholder:text-warm-ash" placeholder="18位统一社会信用代码" type="text"/>
+</div>
+</div>
+</div>
+<!-- Upload Section -->
+<div class="bg-white p-8 rounded-xl border border-ash-veil shadow-sm">
+<h3 class="font-title text-title text-stone-800 mb-4 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-linghuo-amber"></span>
+                            营业执照上传
+                        </h3>
+<p class="text-label text-warm-ash mb-6">请上传最新的彩色扫描件或复印件（加盖公章），支持 JPG、PNG、PDF 格式，文件小于 10MB。</p>
+<div class="group relative cursor-pointer">
+<div class="border-2 border-dashed border-ash-veil rounded-xl p-12 bg-bone-cream-dim flex flex-col items-center justify-center gap-4 transition-all hover:border-linghuo-amber/40 hover:bg-white group-active:scale-[0.99]">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center text-warm-ash group-hover:text-linghuo-amber shadow-sm transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="text-center">
+<p class="text-body font-medium text-stone-700">点击或拖拽上传</p>
+<p class="text-label text-warm-ash mt-1">检测到：尚未选择文件</p>
+</div>
+</div>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+</div>
+</div>
+<!-- Info Sidebar (Asymmetric) -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-stone-900 text-white p-8 rounded-xl relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="verified">verified</span>
+</div>
+<div class="relative z-10">
+<h4 class="font-title text-title mb-4">认证须知</h4>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-linghuo-amber" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-xs opacity-80 leading-relaxed">资质审核通常在 1-2 个工作日内完成，审核结果将通过短信和系统通知。</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-linghuo-amber" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-xs opacity-80 leading-relaxed">请确保上传的证件清晰可见，边框完整，无反光或阴影遮挡。</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-linghuo-amber" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-xs opacity-80 leading-relaxed">WarmLight 派承诺对所有企业敏感信息进行高强度加密存储。</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- AI Assistant Card (System Identity) -->
+<div class="bg-white p-6 rounded-xl border border-ash-veil shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-full bg-bone-cream flex items-center justify-center">
+<span class="material-symbols-outlined text-linghuo-amber" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="text-label font-bold text-stone-900">AI 辅助助手</p>
+<p class="text-[10px] text-warm-ash">智能识别与预审</p>
+</div>
+</div>
+<p class="text-label text-graphite bg-bone-cream-dim p-3 rounded-lg border-l-2 border-linghuo-amber">
+                            上传文件后，我将自动提取企业名称和代码为您核对。
+                        </p>
+</div>
+</div>
+</div>
+<!-- Sticky Actions -->
+<div class="mt-12 flex items-center justify-between pt-8 border-t border-ash-veil">
+<button class="px-6 py-3 rounded-lg text-graphite font-title text-body hover:bg-stone-100 transition-colors flex items-center gap-2 active:scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                    返回上一步
+                </button>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-lg border border-stone-300 text-stone-700 font-title text-body hover:bg-stone-50 transition-colors active:scale-95">
+                        暂存草稿
+                    </button>
+<button class="px-10 py-3 rounded-lg bg-linghuo-amber text-white font-title text-body shadow-lg shadow-linghuo-amber/20 hover:brightness-110 transition-all active:scale-95 flex items-center gap-2">
+                        保存并下一步
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Global Toast Layer (Placeholder) -->
+<div class="fixed bottom-8 right-8 z-50 pointer-events-none opacity-0">
+<div class="bg-deep-char text-white px-4 py-3 rounded-lg shadow-2xl flex items-center gap-3 pointer-events-auto">
+<span class="material-symbols-outlined text-linghuo-amber" data-icon="info">info</span>
+<span class="text-label">草稿已自动保存于 14:30</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#e2bfb3",
+                        "tertiary": "#005ea3",
+                        "outline": "#8e7066",
+                        "on-secondary-fixed": "#041e2a",
+                        "ash-veil": "oklch(92% 0.006 60)",
+                        "on-secondary-fixed-variant": "#334a57",
+                        "secondary-fixed": "#cde6f7",
+                        "on-background": "#261813",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#efd4cc",
+                        "on-surface": "#261813",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#506776",
+                        "on-surface-variant": "#5a4138",
+                        "deep-char": "oklch(22% 0.008 60)",
+                        "tertiary-container": "#0077cd",
+                        "surface-bright": "#fff8f6",
+                        "secondary-container": "#cde6f7",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "on-tertiary-container": "#fdfcff",
+                        "secondary-fixed-dim": "#b2cada",
+                        "bone-cream": "oklch(98% 0.008 60)",
+                        "bone-cream-dim": "oklch(96% 0.008 60)",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#fff1ec",
+                        "inverse-surface": "#3d2d27",
+                        "inverse-primary": "#ffb59b",
+                        "warm-ash": "oklch(75% 0.005 60)",
+                        "surface-tint": "#a93700",
+                        "on-primary-fixed": "#380d00",
+                        "primary-container": "#cf4600",
+                        "on-primary-fixed-variant": "#812800",
+                        "on-tertiary-fixed": "#001c37",
+                        "on-primary": "#ffffff",
+                        "misty-slate": "#4A616F",
+                        "background": "#fff8f6",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#d2e4ff",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "on-primary-container": "#fffbff",
+                        "surface-container": "#ffe9e3",
+                        "secondary": "#4a616f",
+                        "linghuo-amber": "#EA5614",
+                        "inverse-on-surface": "#ffede8",
+                        "surface-variant": "#f8ddd4",
+                        "surface-container-high": "#fee2da",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#f8ddd4",
+                        "primary-fixed": "#ffdbcf",
+                        "primary-fixed-dim": "#ffb59b",
+                        "graphite": "oklch(45% 0.005 60)",
+                        "surface": "#fff8f6",
+                        "primary": "#a53600"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "container-max-body": "75ch",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "title": ["Manrope"],
+                        "body": ["Manrope"],
+                        "display": ["Manrope"],
+                        "label": ["Manrope"],
+                        "headline": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                        "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                        "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ease-out-quart {
+            transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .ambient-hover:hover {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+        body {
+            background-color: oklch(98% 0.008 60);
+            color: #261813;
+        }
+    </style>
+</head>
+<body class="font-body text-body">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="fixed left-0 top-0 bottom-0 w-64 border-r border-stone-200 bg-[#F2F0EB] flex flex-col py-6 px-4 space-y-2 z-50">
+<div class="flex items-center gap-3 px-2 mb-8">
+<div class="w-10 h-10 rounded-lg bg-linghuo-amber flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined" data-icon="domain" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h1 class="text-linghuo-amber font-black tracking-widest text-sm">企业管理中心</h1>
+<p class="text-[10px] text-stone-500">资质状态：已认证</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                工作台
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                资质认证
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-100 text-[#EA5614] border-r-4 border-[#EA5614] shadow-sm rounded-lg text-sm font-medium active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="work_outline">work_outline</span>
+                岗位管理
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                候选人管理
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-100/50 hover:translate-x-1 transition-transform duration-200 ease-out-quart rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+                企业信息
+            </a>
+</nav>
+</aside>
+<!-- TopAppBar (Authority Source: JSON) -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 bg-[#FAF9F6] bg-opacity-90 backdrop-blur-sm border-b border-stone-200/60 z-40">
+<div class="flex items-center">
+<span class="font-headline text-stone-800">发布新岗位</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="p-2 text-stone-500 hover:bg-stone-100/50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-stone-500 hover:bg-stone-100/50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-stone-200">
+<div class="text-right">
+<p class="text-xs font-bold text-stone-900">Administrator</p>
+<p class="text-[10px] text-stone-500">企业管理员</p>
+</div>
+<img alt="Administrator Avatar" class="w-8 h-8 rounded-full border border-stone-200" data-alt="Close up portrait of a professional corporate administrator in a modern office with soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXr9ivqyIiUP07AgCU686uhCTjN5cwZLWU-Yi95TmXQ68hVCDSkv8cKr8CGJ5w2N69LKuC_Ku0qoaCfo-27G2PpfsJKqt8iCc6TSkrrnip6zjqbrqk1C4EnKO_l4T0h1AdDDqO2PAAlZutnlh18ApgXxu5uRTXp1MvdRpTiPixm30-mL_2bkpnZ_AOyGAB2slafh_y3A2vDnSKkTd3ANrw_MO09Xkpit6Bk6mq6ynUjV8NrbHpkdNszq6uVDAw6_gFp2r0yKNPJ_pC"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-16 min-h-screen bg-bone-cream">
+<div class="max-w-[1200px] mx-auto p-8 flex gap-8">
+<!-- Left Column: AI Input & JD Preview -->
+<div class="flex-1 space-y-6">
+<!-- AI Input Section -->
+<section class="bg-white rounded-xl p-6 border border-ash-veil shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-linghuo-amber" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-title text-stone-800">AI 智能辅助</h2>
+</div>
+<div class="relative">
+<textarea class="w-full h-32 p-4 bg-bone-cream-dim border-none rounded-lg focus:ring-2 focus:ring-linghuo-amber/20 text-stone-700 placeholder-warm-ash resize-none font-body" placeholder="描述您需要的岗位，例如：我需要一个熟悉 React 的高级前端，负责电商系统的重构，需要 3-5 年经验..."></textarea>
+<div class="absolute bottom-3 right-3">
+<button class="bg-linghuo-amber text-white px-5 py-2 rounded-lg font-title text-sm flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                                一键生成 JD
+                            </button>
+</div>
+</div>
+</section>
+<!-- JD Preview Section -->
+<section class="bg-white rounded-xl border border-ash-veil shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-ash-veil flex justify-between items-center bg-white">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-misty-slate">edit_document</span>
+<h2 class="font-title text-stone-800">岗位描述预览</h2>
+</div>
+<div class="flex gap-2">
+<button class="text-xs px-3 py-1.5 border border-stone-200 rounded-lg text-stone-500 hover:bg-stone-50">重写</button>
+<button class="text-xs px-3 py-1.5 border border-stone-200 rounded-lg text-stone-500 hover:bg-stone-50">导出文本</button>
+</div>
+</div>
+<div class="p-8 space-y-8 max-w-[75ch]">
+<!-- Job Title -->
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-warm-ash uppercase tracking-wider">岗位名称</label>
+<input class="w-full text-headline font-bold text-stone-900 border-b border-transparent hover:border-ash-veil focus:border-linghuo-amber focus:ring-0 px-0 pb-1 transition-all" type="text" value="高级前端开发工程师 (React)"/>
+</div>
+<!-- Main Sections -->
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-3">
+<label class="flex items-center gap-2 text-xs font-bold text-misty-slate">
+<span class="material-symbols-outlined text-sm">assignment</span> 岗位职责
+                                </label>
+<div class="bg-bone-cream-dim/50 p-4 rounded-lg border border-ash-veil/30">
+<ul class="space-y-3 text-stone-600 leading-relaxed">
+<li class="flex gap-2"><span class="text-linghuo-amber text-xs mt-1">●</span> 负责核心电商业务系统的前端架构设计与重构。</li>
+<li class="flex gap-2"><span class="text-linghuo-amber text-xs mt-1">●</span> 与产品经理、设计师紧密合作，实现高质量的交互体验。</li>
+<li class="flex gap-2"><span class="text-linghuo-amber text-xs mt-1">●</span> 优化前端性能，确保在各种终端下的流畅度。</li>
+</ul>
+</div>
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-2 text-xs font-bold text-misty-slate">
+<span class="material-symbols-outlined text-sm">verified</span> 任职要求
+                                </label>
+<div class="bg-bone-cream-dim/50 p-4 rounded-lg border border-ash-veil/30">
+<ul class="space-y-3 text-stone-600 leading-relaxed">
+<li class="flex gap-2"><span class="text-linghuo-amber text-xs mt-1">●</span> 3-5 年前端开发经验，精通 React 及其生态。</li>
+<li class="flex gap-2"><span class="text-linghuo-amber text-xs mt-1">●</span> 深刻理解 Web 标准、性能优化及主流浏览器差异。</li>
+<li class="flex gap-2"><span class="text-linghuo-amber text-xs mt-1">●</span> 具备良好的团队协作能力和技术攻关精神。</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Basic Info Row -->
+<div class="grid grid-cols-3 gap-6 pt-6 border-t border-ash-veil">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-warm-ash uppercase tracking-wider">薪资范围</label>
+<div class="flex items-center gap-2">
+<span class="text-stone-400">¥</span>
+<input class="w-full text-stone-800 border-none bg-transparent focus:ring-0 p-0 placeholder-warm-ash/50" placeholder="例如：25k-40k" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-warm-ash uppercase tracking-wider">工作地点</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-stone-400 text-sm">location_on</span>
+<input class="w-full text-stone-800 border-none bg-transparent focus:ring-0 p-0 placeholder-warm-ash/50" placeholder="例如：上海·徐汇区" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-warm-ash uppercase tracking-wider">经验要求</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-stone-400 text-sm">history_edu</span>
+<input class="w-full text-stone-800 border-none bg-transparent focus:ring-0 p-0 placeholder-warm-ash/50" placeholder="例如：3-5年" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="px-8 py-6 bg-stone-50/50 border-t border-ash-veil flex justify-end gap-4">
+<button class="px-6 py-2.5 rounded-lg font-title text-sm border border-stone-200 text-stone-600 hover:bg-stone-100 transition-colors">存为草稿</button>
+<button class="px-8 py-2.5 rounded-lg font-title text-sm bg-linghuo-amber text-white shadow-md hover:shadow-lg hover:opacity-90 active:scale-95 transition-all">确认并发布</button>
+</div>
+</section>
+</div>
+<!-- Right Column: AI Suggestions -->
+<aside class="w-80 space-y-4">
+<div class="bg-white rounded-xl p-5 border border-ash-veil shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-linghuo-amber text-xl">lightbulb</span>
+<h3 class="font-title text-sm text-stone-800">优化建议</h3>
+</div>
+<div class="space-y-4">
+<div class="p-3 bg-linghuo-amber/5 rounded-lg border-l-2 border-linghuo-amber">
+<p class="text-xs leading-relaxed text-stone-700">
+<span class="font-bold text-linghuo-amber">信息完善：</span>根据行业标准，建议补充具体的<span class="font-bold">薪资范围</span>和<span class="font-bold">办公地点</span>，这能提高 30% 的简历转化率。
+                            </p>
+</div>
+<div class="p-3 bg-stone-50 rounded-lg border-l-2 border-stone-200">
+<p class="text-xs leading-relaxed text-stone-600">
+<span class="font-bold">关键词：</span>已识别 "React", "性能优化"。建议增加对 "Next.js" 或 "TypeScript" 的要求描述。
+                            </p>
+</div>
+<div class="p-3 bg-stone-50 rounded-lg border-l-2 border-stone-200">
+<p class="text-xs leading-relaxed text-stone-600">
+<span class="font-bold">市场竞争力：</span>当前描述的岗位在上海地区的吸引力处于中等水平。
+                            </p>
+</div>
+</div>
+</div>
+<!-- Template Card -->
+<div class="bg-[#F8F9FA] rounded-xl p-5 border border-ash-veil border-dashed">
+<h3 class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-3">快捷模板</h3>
+<div class="space-y-2">
+<button class="w-full text-left px-3 py-2 text-xs text-stone-600 hover:bg-white hover:shadow-sm rounded transition-all flex justify-between items-center group">
+                            互联网大厂风
+                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-xs text-stone-600 hover:bg-white hover:shadow-sm rounded transition-all flex justify-between items-center group">
+                            初创活力型
+                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-xs text-stone-600 hover:bg-white hover:shadow-sm rounded transition-all flex justify-between items-center group">
+                            严谨技术型
+                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Image Placeholder for "Human-centric" feel -->
+<div class="relative h-48 rounded-xl overflow-hidden shadow-sm group">
+<img alt="Modern workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A clean, minimalist modern workspace with a laptop, a plant, and soft warm sunlight streaming through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9ogMuNZ5dEuhPcHYl8LVRMOBZ7rX5rqNqkftPCTKVHEvwgWiodZzAbqmfBvJrn_FrsqNpmJKBGMhHmwrm5Kfb3DAkNH3PpYL-kPxfgFUbKmyRlLHNPnhk8vkyqzoTxjW09aWsbcdmPYucV35c5r9x-vc4-1QfltfOUSSQ4qMIDSf1wcsvA-S-oHUYBz4etQaZ8rOWpedpf0jf12EF5mTxHZTkS17TzTHca9YH0ILIW4zUqsk4EtKIzyw287TfGuFna6vkTQb0TxkZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-white text-[10px] leading-snug">“在温暖的光线下，为您的团队寻找最契合的伙伴。”</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</body></html>

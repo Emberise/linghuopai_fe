@@ -1,0 +1,118 @@
+- generic [ref=e479]:
+  - banner [ref=e480]:
+    - generic [ref=e481]:
+      - button "返回工作台" [ref=e482]:
+        - img [ref=e483]
+        - text: 返回工作台
+      - generic [ref=e485]: 需求情况
+      - button "发布任务" [ref=e486]:
+        - img [ref=e487]
+        - text: 发布任务
+  - main [ref=e488]:
+    - generic [ref=e489]:
+      - heading "已发布的需求" [level=2] [ref=e490]
+      - generic [ref=e491] [cursor=pointer]:
+        - heading "微信小程序商城前端外包 / React 重构" [level=3] [ref=e493]
+        - generic [ref=e494]: ¥ 15,000 / 项目
+        - generic [ref=e496]:
+          - img [ref=e497]
+          - text: 发现匹配人选
+      - generic [ref=e500] [cursor=pointer]:
+        - heading "内部 ERP 权限系统优化" [level=3] [ref=e502]
+        - generic [ref=e503]: ¥ 400 / 小时
+        - generic [ref=e505]:
+          - img [ref=e506]
+          - text: 等待 AI 分析
+    - generic [ref=e509]:
+      - generic:
+        - generic [ref=e511]:
+          - generic [ref=e512]:
+            - button "返回岗位匹配" [ref=e575]:
+              - img [ref=e576]
+              - text: 返回岗位匹配
+            - generic [ref=e579]:
+              - generic [ref=e580]: 林
+              - generic [ref=e581]: 林工
+              - generic [ref=e582]: 高级前端开发
+          - generic [ref=e515]:
+            - img [ref=e583]
+            - generic [ref=e520]: 系统匹配度 98%
+        - generic:
+          - generic [ref=e528]:
+            - generic [ref=e585]:
+              - generic [ref=e586]:
+                - img [ref=e588]
+                - generic [ref=e591]:
+                  - heading "项目合作与结算" [level=4] [ref=e592]
+                  - paragraph [ref=e593]: 确认候选人后，在此发放任务并托管项目款
+              - button "发放任务 (托管 ¥15,000)" [ref=e595]:
+                - img [ref=e596]
+                - text: 发放任务 (托管 ¥15,000)
+            - generic:
+              - generic [ref=e598]: —— AI 已完成初筛评估，为您直接拉群接入候选人 ——
+              - generic:
+                - img [ref=e600]
+                - generic [ref=e603]: 张总您好！我是林工。刚才通过了平台的 AI 技术初筛，对咱们这个 React 重构项目非常感兴趣。我目前每周可以抽出 25 个小时投入开发。
+          - generic [ref=e604]:
+            - textbox "发消息给 林工... (按 Enter 发送)" [ref=e605]
+            - button [disabled] [ref=e606]:
+              - img [ref=e607]
+    - generic [ref=e609]:
+      - generic [ref=e610]:
+        - img [ref=e611]
+        - generic [ref=e614]: AI 面谈总结与背调报告
+      - generic [ref=e615]:
+        - generic [ref=e616]:
+          - generic [ref=e617]:
+            - generic [ref=e618]: 执行建议
+            - generic [ref=e619]: Passed
+          - generic [ref=e620]: 候选人在“某大型企业零工管理平台”的 React 重构经验完美契合该项目初期的技术改造需求。在 AI 初筛中，展现了扎实的大列表虚拟化渲染技术，且当前时间充裕（随时可接单），强烈建议签约。
+        - generic [ref=e621]:
+          - heading "核心技能匹配度" [level=4] [ref=e622]:
+            - img [ref=e623]
+            - text: 核心技能匹配度
+          - generic [ref=e625]:
+            - generic [ref=e627]:
+              - generic [ref=e628]: 前端框架 (React)
+              - generic [ref=e629]: 98%
+            - generic [ref=e633]:
+              - generic [ref=e634]: 性能调优 (虚拟渲染)
+              - generic [ref=e635]: 92%
+            - generic [ref=e639]:
+              - generic [ref=e640]: 跨端/多端架构
+              - generic [ref=e641]: 85%
+        - generic [ref=e644]:
+          - generic [ref=e645]:
+            - heading "核心优势" [level=4] [ref=e646]:
+              - img [ref=e647]
+              - text: 核心优势
+            - list [ref=e650]:
+              - listitem [ref=e651]: 拥有 5 年 SaaS 级 React 项目重构经验。
+              - listitem [ref=e652]: 对虚拟列表、按需加载等性能调优手段运用成熟。
+              - listitem [ref=e653]: 表达沟通清晰，对需求理解到位。
+          - generic [ref=e654]:
+            - heading "潜在风险提示" [level=4] [ref=e655]:
+              - img [ref=e656]
+              - text: 潜在风险提示
+            - list [ref=e659]:
+              - listitem [ref=e660]: 后端 Node.js 经验一般，需提供清晰的 API 文档支撑联调。
+              - listitem [ref=e661]: 仅在周末或晚间时间投入，注意规避突发情况。
+        - generic [ref=e662]:
+          - heading "AI 考核深度对话摘录" [level=4] [ref=e663]:
+            - img [ref=e664]
+            - text: AI 考核深度对话摘录
+          - generic [ref=e667]:
+            - generic [ref=e668]:
+              - generic [ref=e669]:
+                - generic [ref=e670]: Q
+                - generic [ref=e671]: 如果负责商城重构，怎么保证旧功能平稳过渡？
+              - generic [ref=e672]:
+                - generic [ref=e673]: A
+                - generic [ref=e674]: 我会优先搭建微前端或双路由。核心交易链路最后替换，新代码模块化编写通过单测后再灰度上线。
+            - generic [ref=e675]:
+              - generic [ref=e676]:
+                - generic [ref=e677]: Q
+                - generic [ref=e678]: 针对长列表加载卡顿的解决方案是？
+              - generic [ref=e679]:
+                - generic [ref=e680]: A
+                - generic [ref=e681]: 使用 react-window 自行实现虚拟渲染，只渲染可视区域节点；同时搭配图片懒加载和骨架屏。

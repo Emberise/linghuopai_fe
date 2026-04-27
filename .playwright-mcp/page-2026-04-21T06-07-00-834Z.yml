@@ -1,0 +1,79 @@
+- generic [ref=e479]:
+  - banner [ref=e480]:
+    - generic [ref=e481]:
+      - button "返回工作台" [ref=e482]:
+        - img [ref=e483]
+        - text: 返回工作台
+      - generic [ref=e485]: 需求情况
+      - button "发布任务" [ref=e486]:
+        - img [ref=e487]
+        - text: 发布任务
+  - main [ref=e488]:
+    - generic [ref=e489]:
+      - heading "已发布的需求" [level=2] [ref=e490]
+      - generic [ref=e491] [cursor=pointer]:
+        - heading "微信小程序商城前端外包 / React 重构" [level=3] [ref=e493]
+        - generic [ref=e494]: ¥ 15,000 / 项目
+        - generic [ref=e496]:
+          - img [ref=e497]
+          - text: 发现匹配人选
+      - generic [ref=e500] [cursor=pointer]:
+        - heading "内部 ERP 权限系统优化" [level=3] [ref=e502]
+        - generic [ref=e503]: ¥ 400 / 小时
+        - generic [ref=e505]:
+          - img [ref=e506]
+          - text: 等待 AI 分析
+    - generic [ref=e510]:
+      - generic [ref=e511]:
+        - generic [ref=e512]:
+          - heading "微信小程序商城前端外包 / React 重构" [level=1] [ref=e513]
+          - generic [ref=e514]: ¥ 15,000 / 项目
+        - generic [ref=e515]:
+          - generic [ref=e516]:
+            - img [ref=e517]
+            - text: 不限
+          - generic [ref=e520]: 支持 Remote
+        - generic [ref=e521]:
+          - heading "结构化 JD 描述 (AI 自动提取)" [level=4] [ref=e522]:
+            - img [ref=e523]
+            - text: 结构化 JD 描述 (AI 自动提取)
+          - paragraph [ref=e526]: 需要一名有三年以上经验的前端，精通 React/Taro/Uniapp，完成一套商城前端代码与老系统的重构对接。
+      - generic [ref=e527]:
+        - heading "AI 匹配候选人推荐" [level=2] [ref=e529]:
+          - img [ref=e530]
+          - text: AI 匹配候选人推荐
+        - generic [ref=e535]:
+          - generic [ref=e536] [cursor=pointer]:
+            - generic [ref=e537]:
+              - img [ref=e538]
+              - text: 已通过 AI 初筛
+            - generic [ref=e541]:
+              - generic [ref=e542]:
+                - generic [ref=e543]: 林
+                - generic [ref=e544]:
+                  - generic [ref=e545]: 林工
+                  - generic [ref=e546]: 高级前端开发
+              - generic [ref=e547]:
+                - img [ref=e548]
+                - generic [ref=e550]: 98%
+            - generic [ref=e551]:
+              - generic [ref=e552]: React
+              - generic [ref=e553]: 性能调优
+              - generic [ref=e554]: SaaS 重构
+            - generic [ref=e556]:
+              - text: 查看评估报告与发起直聊
+              - img [ref=e557]
+          - generic [ref=e559] [cursor=pointer]:
+            - generic [ref=e560]:
+              - generic [ref=e561]:
+                - generic [ref=e562]: 王
+                - generic [ref=e563]:
+                  - generic [ref=e564]: 王工
+                  - generic [ref=e565]: 前端架构师
+              - generic [ref=e566]:
+                - img [ref=e567]
+                - generic [ref=e569]: 91%
+            - generic [ref=e570]:
+              - generic [ref=e571]: Uniapp
+              - generic [ref=e572]: 高产出
+            - generic [ref=e574]: AI 正在初试评估中...

@@ -1,0 +1,135 @@
+- generic [ref=e986]:
+  - generic [ref=e987]:
+    - paragraph [ref=e988]:
+      - text: 停止繁琐招聘。在企业版中雇佣前 1% 的顶尖人才。
+      - button "了解更多" [ref=e989]
+    - button [ref=e990]:
+      - img [ref=e991]
+  - banner [ref=e994]:
+    - generic [ref=e995]:
+      - generic [ref=e996]:
+        - generic [ref=e997] [cursor=pointer]:
+          - generic [ref=e999]: AI
+          - generic [ref=e1000]: StellaWork
+        - navigation [ref=e1001]:
+          - button "招聘人才" [ref=e1003]:
+            - text: 招聘人才
+            - img [ref=e1004]
+          - button "寻找工作" [ref=e1007]:
+            - text: 寻找工作
+            - img [ref=e1008]
+          - button "为什么选择我们" [ref=e1011]:
+            - text: 为什么选择我们
+            - img [ref=e1012]
+          - button "企业服务" [ref=e1015]
+          - button "定价方案" [ref=e1017]
+      - generic [ref=e1018]:
+        - button "个人主页" [ref=e1019]
+        - button "退出登录" [ref=e1020]
+        - button "发需求" [ref=e1021]
+  - main [ref=e1022]:
+    - generic [ref=e1023]:
+      - generic [ref=e1024]:
+        - generic [ref=e1025]:
+          - heading "您好，林工" [level=1] [ref=e1026]
+          - generic [ref=e1031]: 可接单
+        - paragraph [ref=e1032]: 欢迎回到您的工作台。以下是您近期的活动概览。
+      - generic [ref=e1033]:
+        - generic [ref=e1034] [cursor=pointer]:
+          - img [ref=e1036]
+          - generic [ref=e1039]:
+            - generic [ref=e1040]: "12"
+            - generic [ref=e1041]: 已接单任务
+        - generic [ref=e1042] [cursor=pointer]:
+          - img [ref=e1044]
+          - generic [ref=e1047]:
+            - generic [ref=e1048]: "3"
+            - generic [ref=e1049]: 发布过需求
+        - generic [ref=e1050] [cursor=pointer]:
+          - img [ref=e1052]
+          - generic [ref=e1054]:
+            - generic [ref=e1055]: "2"
+            - generic [ref=e1056]: 进行中项目
+        - generic [ref=e1057] [cursor=pointer]:
+          - img [ref=e1059]
+          - generic [ref=e1062]:
+            - generic [ref=e1063]: ¥ 18.5k
+            - generic [ref=e1064]: 累计总收入
+      - heading "快捷操作" [level=2] [ref=e1065]
+      - generic [ref=e1066]:
+        - generic [ref=e1068] [cursor=pointer]:
+          - img [ref=e1070]
+          - heading "个人情况与画像" [level=3] [ref=e1074]
+          - paragraph [ref=e1075]: 更新简历并使用 AI 重新提炼您的能力标签。
+          - generic [ref=e1076]:
+            - text: 查看与编辑
+            - img [ref=e1077]
+        - generic [ref=e1080] [cursor=pointer]:
+          - img [ref=e1082]
+          - heading "需求情况" [level=3] [ref=e1085]
+          - paragraph [ref=e1086]: 企业入口。管理您发布的任务，查看 AI 匹配的候选人并自动提取 PRD 需求。
+          - generic [ref=e1087]:
+            - text: 管理与发布
+            - img [ref=e1088]
+    - generic [ref=e1091]:
+      - generic [ref=e1092]:
+        - generic [ref=e1093]:
+          - img [ref=e1095]
+          - heading "AI 为您匹配的岗位" [level=2] [ref=e1098]
+        - generic [ref=e1099]: 实时推荐
+      - generic [ref=e1101]:
+        - generic [ref=e1102] [cursor=pointer]:
+          - generic [ref=e1103]:
+            - generic [ref=e1104]:
+              - heading "SaaS 平台前端重构" [level=3] [ref=e1105]
+              - generic [ref=e1106]: 某独角兽科技
+            - generic [ref=e1107]:
+              - img [ref=e1108]
+              - generic [ref=e1110]: 98% 匹配
+          - generic [ref=e1111]:
+            - generic [ref=e1112]:
+              - generic [ref=e1113]: React
+              - generic [ref=e1114]: TypeScript
+            - generic [ref=e1115]: ¥ 12,000 / 月
+          - generic [ref=e1116]:
+            - paragraph [ref=e1117]: 基于您的 React 与平台重构经验强匹配。
+            - button "聊一聊" [ref=e1118]:
+              - img [ref=e1119]
+              - text: 聊一聊
+        - generic [ref=e1121] [cursor=pointer]:
+          - generic [ref=e1122]:
+            - generic [ref=e1123]:
+              - heading "AI 对话界面客户端开发" [level=3] [ref=e1124]
+              - generic [ref=e1125]: 初创 AI 团队
+            - generic [ref=e1126]:
+              - img [ref=e1127]
+              - generic [ref=e1129]: 94% 匹配
+          - generic [ref=e1130]:
+            - generic [ref=e1131]:
+              - generic [ref=e1132]: WebSocket
+              - generic [ref=e1133]: Tailwind
+            - generic [ref=e1134]: ¥ 8,000 / 项目
+          - generic [ref=e1135]:
+            - paragraph [ref=e1136]: 基于您的 React 与平台重构经验强匹配。
+            - button "聊一聊" [ref=e1137]:
+              - img [ref=e1138]
+              - text: 聊一聊
+        - generic [ref=e1140] [cursor=pointer]:
+          - generic [ref=e1141]:
+            - generic [ref=e1142]:
+              - heading "小程序商城性能调优" [level=3] [ref=e1143]
+              - generic [ref=e1144]: 零售品牌
+            - generic [ref=e1145]:
+              - img [ref=e1146]
+              - generic [ref=e1148]: 88% 匹配
+          - generic [ref=e1149]:
+            - generic [ref=e1150]:
+              - generic [ref=e1151]: Taro
+              - generic [ref=e1152]: 性能调优
+            - generic [ref=e1153]: ¥ 300 / 小时
+          - generic [ref=e1154]:
+            - paragraph [ref=e1155]: 基于您的 React 与平台重构经验强匹配。
+            - button "聊一聊" [ref=e1156]:
+              - img [ref=e1157]
+              - text: 聊一聊
+      - button "查看全部推荐 (您当前处于优先接单状态)" [ref=e1159]

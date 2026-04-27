@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的报名 - 灵活用工平台</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#ffede8",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "linghuo-amber": "#EA5614",
+                    "surface-container-highest": "#f8ddd4",
+                    "primary-container": "#cf4600",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#fdfcff",
+                    "on-secondary-fixed-variant": "#334a57",
+                    "primary-fixed": "#ffdbcf",
+                    "primary-fixed-dim": "#ffb59b",
+                    "on-surface-variant": "#5a4138",
+                    "on-tertiary-fixed-variant": "#004880",
+                    "bone-cream-dim": "oklch(96% 0.008 60)",
+                    "surface-variant": "#f8ddd4",
+                    "misty-slate": "#4A616F",
+                    "error": "#ba1a1a",
+                    "surface-container": "#ffe9e3",
+                    "inverse-surface": "#3d2d27",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#005ea3",
+                    "on-surface": "#261813",
+                    "error-container": "#ffdad6",
+                    "deep-char": "oklch(22% 0.008 60)",
+                    "ash-veil": "oklch(92% 0.006 60)",
+                    "warm-ash": "oklch(75% 0.005 60)",
+                    "secondary-fixed-dim": "#b2cada",
+                    "on-primary-container": "#fffbff",
+                    "on-tertiary-fixed": "#001c37",
+                    "surface-container-low": "#fff1ec",
+                    "on-primary": "#ffffff",
+                    "primary": "#a53600",
+                    "outline-variant": "#e2bfb3",
+                    "secondary-container": "#cde6f7",
+                    "tertiary-fixed-dim": "#a1c9ff",
+                    "background": "#fff8f6",
+                    "tertiary-fixed": "#d2e4ff",
+                    "on-primary-fixed": "#380d00",
+                    "inverse-primary": "#ffb59b",
+                    "surface-dim": "#efd4cc",
+                    "on-secondary-container": "#506776",
+                    "surface": "#fff8f6",
+                    "surface-bright": "#fff8f6",
+                    "outline": "#8e7066",
+                    "surface-container-high": "#fee2da",
+                    "on-background": "#261813",
+                    "tertiary-container": "#0077cd",
+                    "secondary": "#4a616f",
+                    "on-secondary-fixed": "#041e2a",
+                    "bone-cream": "oklch(98% 0.008 60)",
+                    "graphite": "oklch(45% 0.005 60)",
+                    "on-primary-fixed-variant": "#812800",
+                    "secondary-fixed": "#cde6f7",
+                    "surface-tint": "#a93700",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "unit": "4px",
+                    "container-max-body": "75ch",
+                    "md": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body": ["Manrope"],
+                    "display": ["Manrope"],
+                    "label": ["Manrope"],
+                    "title": ["Manrope"],
+                    "headline": ["Manrope"]
+            },
+            "fontSize": {
+                    "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                    "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                    "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .active-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: #EA5614;
+            border-radius: 9999px;
+        }
+        body {
+            background-color: oklch(98% 0.008 60); /* bone-cream */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body text-on-surface">
+<!-- TopAppBar Shell -->
+<header class="w-full top-0 sticky bg-[#FDFCFB] dark:bg-[#1C1B1A] border-b border-[#E5E1DE] dark:border-[#33302E] z-40">
+<div class="flex justify-between items-center h-16 px-4 w-full">
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform duration-200 text-[#EA5614]">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-['Manrope'] font-medium text-lg tracking-tight text-[#1A1A1A]">我的主页</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200 text-[#EA5614]">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-[75ch] mx-auto pb-24">
+<!-- Tabs Segment -->
+<nav class="sticky top-16 bg-bone-cream/80 backdrop-blur-md z-30 px-4 py-2 flex items-center justify-around border-b border-ash-veil">
+<button class="relative py-3 font-title text-title text-linghuo-amber active-tab px-4">全部报名</button>
+<button class="relative py-3 font-title text-title text-graphite hover:text-on-surface px-4 transition-colors">进行中</button>
+<button class="relative py-3 font-title text-title text-graphite hover:text-on-surface px-4 transition-colors">已结束</button>
+</nav>
+<!-- Stats Overview (Human-centric focus) -->
+<div class="p-4 grid grid-cols-3 gap-4 mt-2">
+<div class="bg-bone-cream-dim p-4 rounded-xl border border-ash-veil">
+<div class="text-label font-label text-graphite">累计参加</div>
+<div class="text-headline font-headline text-linghuo-amber">12</div>
+</div>
+<div class="bg-bone-cream-dim p-4 rounded-xl border border-ash-veil">
+<div class="text-label font-label text-graphite">面试中</div>
+<div class="text-headline font-headline text-linghuo-amber">2</div>
+</div>
+<div class="bg-bone-cream-dim p-4 rounded-xl border border-ash-veil">
+<div class="text-label font-label text-graphite">本月收益</div>
+<div class="text-headline font-headline text-linghuo-amber">¥1.8k</div>
+</div>
+</div>
+<!-- Task List Area -->
+<section class="px-4 space-y-4 mt-2">
+<!-- Card 1: AI Interviewing -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-ash-veil hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="bg-secondary-container text-on-secondary-container px-2.5 py-1 rounded-full text-label font-label flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span>
+                        AI面试中
+                    </span>
+<span class="text-linghuo-amber font-headline text-headline">¥240<span class="text-label font-label text-graphite ml-1">/天</span></span>
+</div>
+<h3 class="text-title font-title text-on-surface mb-2">高级文案策划 (远程)</h3>
+<div class="flex items-center gap-2 mb-4 text-graphite text-label">
+<span class="material-symbols-outlined text-[16px]">business</span>
+<span>创意工坊文化传媒</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label mb-1">
+<span class="text-graphite">面试进度</span>
+<span class="text-linghuo-amber font-bold">65%</span>
+</div>
+<div class="w-full bg-ash-veil h-1.5 rounded-full overflow-hidden">
+<div class="bg-linghuo-amber h-full w-[65%] rounded-full"></div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-ash-veil flex justify-end">
+<button class="bg-linghuo-amber text-white px-6 py-2 rounded-lg text-label font-label hover:bg-primary-container transition-colors">继续面试</button>
+</div>
+</div>
+<!-- Card 2: Invited -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-ash-veil hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="bg-tertiary-container text-white px-2.5 py-1 rounded-full text-label font-label flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+                        已邀约
+                    </span>
+<span class="text-linghuo-amber font-headline text-headline">¥45<span class="text-label font-label text-graphite ml-1">/小时</span></span>
+</div>
+<h3 class="text-title font-title text-on-surface mb-2">线下会展协助专员</h3>
+<div class="flex items-center gap-2 mb-4 text-graphite text-label">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>上海 · 世博展览馆</span>
+</div>
+<div class="bg-bone-cream-dim p-3 rounded-lg flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="professional hr manager portrait in office environment with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZDsHf248f0Gn-mBWO4Rdl9-ZXn_niheNDBZ_tZiOXD3gox6l3jwNOuc4ULbPGU_xSSbcmfQPRDSIqW8YhRWO8rUQ0rYS-R9vKgsJh0vaK0TOXTnpieuEDfsanDrT8Wz_3PqPHPsx65REF9xt1kPeqcCDmPLtFs2xJntaqsqQvolSQoB1w1vqpmUUuSRwPCKQpUr6CtCqA0W6jq0zagv3YdqoYllrRU3pFHYlTo3pxVWS3tzT1Ri90rrJ7LVL7lADeZXwuOrzBJ74T"/>
+<div>
+<div class="text-label font-label font-bold">HR 王经理</div>
+<div class="text-[11px] text-graphite">邀请你进行最后确认，请在24小时内答复</div>
+</div>
+</div>
+<div class="mt-4 flex gap-3">
+<button class="flex-1 border border-outline text-on-surface px-4 py-2 rounded-lg text-label font-label hover:bg-bone-cream transition-colors">拒绝</button>
+<button class="flex-1 bg-linghuo-amber text-white px-4 py-2 rounded-lg text-label font-label hover:bg-primary-container transition-colors">立即接受</button>
+</div>
+</div>
+<!-- Card 3: Pending -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-ash-veil hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="bg-warm-ash text-on-surface px-2.5 py-1 rounded-full text-label font-label flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">hourglass_empty</span>
+                        等待处理
+                    </span>
+<span class="text-linghuo-amber font-headline text-headline">¥300<span class="text-label font-label text-graphite ml-1">/件</span></span>
+</div>
+<h3 class="text-title font-title text-on-surface mb-2">UI图标设计包 (Bento风格)</h3>
+<div class="flex items-center gap-2 mb-4 text-graphite text-label">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>报名于 2023-11-20</span>
+</div>
+<div class="text-label text-graphite italic flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>企业主正在查看您的作品集...</span>
+</div>
+</div>
+<!-- Card 4: Completed -->
+<div class="bg-bone-cream-dim rounded-xl p-5 border border-ash-veil opacity-80">
+<div class="flex justify-between items-start mb-3">
+<span class="bg-ash-veil text-graphite px-2.5 py-1 rounded-full text-label font-label flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                        已完成
+                    </span>
+<span class="text-graphite font-headline text-headline">¥1,200</span>
+</div>
+<h3 class="text-title font-title text-graphite mb-2">小程序开发联调助理</h3>
+<div class="flex items-center gap-2 mb-4 text-graphite text-label">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>完成于 2023-11-15</span>
+</div>
+<div class="flex gap-2">
+<span class="text-xs bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">代码质量高</span>
+<span class="text-xs bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">沟通顺畅</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-2 bg-[#FDFCFB] dark:bg-[#1C1B1A] border-t border-[#E5E1DE] dark:border-[#33302E] shadow-[0_-1px_3px_rgba(0,0,0,0.02)] z-50">
+<a class="flex flex-col items-center justify-center text-[#6B6661] dark:text-[#A8A29E] hover:text-[#EA5614] transition-all active:scale-90 font-['Manrope'] text-[11px] font-medium" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span>首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6B6661] dark:text-[#A8A29E] hover:text-[#EA5614] transition-all active:scale-90 font-['Manrope'] text-[11px] font-medium" href="#">
+<span class="material-symbols-outlined mb-1">work_outline</span>
+<span>任务大厅</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#6B6661] dark:text-[#A8A29E] hover:text-[#EA5614] transition-all active:scale-90 font-['Manrope'] text-[11px] font-medium" href="#">
+<span class="material-symbols-outlined mb-1">smart_toy</span>
+<span>AI助手</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#EA5614] dark:text-[#FF8C5A] font-bold transition-all active:scale-90 font-['Manrope'] text-[11px]" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span>我的</span>
+</a>
+</nav>
+<!-- Floating Message Center Preview (Contextual Overlay) -->
+<div class="fixed bottom-24 right-4 z-40">
+<button class="w-12 h-12 bg-deep-char text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 transition-transform">
+<span class="material-symbols-outlined">chat_bubble</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-linghuo-amber rounded-full text-[10px] flex items-center justify-center font-bold">3</div>
+</button>
+</div>
+</body></html>

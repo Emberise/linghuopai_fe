@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "misty-slate": "#4A616F",
+                        "surface-container-high": "#fee2da",
+                        "surface-container-lowest": "#ffffff",
+                        "bone-cream-dim": "oklch(96% 0.008 60)",
+                        "surface-dim": "#efd4cc",
+                        "inverse-surface": "#3d2d27",
+                        "on-surface-variant": "#5a4138",
+                        "surface-container": "#ffe9e3",
+                        "primary-container": "#cf4600",
+                        "on-error-container": "#93000a",
+                        "linghuo-amber": "#EA5614",
+                        "primary-fixed": "#ffdbcf",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#b2cada",
+                        "on-primary-container": "#fffbff",
+                        "on-surface": "#261813",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "inverse-on-surface": "#ffede8",
+                        "on-tertiary-fixed": "#001c37",
+                        "outline-variant": "#e2bfb3",
+                        "graphite": "oklch(45% 0.005 60)",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#0077cd",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#fff1ec",
+                        "surface": "#fff8f6",
+                        "surface-bright": "#fff8f6",
+                        "primary": "#a53600",
+                        "on-secondary-container": "#506776",
+                        "on-primary-fixed-variant": "#812800",
+                        "outline": "#8e7066",
+                        "on-secondary-fixed": "#041e2a",
+                        "tertiary": "#005ea3",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "ash-veil": "oklch(92% 0.006 60)",
+                        "surface-container-highest": "#f8ddd4",
+                        "bone-cream": "oklch(98% 0.008 60)",
+                        "secondary-container": "#cde6f7",
+                        "secondary-fixed": "#cde6f7",
+                        "on-secondary-fixed-variant": "#334a57",
+                        "tertiary-fixed": "#d2e4ff",
+                        "warm-ash": "oklch(75% 0.005 60)",
+                        "surface-variant": "#f8ddd4",
+                        "background": "#fff8f6",
+                        "on-background": "#261813",
+                        "primary-fixed-dim": "#ffb59b",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#a93700",
+                        "secondary": "#4a616f",
+                        "deep-char": "oklch(22% 0.008 60)",
+                        "on-primary-fixed": "#380d00",
+                        "inverse-primary": "#ffb59b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "40px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "md": "16px",
+                        "container-max-body": "75ch"
+                    },
+                    "fontFamily": {
+                        "label": ["Manrope"],
+                        "display": ["Manrope"],
+                        "headline": ["Manrope"],
+                        "title": ["Manrope"],
+                        "body": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                        "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                        "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                        "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        body {
+            background-color: oklch(98% 0.008 60);
+            color: #261813;
+            font-family: 'Manrope', sans-serif;
+        }
+        .task-card:hover {
+            box-shadow: 0 4px 20px -4px rgba(165, 54, 0, 0.08);
+            transform: translateY(-2px);
+            transition: all 0.3s ease-out;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-bone-cream min-h-screen flex flex-col items-center">
+<!-- Top Navigation -->
+<nav class="bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 flex justify-between items-center px-4 h-16 w-full max-w-md mx-auto fixed top-0 sticky z-50">
+<div class="text-orange-600 font-black text-xl font-['Manrope'] tracking-tight">领活派</div>
+<button class="text-orange-600 dark:text-orange-500 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</nav>
+<!-- Content Canvas -->
+<main class="w-full max-w-md px-4 pt-6 pb-24 space-y-6">
+<!-- Search & Filter Section -->
+<div class="space-y-4">
+<div class="relative">
+<input class="w-full h-12 bg-bone-cream-dim border-none rounded-xl px-12 text-body font-body text-on-surface focus:ring-2 focus:ring-linghuo-amber/20 transition-all placeholder:text-warm-ash" placeholder="搜索你感兴趣的任务..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-warm-ash" data-icon="search">search</span>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="px-5 py-2 bg-linghuo-amber text-white rounded-full font-label text-label whitespace-nowrap">全部任务</button>
+<button class="px-5 py-2 bg-bone-cream-dim text-misty-slate border border-ash-veil rounded-full font-label text-label whitespace-nowrap hover:bg-ash-veil transition-colors">远程</button>
+<button class="px-5 py-2 bg-bone-cream-dim text-misty-slate border border-ash-veil rounded-full font-label text-label whitespace-nowrap hover:bg-ash-veil transition-colors">全职</button>
+<button class="px-5 py-2 bg-bone-cream-dim text-misty-slate border border-ash-veil rounded-full font-label text-label whitespace-nowrap hover:bg-ash-veil transition-colors">兼职</button>
+</div>
+</div>
+<!-- Task List Header -->
+<div class="flex items-center justify-between">
+<h2 class="font-headline text-headline text-on-surface">推荐任务</h2>
+<button class="flex items-center gap-1 text-linghuo-amber font-label text-label">
+                智能排序
+                <span class="material-symbols-outlined text-[16px]" data-icon="swap_vert">swap_vert</span>
+</button>
+</div>
+<!-- Task Cards Grid -->
+<div class="space-y-4">
+<!-- Card 1 -->
+<div class="task-card bg-white border border-ash-veil rounded-xl p-4 flex flex-col gap-3 cursor-pointer">
+<div class="flex justify-between items-start">
+<h3 class="font-title text-title text-deep-char leading-tight">资深 UI/UX 设计师</h3>
+<span class="text-linghuo-amber font-bold text-title">25k - 40k</span>
+</div>
+<div class="flex gap-3 text-misty-slate font-label text-label items-center">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> 上海 · 远程
+                    </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 1小时前发布
+                    </span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2 border-l-4 border-linghuo-amber">
+<span class="material-symbols-outlined text-linghuo-amber text-[18px] mt-0.5" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<p class="text-[13px] text-on-surface-variant font-medium">AI 推荐理由：与你的 UI 设计能力及 Figma 协作经验高度匹配。</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-bone-cream-dim text-graphite rounded-md text-[11px] font-medium border border-ash-veil">B端产品</span>
+<span class="px-2 py-1 bg-bone-cream-dim text-graphite rounded-md text-[11px] font-medium border border-ash-veil">设计系统</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="task-card bg-white border border-ash-veil rounded-xl p-4 flex flex-col gap-3 cursor-pointer">
+<div class="flex justify-between items-start">
+<h3 class="font-title text-title text-deep-char leading-tight">独立插画师（兼职项目）</h3>
+<span class="text-linghuo-amber font-bold text-title">1.5k/张</span>
+</div>
+<div class="flex gap-3 text-misty-slate font-label text-label items-center">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> 杭州 · 兼职
+                    </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 昨天
+                    </span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2 border-l-4 border-linghuo-amber">
+<span class="material-symbols-outlined text-linghuo-amber text-[18px] mt-0.5" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<p class="text-[13px] text-on-surface-variant font-medium">AI 推荐理由：匹配你的手绘插画风格及品牌调性库。</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-bone-cream-dim text-graphite rounded-md text-[11px] font-medium border border-ash-veil">Procreate</span>
+<span class="px-2 py-1 bg-bone-cream-dim text-graphite rounded-md text-[11px] font-medium border border-ash-veil">商业插画</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="task-card bg-white border border-ash-veil rounded-xl p-4 flex flex-col gap-3 cursor-pointer">
+<div class="flex justify-between items-start">
+<h3 class="font-title text-title text-deep-char leading-tight">中级前端工程师</h3>
+<span class="text-linghuo-amber font-bold text-title">18k - 30k</span>
+</div>
+<div class="flex gap-3 text-misty-slate font-label text-label items-center">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> 深圳 · 全职
+                    </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 3小时前发布
+                    </span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2 border-l-4 border-linghuo-amber">
+<span class="material-symbols-outlined text-linghuo-amber text-[18px] mt-0.5" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<p class="text-[13px] text-on-surface-variant font-medium">AI 推荐理由：符合你的 React 开发经验及 TailwindCSS 熟练度。</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-bone-cream-dim text-graphite rounded-md text-[11px] font-medium border border-ash-veil">React</span>
+<span class="px-2 py-1 bg-bone-cream-dim text-graphite rounded-md text-[11px] font-medium border border-ash-veil">Next.js</span>
+</div>
+</div>
+<!-- Card 4 - Bento Styled Visual Placeholder -->
+<div class="relative h-32 rounded-xl overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-r from-orange-600/80 to-amber-500/80 z-10 flex items-center justify-center">
+<div class="text-center px-6">
+<p class="text-white font-headline text-title">更多任务正在派送中...</p>
+<p class="text-white/80 font-label text-[12px] mt-1">AI 正在根据你的作品集持续筛选</p>
+</div>
+</div>
+<img class="w-full h-full object-cover" data-alt="a cozy minimalist workstation with a laptop, a warm desk lamp casting a soft orange glow, and small green plants on a wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZpgN_j6Src5W7AsOR-jg6ajG-NUiwIS2EUOKGyYHAQ_w6tTUcSldkQPu7WeZusVByLIidGifHinfZcy07DWyHphFnKQksYb79n8w0V1shk7kfGytq0Z9NAojbVhOD073GRSAUf9H_f59yq9pW8tSA7EtvZGWANWVf-vooCV_FKfIQNqGX5WIOajSPWivhw5jBvZZxU0pvZxiewIBrqlpwq_ZkUqwHS39xBIZUxsZhNyTgLwa1LvR5kwbpigE7zOyPotkBYoBX5MFw"/>
+</div>
+</div>
+</main>
+<!-- Floating FAB (Contextual) -->
+<button class="fixed right-6 bottom-24 bg-linghuo-amber text-white p-4 rounded-full shadow-lg active:scale-90 transition-transform z-50 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+<!-- Bottom Navigation -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-6 bg-stone-50/95 dark:bg-stone-950/95 backdrop-blur-md border-t border-stone-200 dark:border-stone-800 shadow-[0_-1px_3px_0_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 font-['Manrope'] text-[11px] font-medium hover:text-orange-600 transition-colors scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span>首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-500 font-bold font-['Manrope'] text-[11px] scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">work_outline</span>
+<span>任务大厅</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 font-['Manrope'] text-[11px] font-medium hover:text-orange-600 transition-colors scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">smart_toy</span>
+<span>AI助手</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 font-['Manrope'] text-[11px] font-medium hover:text-orange-600 transition-colors scale-95 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span>我的</span>
+</a>
+</footer>
+</body></html>

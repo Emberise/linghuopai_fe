@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#a53600",
+                        "surface-container-low": "#fff1ec",
+                        "on-surface": "#261813",
+                        "secondary-container": "#cde6f7",
+                        "on-secondary-fixed-variant": "#334a57",
+                        "secondary": "#4a616f",
+                        "deep-char": "oklch(22% 0.008 60)",
+                        "tertiary": "#005ea3",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#041e2a",
+                        "on-tertiary-fixed": "#001c37",
+                        "inverse-primary": "#ffb59b",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "primary-fixed": "#ffdbcf",
+                        "primary-fixed-dim": "#ffb59b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffede8",
+                        "on-secondary-container": "#506776",
+                        "on-primary-fixed": "#380d00",
+                        "outline": "#8e7066",
+                        "misty-slate": "#4A616F",
+                        "surface-tint": "#a93700",
+                        "on-secondary": "#ffffff",
+                        "linghuo-amber": "#EA5614",
+                        "tertiary-container": "#0077cd",
+                        "bone-cream-dim": "oklch(96% 0.008 60)",
+                        "background": "#fff8f6",
+                        "on-primary-fixed-variant": "#812800",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#5a4138",
+                        "graphite": "oklch(45% 0.005 60)",
+                        "bone-cream": "oklch(98% 0.008 60)",
+                        "warm-ash": "oklch(75% 0.005 60)",
+                        "surface-container-high": "#fee2da",
+                        "surface-variant": "#f8ddd4",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "ash-veil": "oklch(92% 0.006 60)",
+                        "inverse-surface": "#3d2d27",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#f8ddd4",
+                        "on-tertiary-container": "#fdfcff",
+                        "tertiary-fixed": "#d2e4ff",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "primary-container": "#cf4600",
+                        "on-background": "#261813",
+                        "outline-variant": "#e2bfb3",
+                        "surface-container": "#ffe9e3",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#efd4cc",
+                        "secondary-fixed": "#cde6f7",
+                        "secondary-fixed-dim": "#b2cada",
+                        "on-primary-container": "#fffbff",
+                        "surface": "#fff8f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-max-body": "75ch",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body": ["Manrope"],
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "label": ["Manrope"],
+                        "title": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                        "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                        "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: oklch(98% 0.008 60); color: oklch(22% 0.008 60); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .chat-bubble-agent { position: relative; max-width: 85%; }
+        .chat-bubble-user { position: relative; max-width: 85%; }
+        .ambient-hover:hover { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05); }
+        .streaming-cursor::after { content: '|'; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#F9F7F2] dark:bg-[#1A1A1A] border-b border-[#E5E1D8] dark:border-[#2D2D2D]">
+<div class="flex justify-between items-center w-full px-6 h-16 max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-misty-slate flex items-center justify-center overflow-hidden">
+<img alt="User" data-alt="close-up portrait of a professional young man with a friendly expression in a minimalist digital avatar style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNdgEBuxvgCmB9quSt2qKS6P7rXMiIN0yhH_T8ue97p-8dMikz9-vh4uKmdg98WZ2VgL4oNjN3J8VRqrr7tXiAWK-68-bCTJKhLZ_lJJwzg6Fj4DlrbhMn6j6TmgptECxU__EKIFUQ25uwAS3uJkyi7bnl1rWRJdK75s_CuOpEIylhCc1MVeH_YQXSYeJmMSlzZ4qLmixdbmoTqiRXbkH9ldtZGN0juTBJZt-rapHnJmL8QBbhNnyDZzjcNhZ0xtU0qySDc1_HRvxe"/>
+</div>
+<span class="text-xl font-black text-[#1F1F1F] dark:text-[#F9F7F2] tracking-tight">领活派</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#5F5F5F] hover:bg-[#E5E1D8]/50 p-2 rounded-full transition-colors active:opacity-80">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-24 px-6 max-w-[75ch] mx-auto min-h-screen flex flex-col gap-lg">
+<!-- Welcome Message -->
+<div class="chat-bubble-agent flex gap-md">
+<div class="w-10 h-10 rounded-full bg-misty-slate flex-shrink-0 flex items-center justify-center text-bone-cream">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="bg-bone-cream-dim p-md rounded-xl rounded-tl-none border border-ash-veil">
+<p class="font-body text-body text-deep-char">
+                        你好，我是你的 AI 职业助手。我可以帮你解析简历、生成专业画像，或者为你推荐最合适的岗位。
+                    </p>
+</div>
+<span class="font-label text-label text-graphite px-1">09:41 AM</span>
+</div>
+</div>
+<!-- Progressive Guidance -->
+<div class="flex justify-center py-sm">
+<p class="font-label text-label text-warm-ash tracking-widest">尝试上传你的简历以开始分析</p>
+</div>
+<!-- Resume Upload Card (Actionable Area) -->
+<div class="w-full bg-bone-cream border border-dashed border-misty-slate/30 rounded-xl p-xl flex flex-col items-center justify-center gap-md ambient-hover transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-misty-slate group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<div class="text-center">
+<h3 class="font-title text-title text-deep-char mb-xs">点击或拖拽上传简历</h3>
+<p class="font-body text-body text-graphite">支持 PDF, Word 格式 (最大 10MB)</p>
+</div>
+<div class="flex gap-sm">
+<span class="px-3 py-1 bg-ash-veil rounded-full font-label text-label text-graphite">快速解析</span>
+<span class="px-3 py-1 bg-ash-veil rounded-full font-label text-label text-graphite">画像匹配</span>
+</div>
+</div>
+<!-- User Message Example -->
+<div class="chat-bubble-user self-end flex flex-row-reverse gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex-shrink-0 flex items-center justify-center overflow-hidden">
+<img alt="User" data-alt="minimalist user avatar profile picture with soft warm background colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGDjijiV7WNSMUj3jKR9hXs1bkRCdIaYctyTu487T7F49Ewkglx2usfYIW_6xJj9OCxG0-knUS7DKv1Ty0YpZtx-deS7rTK7chjz89xz3n0nD2tyFgb166uUE9am7748h8RTb9NLCTpLqSLY6m9mlkMkUrdxI4X5tlbCq3ZlhH5jcyL9pYoznR_xmexRL5-BwoB6ewWg4n-2Z5bitzj0mhJ9rPkGyyzTZhNRx5hFNoD1qq9-g9o1A5U6mZf0yWlV8fIM73juUxDX-r"/>
+</div>
+<div class="flex flex-col gap-sm items-end">
+<div class="bg-linghuo-amber text-white p-md rounded-xl rounded-tr-none">
+<p class="font-body text-body">帮我看看目前的求职市场中有哪些适合我的远程 AI 设计师岗位？</p>
+</div>
+<span class="font-label text-label text-graphite px-1">09:45 AM</span>
+</div>
+</div>
+<!-- AI Streaming Response with Bento Layout inside -->
+<div class="chat-bubble-agent flex gap-md">
+<div class="w-10 h-10 rounded-full bg-misty-slate flex-shrink-0 flex items-center justify-center text-bone-cream">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col gap-md w-full">
+<div class="bg-bone-cream-dim p-md rounded-xl rounded-tl-none border border-ash-veil">
+<p class="font-body text-body text-deep-char mb-md streaming-cursor">
+                        基于你的过往作品集和设计偏好，我为你筛选了以下 3 个高匹配度的远程岗位。这些公司都倾向于拥有 AI 交互设计经验的候选人：
+                    </p>
+<!-- Bento Grid for Job Recommendations -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="p-md bg-white border border-ash-veil rounded-lg ambient-hover transition-all flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label text-[10px] uppercase tracking-wider text-misty-slate bg-secondary-container px-2 py-0.5 rounded">远程</span>
+<span class="text-linghuo-amber font-title text-sm">25k - 40k</span>
+</div>
+<h4 class="font-title text-body font-bold text-deep-char line-clamp-1">高级 AI 产品设计师</h4>
+<p class="text-[12px] text-graphite">MetaMind Labs · 全职</p>
+</div>
+<button class="mt-md w-full py-1.5 bg-deep-char text-white rounded-md font-label text-label">查看详情</button>
+</div>
+<div class="p-md bg-white border border-ash-veil rounded-lg ambient-hover transition-all flex flex-col justify-between h-40">
+<div>
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label text-[10px] uppercase tracking-wider text-misty-slate bg-secondary-container px-2 py-0.5 rounded">灵活</span>
+<span class="text-linghuo-amber font-title text-sm">18k - 30k</span>
+</div>
+<h4 class="font-title text-body font-bold text-deep-char line-clamp-1">UI/UX 交互专家</h4>
+<p class="text-[12px] text-graphite">Silica AI · 兼职</p>
+</div>
+<button class="mt-md w-full py-1.5 border border-deep-char text-deep-char rounded-md font-label text-label">查看详情</button>
+</div>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="px-4 py-2 bg-bone-cream border border-ash-veil rounded-full font-label text-label text-deep-char hover:bg-ash-veil transition-colors">生成岗位匹配报告</button>
+<button class="px-4 py-2 bg-bone-cream border border-ash-veil rounded-full font-label text-label text-deep-char hover:bg-ash-veil transition-colors">修改期望薪资</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Interaction Bar (Floating Input) -->
+<div class="fixed bottom-16 left-0 w-full px-6 pb-6 z-40">
+<div class="max-w-[75ch] mx-auto bg-bone-cream/80 backdrop-blur-md border border-ash-veil rounded-2xl p-sm shadow-xl flex items-end gap-sm">
+<div class="flex items-center gap-1 mb-1">
+<button class="w-10 h-10 flex items-center justify-center text-graphite hover:text-misty-slate rounded-full transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-graphite hover:text-misty-slate rounded-full transition-colors">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 resize-none py-3 font-body text-body text-deep-char placeholder:text-warm-ash" placeholder="输入消息，或询问职业建议..." rows="1" style="max-height: 120px;"></textarea>
+<button class="mb-1 w-10 h-10 bg-misty-slate text-bone-cream rounded-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#F9F7F2]/90 dark:bg-[#1A1A1A]/90 backdrop-blur-md border-t border-[#E5E1D8] dark:border-[#2D2D2D] pb-safe">
+<div class="flex justify-around items-center w-full h-16 max-w-screen-xl mx-auto">
+<a class="flex flex-col items-center justify-center text-[#8C8C8C] p-2 hover:text-[#EA5614]" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-manrope text-[10px] font-medium">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#8C8C8C] p-2 hover:text-[#EA5614]" href="#">
+<span class="material-symbols-outlined">work_outline</span>
+<span class="font-manrope text-[10px] font-medium">任务大厅</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#EA5614] p-2 relative after:content-[''] after:absolute after:top-0 after:w-8 after:h-0.5 after:bg-[#EA5614]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-manrope text-[10px] font-medium">AI助手</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#8C8C8C] p-2 hover:text-[#EA5614]" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[10px] font-medium">我的</span>
+</a>
+</div>
+</nav>
+</body></html>

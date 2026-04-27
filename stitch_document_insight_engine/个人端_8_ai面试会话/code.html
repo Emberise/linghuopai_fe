@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "misty-slate": "#4A616F",
+                    "surface-container-high": "#fee2da",
+                    "surface-container-lowest": "#ffffff",
+                    "bone-cream-dim": "oklch(96% 0.008 60)",
+                    "surface-dim": "#efd4cc",
+                    "inverse-surface": "#3d2d27",
+                    "on-surface-variant": "#5a4138",
+                    "surface-container": "#ffe9e3",
+                    "primary-container": "#cf4600",
+                    "on-error-container": "#93000a",
+                    "linghuo-amber": "#EA5614",
+                    "primary-fixed": "#ffdbcf",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#b2cada",
+                    "on-primary-container": "#fffbff",
+                    "on-surface": "#261813",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#a1c9ff",
+                    "inverse-on-surface": "#ffede8",
+                    "on-tertiary-fixed": "#001c37",
+                    "outline-variant": "#e2bfb3",
+                    "graphite": "oklch(45% 0.005 60)",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#0077cd",
+                    "on-tertiary-container": "#fdfcff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#fff1ec",
+                    "surface": "#fff8f6",
+                    "surface-bright": "#fff8f6",
+                    "primary": "#a53600",
+                    "on-secondary-container": "#506776",
+                    "on-primary-fixed-variant": "#812800",
+                    "outline": "#8e7066",
+                    "on-secondary-fixed": "#041e2a",
+                    "tertiary": "#005ea3",
+                    "on-tertiary-fixed-variant": "#004880",
+                    "ash-veil": "oklch(92% 0.006 60)",
+                    "surface-container-highest": "#f8ddd4",
+                    "bone-cream": "oklch(98% 0.008 60)",
+                    "secondary-container": "#cde6f7",
+                    "secondary-fixed": "#cde6f7",
+                    "on-secondary-fixed-variant": "#334a57",
+                    "tertiary-fixed": "#d2e4ff",
+                    "warm-ash": "oklch(75% 0.005 60)",
+                    "surface-variant": "#f8ddd4",
+                    "background": "#fff8f6",
+                    "on-background": "#261813",
+                    "primary-fixed-dim": "#ffb59b",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#a93700",
+                    "secondary": "#4a616f",
+                    "deep-char": "oklch(22% 0.008 60)",
+                    "on-primary-fixed": "#380d00",
+                    "inverse-primary": "#ffb59b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "40px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "md": "16px",
+                    "container-max-body": "75ch"
+            },
+            "fontFamily": {
+                    "label": ["Manrope"],
+                    "display": ["Manrope"],
+                    "headline": ["Manrope"],
+                    "title": ["Manrope"],
+                    "body": ["Manrope"]
+            },
+            "fontSize": {
+                    "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                    "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                    "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                    "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}],
+                    "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: oklch(98% 0.008 60); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .chat-container { height: calc(100vh - 144px); }
+        .amber-glow { filter: drop-shadow(0 0 8px rgba(234, 86, 20, 0.2)); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- Top Navigation -->
+<header class="bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center px-4 h-16 w-full max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<button class="text-stone-400 hover:bg-stone-100 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-orange-600 font-black text-xl font-['Manrope'] tracking-tight">领活派</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-orange-600 material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto relative min-h-screen flex flex-col bg-bone-cream">
+<!-- Interview Status Indicator -->
+<div class="px-6 pt-6 pb-2">
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between border border-ash-veil">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<p class="font-title text-title text-on-surface">AI 助手面试中</p>
+<p class="font-label text-label text-warm-ash">当前进度：2 / 5 轮对话</p>
+</div>
+</div>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-ash-veil"></div>
+<div class="w-2 h-2 rounded-full bg-ash-veil"></div>
+<div class="w-2 h-2 rounded-full bg-ash-veil"></div>
+</div>
+</div>
+</div>
+<!-- Interrupt Recovery Alert -->
+<div class="px-6 py-2">
+<div class="bg-secondary-container/50 border border-secondary-fixed-dim rounded-lg px-4 py-3 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px]">info</span>
+<p class="font-label text-[13px] text-on-secondary-container">欢迎回来！我们已经为您恢复了上次在“社区服务专员”职位的对话。放轻松，像聊天一样即可。</p>
+</div>
+</div>
+<!-- Chat Canvas -->
+<section class="flex-1 overflow-y-auto px-6 py-4 space-y-6 chat-container">
+<!-- AI Message -->
+<div class="flex flex-col gap-2 max-w-[85%]">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label text-label text-warm-ash">AI 助手 • 14:20</span>
+</div>
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-none p-4 shadow-sm border border-ash-veil">
+<p class="font-body text-body text-on-surface">你好呀！很高兴能通过这种方式更了解你。刚才你提到了对社区服务的热情，那能不能请你分享一个你曾经帮助他人解决问题的具体小事？不用很大，真实就好。</p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col gap-2 items-end ml-auto max-w-[85%]">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label text-label text-warm-ash">14:22 • 你</span>
+</div>
+<div class="bg-primary text-on-primary rounded-2xl rounded-tr-none p-4 shadow-sm">
+<p class="font-body text-body">有的。上周我在小区里看到一位老奶奶提着很重的东西，主动帮她送到了五楼。虽然是件小事，但看到她的笑容我也觉得很开心。</p>
+</div>
+</div>
+<!-- AI Message (Typing/Thinking State) -->
+<div class="flex flex-col gap-2 max-w-[85%]">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label text-label text-warm-ash">AI 助手 • 正在回复</span>
+</div>
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-none p-4 shadow-sm border border-ash-veil border-dashed">
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary/40 animate-pulse"></div>
+<div class="w-2 h-2 rounded-full bg-primary/40 animate-pulse delay-75"></div>
+<div class="w-2 h-2 rounded-full bg-primary/40 animate-pulse delay-150"></div>
+</div>
+</div>
+</div>
+<!-- Match Visualization Insight (A2A) -->
+<div class="w-full flex justify-center py-4">
+<div class="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-4 w-full flex items-center gap-4 amber-glow">
+<div class="relative flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-primary flex items-center justify-center text-white text-xs">AI</div>
+<div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+<img alt="User Profile" data-alt="portrait of a friendly smiling young adult professional in casual business attire soft warm lighting minimalist studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBuLAzL8we21ObeqPOhG8hSEHSXkb_m2KUfQlcWz845vNKuntO4IRIdwBr8ydxY4ffZlLFrjde38zzLQKAqJs8BHJwvOyivIgP1Ty9O3ppp0p81VKDqR81YZdfY7rv_Rp-Z236qfTj7GAQ74w9RYkv-YClkghTIATM-tNt4ul91CiKm_k5HG3ysjooSugsHoD3mRjUoVZBrkW3gTTKrnTdwNqwH2BEtxvCeMCETr7LwsNs0w2gMp9uruvg21I1Twf6qUPGOuyCqZbr"/>
+</div>
+</div>
+<div class="flex-1">
+<p class="font-label text-[12px] text-primary font-bold">性格匹配度提升 15%</p>
+<p class="font-label text-[11px] text-graphite">通过对话识别到您具备极强的“同理心”与“行动力”</p>
+</div>
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+</div>
+</section>
+<!-- Input Area -->
+<footer class="bg-bone-cream-dim p-4 border-t border-ash-veil pb-8">
+<div class="relative flex items-end gap-3 max-w-md mx-auto">
+<div class="flex-1 bg-white border border-ash-veil rounded-2xl p-3 focus-within:border-primary transition-all shadow-sm">
+<textarea class="w-full bg-transparent border-none focus:ring-0 font-body text-body text-on-surface resize-none p-0 max-h-32" placeholder="点击这里分享您的故事..." rows="1"></textarea>
+<div class="flex justify-between items-center mt-2">
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-bone-cream text-misty-slate">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-bone-cream text-misty-slate">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</button>
+</div>
+<p class="font-label text-[10px] text-warm-ash">按 Enter 发送</p>
+</div>
+</div>
+<button class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-on-primary shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</footer>
+</main>
+<!-- Bottom Navigation Layer (Hidden in Chat to focus) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-6 bg-stone-50/95 dark:bg-stone-950/95 backdrop-blur-md border-t border-stone-200 dark:border-stone-800 shadow-[0_-1px_3px_0_rgba(0,0,0,0.05)] md:hidden pointer-events-none opacity-0">
+<div class="flex flex-col items-center justify-center text-orange-600 dark:text-orange-500 font-semibold">
+<span class="material-symbols-outlined">work_outline</span>
+<span class="font-['Manrope'] text-[11px] font-medium">任务大厅</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-['Manrope'] text-[11px] font-medium">我的任务</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400">
+<span class="material-symbols-outlined">person_outline</span>
+<span class="font-['Manrope'] text-[11px] font-medium">个人中心</span>
+</div>
+</nav>
+</body></html>

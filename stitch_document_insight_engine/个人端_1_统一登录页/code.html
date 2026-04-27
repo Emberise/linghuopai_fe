@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>领活派 - 统一登录</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#a53600",
+                        "surface-container-low": "#fff1ec",
+                        "on-surface": "#261813",
+                        "secondary-container": "#cde6f7",
+                        "on-secondary-fixed-variant": "#334a57",
+                        "secondary": "#4a616f",
+                        "deep-char": "oklch(22% 0.008 60)",
+                        "tertiary": "#005ea3",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#041e2a",
+                        "on-tertiary-fixed": "#001c37",
+                        "inverse-primary": "#ffb59b",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "primary-fixed": "#ffdbcf",
+                        "primary-fixed-dim": "#ffb59b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#ffede8",
+                        "on-secondary-container": "#506776",
+                        "on-primary-fixed": "#380d00",
+                        "outline": "#8e7066",
+                        "misty-slate": "#4A616F",
+                        "surface-tint": "#a93700",
+                        "on-secondary": "#ffffff",
+                        "linghuo-amber": "#EA5614",
+                        "tertiary-container": "#0077cd",
+                        "bone-cream-dim": "oklch(96% 0.008 60)",
+                        "background": "#fff8f6",
+                        "on-primary-fixed-variant": "#812800",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#5a4138",
+                        "graphite": "oklch(45% 0.005 60)",
+                        "bone-cream": "oklch(98% 0.008 60)",
+                        "warm-ash": "oklch(75% 0.005 60)",
+                        "surface-container-high": "#fee2da",
+                        "surface-variant": "#f8ddd4",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "ash-veil": "oklch(92% 0.006 60)",
+                        "inverse-surface": "#3d2d27",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#f8ddd4",
+                        "on-tertiary-container": "#fdfcff",
+                        "tertiary-fixed": "#d2e4ff",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fff8f6",
+                        "primary-container": "#cf4600",
+                        "on-background": "#261813",
+                        "outline-variant": "#e2bfb3",
+                        "surface-container": "#ffe9e3",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#efd4cc",
+                        "secondary-fixed": "#cde6f7",
+                        "secondary-fixed-dim": "#b2cada",
+                        "on-primary-container": "#fffbff",
+                        "surface": "#fff8f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-max-body": "75ch",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body": ["Manrope"],
+                        "headline": ["Manrope"],
+                        "display": ["Manrope"],
+                        "label": ["Manrope"],
+                        "title": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline": ["24px", {"lineHeight": "1.25", "fontWeight": "600"}],
+                        "display": ["clamp(2rem, 5vw, 3rem)", {"lineHeight": "1.1", "fontWeight": "600"}],
+                        "label": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                        "title": ["18px", {"lineHeight": "1.35", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: oklch(98% 0.008 60); /* bone-cream */
+            font-family: 'Manrope', sans-serif;
+        }
+        .login-card {
+            box-shadow: 0 4px 24px rgba(38, 24, 19, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col items-center justify-center p-md text-on-surface">
+<!-- Brand Anchor -->
+<div class="mb-xl text-center">
+<h1 class="font-headline text-display text-deep-char tracking-tighter mb-xs">领活派</h1>
+<p class="font-body text-graphite text-body opacity-70">让每一次灵活就业都温厚有力</p>
+</div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[420px] bg-bone-cream-dim rounded-xl p-lg login-card border border-ash-veil transition-all duration-300">
+<!-- Role Switcher -->
+<div class="flex p-xs bg-ash-veil rounded-lg mb-lg">
+<button class="flex-1 py-sm px-md rounded-md font-title text-body transition-all duration-300 bg-surface-container-lowest text-primary shadow-sm">
+                个人端登录/注册
+            </button>
+<button class="flex-1 py-sm px-md rounded-md font-title text-body transition-all duration-300 text-graphite hover:text-deep-char">
+                企业端登录/注册
+            </button>
+</div>
+<!-- Login Form -->
+<form class="space-y-lg">
+<div class="space-y-md">
+<!-- Phone Input -->
+<div class="group">
+<label class="block font-label text-label text-graphite mb-xs ml-xs">手机号码</label>
+<div class="relative flex items-center">
+<span class="absolute left-md material-symbols-outlined text-warm-ash" data-icon="smartphone">smartphone</span>
+<input class="w-full pl-xl pr-md py-md bg-bone-cream border border-ash-veil rounded-lg focus:ring-1 focus:ring-linghuo-amber focus:border-linghuo-amber outline-none transition-all placeholder:text-warm-ash font-body text-body" placeholder="请输入手机号" type="tel"/>
+</div>
+</div>
+<!-- Code Input -->
+<div class="group">
+<label class="block font-label text-label text-graphite mb-xs ml-xs">验证码</label>
+<div class="relative flex gap-sm">
+<div class="relative flex-grow flex items-center">
+<span class="absolute left-md material-symbols-outlined text-warm-ash" data-icon="verified_user">verified_user</span>
+<input class="w-full pl-xl pr-md py-md bg-bone-cream border border-ash-veil rounded-lg focus:ring-1 focus:ring-linghuo-amber focus:border-linghuo-amber outline-none transition-all placeholder:text-warm-ash font-body text-body" placeholder="短信验证码" type="text"/>
+</div>
+<button class="px-md bg-bone-cream border border-ash-veil text-primary font-label text-label rounded-lg hover:bg-surface-container-low transition-colors whitespace-nowrap" type="button">
+                            获取验证码
+                        </button>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full py-md bg-linghuo-amber text-surface-container-lowest font-title text-title rounded-lg shadow-lg hover:opacity-90 active:scale-[0.98] transition-all duration-200" type="submit">
+                登录 / 注册
+            </button>
+<!-- Agreements -->
+<p class="text-center font-label text-label text-warm-ash">
+                登录即代表您同意 
+                <a class="text-primary hover:underline" href="#">用户协议</a> 
+                与 
+                <a class="text-primary hover:underline" href="#">隐私政策</a>
+</p>
+</form>
+</main>
+<!-- Admin Link -->
+<footer class="mt-xl text-center">
+<a class="font-label text-label text-graphite hover:text-primary transition-colors flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+            平台管理后台入口
+        </a>
+</footer>
+<!-- Decorative Background Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[30%] h-[30%] bg-linghuo-amber/5 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

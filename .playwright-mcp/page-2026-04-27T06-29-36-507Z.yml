@@ -1,0 +1,37 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - heading "领活派" [level=1] [ref=e5]
+    - paragraph [ref=e6]: 让每一次灵活就业都温厚有力
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - button "个人端登录 / 注册" [ref=e9] [cursor=pointer]
+      - button "企业端登录 / 注册" [ref=e10] [cursor=pointer]
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: 手机号码
+          - generic [ref=e16]:
+            - generic [ref=e18]: smartphone
+            - textbox "手机号码" [ref=e19]:
+              - /placeholder: 请输入手机号
+        - generic [ref=e20]:
+          - generic [ref=e21]: 验证码
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e25]: verified_user
+              - textbox "验证码" [ref=e26]:
+                - /placeholder: 6 位短信验证码
+            - button "获取验证码" [ref=e27] [cursor=pointer]
+      - button "登录 / 注册" [ref=e28] [cursor=pointer]
+      - paragraph [ref=e29]:
+        - text: 登录即代表你同意
+        - link "用户协议" [ref=e30] [cursor=pointer]:
+          - /url: "#"
+        - text: 与
+        - link "隐私政策" [ref=e31] [cursor=pointer]:
+          - /url: "#"
+  - contentinfo [ref=e32]:
+    - link "平台管理后台入口" [ref=e33] [cursor=pointer]:
+      - /url: /admin/login
+      - generic [ref=e34]: admin_panel_settings
+      - text: 平台管理后台入口
