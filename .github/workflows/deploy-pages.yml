@@ -45,10 +45,8 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Prepare SPA fallback
-        run: |
-          cp dist/index.html dist/404.html
-          touch dist/.nojekyll
+      - name: Disable Jekyll processing
+        run: touch dist/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
