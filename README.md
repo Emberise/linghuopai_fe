@@ -132,18 +132,18 @@ npm run preview    # 预览生产构建
 
 | 路径 | 页面 |
 | --- | --- |
-| `/b/home` | 企业工作台 |
-| `/b/qualification` | 资质认证 |
-| `/b/jobs` | 岗位列表 |
-| `/b/jobs/new` | 发布岗位（AI 主导） |
-| `/b/candidates` | 候选人管理（仅初筛后） |
+| `/b/home` | 企业工作台（KPI 可点击跳到候选人 / 岗位列表） |
+| `/b/qualification` | 资质认证（3 步 step tracker） |
+| `/b/jobs` | 岗位列表（未认证整页拦截） |
+| `/b/jobs/new` | 发布岗位（AI 主导 + 右侧 AI 优化建议 aside） |
+| `/b/candidates` | 候选人管理（仅初筛后；未认证整页拦截） |
 | `/b/me` | 企业信息 |
 
 ### 运营后台 `/admin/*`
 
 | 路径 | 页面 |
 | --- | --- |
-| `/admin/dashboard` | 三类指标看板 |
+| `/admin/dashboard` | 三类指标看板（4 KPI 可点击跳列表） |
 | `/admin/users` | 个人用户管理 |
 | `/admin/enterprises` | 企业用户管理 |
 | `/admin/tasks` | 任务管理（不发布） |

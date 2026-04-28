@@ -3,6 +3,7 @@
  * - 三类指标：注册与活跃、任务发布与进行中、AI 初筛与报告转化
  * - 纯只读
  */
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@/shared/ui/Icon";
 import { Card } from "@/shared/ui/Card";
 import { adminDashboardMetrics } from "@/shared/mock/data";
@@ -15,6 +16,7 @@ const sections = [
     deltaLabel: `${adminDashboardMetrics.registration.weekDelta > 0 ? "+" : ""}${adminDashboardMetrics.registration.weekDelta}% / 周`,
     sub: `活跃率 ${(adminDashboardMetrics.registration.activeRate * 100).toFixed(0)}%`,
     title: adminDashboardMetrics.registration.title,
+    href: "/admin/users",
   },
   {
     key: "tasks",
@@ -23,6 +25,7 @@ const sections = [
     deltaLabel: `${adminDashboardMetrics.taskFlow.delta}% / 周`,
     sub: `进行中 ${adminDashboardMetrics.taskFlow.inProgress}`,
     title: adminDashboardMetrics.taskFlow.title,
+    href: "/admin/tasks",
   },
   {
     key: "ai",
@@ -31,6 +34,7 @@ const sections = [
     deltaLabel: `面试 ${adminDashboardMetrics.aiScreening.sessions} 次`,
     sub: `报告转化率 ${(adminDashboardMetrics.aiScreening.convertRate * 100).toFixed(0)}%`,
     title: adminDashboardMetrics.aiScreening.title,
+    href: "/admin/tasks",
   },
   {
     key: "completion",
@@ -39,6 +43,7 @@ const sections = [
     deltaLabel: "+5.2% / 周",
     sub: "已结束任务 / 总任务",
     title: "任务完成率",
+    href: "/admin/tasks",
   },
 ];
 
@@ -70,6 +75,7 @@ const eventLog = [
 ];
 
 export function AdminDashboardPage() {
+  const navigate = useNavigate();
   return (
     <div className="space-y-lg">
       <header>
@@ -81,7 +87,12 @@ export function AdminDashboardPage() {
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
         {sections.map((s) => (
-          <Card key={s.key} className="p-lg">
+          <Card
+            key={s.key}
+            hoverable
+            className="p-lg cursor-pointer"
+            onClick={() => navigate(s.href)}
+          >
             <header className="flex items-start justify-between">
               <span className="h-9 w-9 rounded-lg bg-bone-cream-dim text-misty-slate flex items-center justify-center">
                 <Icon name={s.icon} />

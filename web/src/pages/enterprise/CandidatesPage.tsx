@@ -5,6 +5,7 @@
  * - 处理中下子状态：邀约沟通 / 负面反馈 / 暂不推进
  */
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@/shared/ui/Icon";
 import { Card } from "@/shared/ui/Card";
 import { Badge } from "@/shared/ui/Badge";
@@ -15,6 +16,7 @@ import {
   enterpriseCandidates,
   enterpriseJobs,
 } from "@/shared/mock/data";
+import { useAuth } from "@/shared/auth/store";
 import { cn } from "@/shared/utils/cn";
 
 const stageMeta: Record<
@@ -34,6 +36,10 @@ const stageOptions: Array<{ key: CandidateStage | "ALL"; label: string }> = [
 ];
 
 export function CandidatesPage() {
+  const navigate = useNavigate();
+  const { session } = useAuth();
+  const qualified =
+    session?.realm === "enterprise" ? session.qualified : false;
   const [stage, setStage] = useState<CandidateStage | "ALL">("ALL");
   const [active, setActive] = useState<CandidateItem | null>(
     enterpriseCandidates[0] ?? null,
@@ -50,6 +56,39 @@ export function CandidatesPage() {
   const job = active
     ? enterpriseJobs.find((j) => j.id === active.jobId)?.title
     : null;
+
+  if (!qualified) {
+    return (
+      <div className="space-y-lg">
+        <header>
+          <h2 className="font-headline text-headline text-deep-char">
+            候选人管理
+          </h2>
+          <p className="text-graphite text-[13px] mt-xs max-w-body">
+            列表只展示完成 AI 初筛、已生成报告的候选人；面试进行中的候选人不在此呈现。
+          </p>
+        </header>
+        <Card tone="warm" className="p-lg flex items-center gap-md">
+          <span className="h-10 w-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+            <Icon name="lock" />
+          </span>
+          <div className="flex-1 min-w-0">
+            <p className="font-medium text-deep-char">候选人管理已锁定</p>
+            <p className="text-[12px] text-graphite">
+              请先完成企业资质认证，再查看 AI 初筛后的候选人与报告。
+            </p>
+          </div>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => navigate("/b/qualification")}
+          >
+            前往认证
+          </Button>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-lg">

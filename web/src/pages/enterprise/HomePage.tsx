@@ -25,7 +25,11 @@ export function EnterpriseHomePage() {
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-lg">
       <div className="lg:col-span-2 space-y-lg">
         <section className="grid grid-cols-3 gap-md">
-          <Card className="p-md md:p-lg">
+          <Card
+            hoverable
+            className="p-md md:p-lg cursor-pointer"
+            onClick={() => navigate("/b/candidates")}
+          >
             <div className="flex items-start justify-between">
               <span className="h-9 w-9 rounded-lg bg-bone-cream-dim text-misty-slate flex items-center justify-center">
                 <Icon name="group" />
@@ -39,7 +43,11 @@ export function EnterpriseHomePage() {
             </p>
             <p className="text-[12px] text-graphite">待处理候选人</p>
           </Card>
-          <Card className="p-md md:p-lg">
+          <Card
+            hoverable
+            className="p-md md:p-lg cursor-pointer"
+            onClick={() => navigate("/b/jobs")}
+          >
             <div className="flex items-start justify-between">
               <span className="h-9 w-9 rounded-lg bg-bone-cream-dim text-linghuo-amber flex items-center justify-center">
                 <Icon name="work" filled />
@@ -53,7 +61,11 @@ export function EnterpriseHomePage() {
             </p>
             <p className="text-[12px] text-graphite">招聘中岗位</p>
           </Card>
-          <Card className="p-md md:p-lg bg-gradient-to-br from-white to-orange-50/30">
+          <Card
+            hoverable
+            className="p-md md:p-lg cursor-pointer bg-gradient-to-br from-white to-orange-50/30"
+            onClick={() => navigate("/b/candidates")}
+          >
             <div className="flex items-start justify-between">
               <span className="h-9 w-9 rounded-lg bg-linghuo-amber/10 text-linghuo-amber flex items-center justify-center">
                 <Icon name="auto_awesome" filled />

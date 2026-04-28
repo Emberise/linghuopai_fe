@@ -155,6 +155,8 @@ npm run preview  # 预览构建产物
 - ✅ 中文标点优先：用逗号、分号、冒号、句号或括号。
 - ✅ 数据可视化优先复用 `RadarPolygon`（雷达，5 维能力画像）和 `RingGauge`（圆环 conic-gradient，gauge 类指标）；不要引第三方图表库。
 - ✅ 个人 AI 助手页 (`/u/assistant`)：单列居中（`max-w-body`）聊天 + 底部浮动输入条；AI 回复嵌入任务时用 `md:grid-cols-2` Bento mini 卡（数据源 `taskHall.matchScore`），followUps 胶囊放气泡外；移动端浮动条用 `bottom-[calc(64px+env(safe-area-inset-bottom))]` 让出底部 Tab。**不要**改回左右分栏 + aside 提示卡。
+- ✅ 看板 / 工作台的 KPI / stat 卡片若有对应列表页，**必须可点击跳转**（`hoverable cursor-pointer onClick={() => navigate(...)}`），不要做成哑卡。已应用：`/b/home`（候选人 / 岗位 / AI 三卡）与 `/admin/dashboard`（4 格全可点击）。
+- ✅ 企业资质锁的实现模式：未认证账号进入受限页（`/b/jobs`、`/b/candidates`）时整页渲染拦截卡（warm Card + 锁图标 + 「前往认证」secondary 按钮），不要让用户看到空列表后再去猜要做什么。`session.qualified` 为唯一来源。
 
 ### 一定不要做
 
@@ -249,13 +251,13 @@ type CandidateSubStage = "邀约沟通" | "负面反馈" | "暂不推进";  // I
 | `/u/screening/:sessionId` | `pages/user/ScreeningPage.tsx` | 任务级 AI 面试（Enter 送出 / Shift+Enter 换行） |
 | `/u/me` | `pages/user/MePage.tsx` | 我的页 |
 | `/u/me/agreements` | `pages/user/AgreementsPage.tsx` | 我的协议（占位说明页） |
-| `/b/home` | `pages/enterprise/HomePage.tsx` | 企业工作台（AI 数据看板用 RingGauge） |
-| `/b/qualification` | `pages/enterprise/QualificationPage.tsx` | 资质认证（顶部 3 步 step tracker） |
-| `/b/jobs` | `pages/enterprise/JobsPage.tsx` | 岗位列表 |
-| `/b/jobs/new` | `pages/enterprise/JobPublishPage.tsx` | AI 主导发布岗位（含快捷模板 chip） |
-| `/b/candidates` | `pages/enterprise/CandidatesPage.tsx` | 候选人管理（仅初筛后，右上角 score badge） |
+| `/b/home` | `pages/enterprise/HomePage.tsx` | 企业工作台（AI 数据看板用 RingGauge；KPI 卡可点击跳到候选人 / 岗位列表） |
+| `/b/qualification` | `pages/enterprise/QualificationPage.tsx` | 资质认证（顶部 3 步 step tracker：圆点在上 / label 在下 / 中间贯穿连线） |
+| `/b/jobs` | `pages/enterprise/JobsPage.tsx` | 岗位列表（未认证整页拦截卡 + 引导到 `/b/qualification`） |
+| `/b/jobs/new` | `pages/enterprise/JobPublishPage.tsx` | AI 主导发布岗位（左：快捷模板 chip + AI 润色 + 字段；右：AI 优化建议 aside —— 信息完善 / 关键词识别 / 市场参考） |
+| `/b/candidates` | `pages/enterprise/CandidatesPage.tsx` | 候选人管理（仅初筛后，右上角 score badge；未认证企业整页拦截卡，引导到 `/b/qualification`） |
 | `/b/me` | `pages/enterprise/EnterpriseInfoPage.tsx` | 企业信息（Logo + 资质文件 + 企业智能洞察） |
-| `/admin/dashboard` | `pages/admin/DashboardPage.tsx` | 运营看板（4 KPI） |
+| `/admin/dashboard` | `pages/admin/DashboardPage.tsx` | 运营看板（4 KPI 卡可点击跳到对应列表页） |
 | `/admin/users` | `pages/admin/UsersPage.tsx` | 个人用户管理 |
 | `/admin/enterprises` | `pages/admin/EnterprisesPage.tsx` | 企业用户管理 |
 | `/admin/tasks` | `pages/admin/TasksPage.tsx` | 任务管理（4 格 stat 顶栏；不发布） |

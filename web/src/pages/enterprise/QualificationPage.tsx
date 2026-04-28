@@ -32,56 +32,62 @@ export function QualificationPage() {
     setQualified(true);
   };
 
-  // 当前 step：0 基础信息（默认进入即完成）/ 1 上传证件 / 2 提交审核
-  const stepIndex = submitted ? 2 : allUploaded ? 1 : 1;
+  // 当前 step：0 基础信息（默认进入即完成）/ 1 资质上传 / 2 等待审核
+  // submitted -> 全部完成；allUploaded 但未提交 -> 走到第 3 步等待审核；都没传 -> 卡在第 2 步上传证件
+  const stepIndex = submitted ? 3 : allUploaded ? 2 : 1;
 
   const steps = [
-    { label: "基础信息", icon: "edit_note" },
-    { label: "上传证件", icon: "upload_file" },
-    { label: "提交审核", icon: "send" },
+    { label: "基本信息", icon: "edit_note" },
+    { label: "资质上传", icon: "upload_file" },
+    { label: "等待审核", icon: "schedule" },
   ];
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-lg">
       <div className="lg:col-span-2 space-y-lg">
-        {/* Step Tracker */}
-        <Card className="p-md md:p-lg">
-          <ol className="flex items-center gap-sm md:gap-md">
+        {/* Step Tracker（对照 stitch：圆形节点在上 / label 在下 / 中间贯穿一条连线） */}
+        <Card className="p-lg">
+          <ol className="relative flex justify-between items-start max-w-xl mx-auto">
+            <span
+              aria-hidden
+              className="absolute top-5 left-5 right-5 h-px bg-ash-veil -z-0"
+            />
             {steps.map((s, i) => {
-              const isDone = submitted ? true : i < stepIndex;
-              const isActive = !submitted && i === stepIndex;
+              const isDone = i < stepIndex;
+              const isActive = i === stepIndex;
               return (
-                <li key={s.label} className="flex-1 flex items-center gap-sm">
+                <li
+                  key={s.label}
+                  className="flex flex-col items-center gap-sm relative z-10"
+                >
                   <span
-                    className={`h-9 w-9 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                    className={`h-10 w-10 rounded-full flex items-center justify-center shrink-0 transition-colors bg-bone-cream ${
                       isDone
-                        ? "bg-linghuo-amber text-white"
+                        ? "bg-linghuo-amber text-white shadow-ambient-rest"
                         : isActive
-                          ? "bg-linghuo-amber/15 text-linghuo-amber"
-                          : "bg-bone-cream-dim text-graphite border border-ash-veil"
+                          ? "bg-bone-cream border-2 border-linghuo-amber text-linghuo-amber"
+                          : "bg-bone-cream-dim border border-ash-veil text-warm-ash"
                     }`}
                   >
-                    <Icon name={isDone ? "check" : s.icon} size={18} />
+                    {isDone ? (
+                      <Icon name="check" size={18} />
+                    ) : (
+                      <span className="font-label text-[12px] font-bold">
+                        0{i + 1}
+                      </span>
+                    )}
                   </span>
-                  <div className="flex-1 min-w-0">
-                    <p
-                      className={`text-[13px] font-medium ${
-                        isDone || isActive
-                          ? "text-deep-char"
-                          : "text-graphite"
-                      }`}
-                    >
-                      第 {i + 1} 步
-                    </p>
-                    <p className="text-[11px] text-warm-ash">{s.label}</p>
-                  </div>
-                  {i < steps.length - 1 ? (
-                    <span
-                      className={`h-px flex-1 ${
-                        isDone ? "bg-linghuo-amber/40" : "bg-ash-veil"
-                      } hidden sm:block`}
-                    />
-                  ) : null}
+                  <p
+                    className={`font-label text-label whitespace-nowrap ${
+                      isDone
+                        ? "text-graphite"
+                        : isActive
+                          ? "text-linghuo-amber font-bold"
+                          : "text-warm-ash"
+                    }`}
+                  >
+                    {s.label}
+                  </p>
                 </li>
               );
             })}
