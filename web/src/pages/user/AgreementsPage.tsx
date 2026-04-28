@@ -20,25 +20,18 @@ export function AgreementsPage() {
           我的协议
         </h1>
         <p className="text-graphite text-[13px] mt-xs">
-          这里将集中展示与企业方签署过的服务协议。本版本暂未上线，先做个占位说明。
+          这里会集中展示与企业方签署过的服务协议。签约能力即将上线，先做个预告。
         </p>
       </header>
 
       <Card tone="warm" className="p-lg space-y-md">
         <span className="inline-flex items-center gap-1 text-[11px] text-warm-ash uppercase tracking-widest">
           <Icon name="info" size={14} />
-          占位说明
+          预告
         </span>
         <h2 className="font-title text-title text-deep-char">
-          为什么先不实装？
+          上线后会出现哪些内容？
         </h2>
-        <p className="text-graphite leading-relaxed">
-          签约能力依赖主系统接口与电子签章服务（如契约锁）的对接。第一版我们让你看到入口，
-          知道协议未来会落在哪里，但不在没有完成主系统对接前提供模拟数据。
-        </p>
-        <h3 className="font-title text-title text-deep-char mt-md">
-          上线时会出现哪些内容？
-        </h3>
         <ul className="space-y-sm text-[13px] text-graphite">
           <li className="flex items-start gap-sm">
             <Icon name="article" size={16} className="text-linghuo-amber mt-0.5" />

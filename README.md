@@ -139,6 +139,7 @@ npm run preview    # 预览生产构建
 | `/b/jobs` | 岗位列表（未认证整页拦截） |
 | `/b/jobs/new` | 发布岗位（AI 主导 + 右侧 AI 优化建议 aside） |
 | `/b/candidates` | 候选人管理（仅初筛后；未认证整页拦截） |
+| `/b/assistant` | AI 助手（双气泡聊天 + Agent 配对预演 mode） |
 | `/b/me` | 企业信息 |
 
 ### 运营后台 `/admin/*`

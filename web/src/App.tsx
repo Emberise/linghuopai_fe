@@ -27,6 +27,7 @@ import { QualificationPage } from "@/pages/enterprise/QualificationPage";
 import { JobsPage } from "@/pages/enterprise/JobsPage";
 import { JobPublishPage } from "@/pages/enterprise/JobPublishPage";
 import { CandidatesPage } from "@/pages/enterprise/CandidatesPage";
+import { EnterpriseAssistantPage } from "@/pages/enterprise/AssistantPage";
 import { EnterpriseInfoPage } from "@/pages/enterprise/EnterpriseInfoPage";
 
 import { AdminDashboardPage } from "@/pages/admin/DashboardPage";
@@ -68,6 +69,7 @@ export default function App() {
           <Route path="/b/jobs" element={<JobsPage />} />
           <Route path="/b/jobs/new" element={<JobPublishPage />} />
           <Route path="/b/candidates" element={<CandidatesPage />} />
+          <Route path="/b/assistant" element={<EnterpriseAssistantPage />} />
           <Route path="/b/me" element={<EnterpriseInfoPage />} />
         </Route>
       </Route>

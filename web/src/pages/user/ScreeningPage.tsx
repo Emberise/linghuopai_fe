@@ -187,8 +187,8 @@ export function ScreeningPage() {
               </Button>
             </form>
           )}
-          <p className="text-[11px] text-warm-ash">
-            说明：本次面试仅生成报告供企业方参考；你的画像与正式资料不会被自动改写。
+          <p className="text-[10px] text-warm-ash">
+            报告仅企业可见，正式资料不会被改写。
           </p>
         </div>
       </Card>
@@ -207,23 +207,6 @@ export function ScreeningPage() {
               </Badge>
             ))}
           </div>
-        </Card>
-        <Card className="p-lg">
-          <h3 className="font-title text-title text-deep-char">几条小约定</h3>
-          <ul className="mt-md space-y-sm text-[13px] text-graphite">
-            <li className="flex items-start gap-sm">
-              <Icon name="bolt" size={16} className="text-linghuo-amber mt-0.5" />
-              不限时；想清楚再答
-            </li>
-            <li className="flex items-start gap-sm">
-              <Icon name="undo" size={16} className="text-misty-slate mt-0.5" />
-              退出后回来，按题接着续
-            </li>
-            <li className="flex items-start gap-sm">
-              <Icon name="lock" size={16} className="text-graphite mt-0.5" />
-              报告仅企业可见，你看不到原文
-            </li>
-          </ul>
         </Card>
       </aside>
     </div>

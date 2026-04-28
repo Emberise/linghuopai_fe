@@ -90,8 +90,7 @@ export function PostedTasksPage() {
             我发布的任务
           </h2>
           <p className="text-graphite text-[13px] mt-xs max-w-body">
-            个人发任务复用 AI 帮你整理描述。第一版不做候选人列表与 AI 报告，所有推进通过
-            站内沟通进行。
+            个人发布任务的所有推进通过站内沟通进行。
           </p>
         </div>
         <Button onClick={() => setCreating(true)}>

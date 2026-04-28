@@ -200,7 +200,7 @@ export function UserHomePage() {
               敬请期待
             </h2>
             <p className="text-[12px] text-graphite mt-xs">
-              这些能力即将开放，第一版仅作展示，不可点。
+              这些能力即将开放。
             </p>
           </div>
         </header>

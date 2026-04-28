@@ -168,7 +168,7 @@ export function TaskDetailPage() {
               <div>
                 <p className="font-medium">完成面试后再确认是否投递</p>
                 <p className="text-[12px] text-graphite mt-xs">
-                  你随时可以中断回来续接。报告由后端生成，仅企业可见。
+                  你随时可以中断回来续接。
                 </p>
               </div>
             </li>
@@ -179,7 +179,7 @@ export function TaskDetailPage() {
               <div>
                 <p className="font-medium">企业看到你之后再开启沟通</p>
                 <p className="text-[12px] text-graphite mt-xs">
-                  消息中心会同步进度，期间不会有人催你。
+                  消息中心会同步进度。
                 </p>
               </div>
             </li>

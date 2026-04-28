@@ -16,6 +16,7 @@ const items = [
   { to: "/b/home", label: "工作台", icon: "dashboard" },
   { to: "/b/qualification", label: "资质认证", icon: "verified_user" },
   { to: "/b/jobs", label: "岗位管理", icon: "work_outline" },
+  { to: "/b/assistant", label: "AI 助手", icon: "smart_toy" },
   { to: "/b/candidates", label: "候选人管理", icon: "group" },
   { to: "/b/me", label: "企业信息", icon: "domain" },
 ] as const;
@@ -110,6 +111,22 @@ export function EnterpriseLayout() {
               </NavLink>
             </div>
           </div>
+
+          {/* 移动端 AI 助手快捷入口（桌面端走 SideNav） */}
+          <NavLink
+            to="/b/assistant"
+            className={({ isActive }) =>
+              cn(
+                "md:hidden h-10 w-10 rounded-full flex items-center justify-center transition-colors",
+                isActive
+                  ? "bg-linghuo-amber text-white"
+                  : "bg-linghuo-amber/10 text-linghuo-amber hover:bg-linghuo-amber/20",
+              )
+            }
+            aria-label="AI 助手"
+          >
+            <Icon name="smart_toy" filled size={20} />
+          </NavLink>
         </header>
 
         <main className="flex-1 pb-24 md:pb-12">

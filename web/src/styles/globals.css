@@ -54,6 +54,35 @@
     scrollbar-width: none;
   }
 
+  /* A2A 配对预演彩带：从顶部上方下落 + 旋转 + 渐隐 */
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-20px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(220px) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  .animate-confetti-fall {
+    animation: confetti-fall 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  /* A2A 流式打字光标 */
+  @keyframes a2a-cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  .a2a-cursor::after {
+    content: "▍";
+    margin-left: 2px;
+    animation: a2a-cursor-blink 0.9s steps(2, end) infinite;
+  }
+
   /* reduced motion 降级 */
   @media (prefers-reduced-motion: reduce) {
     *,

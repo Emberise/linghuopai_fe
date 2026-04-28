@@ -329,3 +329,101 @@ export const taskStatusMeta: Record<TaskStatus, { label: string; tone: string }>
   IN_PROGRESS: { label: "进行中", tone: "bg-linghuo-amber/10 text-linghuo-amber" },
   CLOSED: { label: "已关闭", tone: "bg-warm-ash/20 text-graphite" },
 };
+
+/* ========================================================================
+ * A2A（Agent × Agent）配对预演 mock 数据
+ *
+ * spec 第 10.5 节：第一版做「个人 Agent × 企业 Agent 双向实时撮合」的动画表现。
+ * 演示语义 = 聚合池 vs 单岗位：
+ *   左侧 platform Agent 代言领活派平台调度者（"我有 N 名候选人"）
+ *   右侧 enterprise Agent 代言单个企业招聘代表（"我的核心要求是..."）
+ * 配色：platform = misty-slate, enterprise = linghuo-amber（DESIGN.md 第 2 节）
+ * ====================================================================== */
+
+export interface A2ADialogue {
+  from: "platform" | "enterprise";
+  text: string;
+}
+
+export interface A2APreviewMock {
+  jobId: string;
+  poolSize: number;
+  dialogue: A2ADialogue[];
+  scan: { total: number; matched: number; topN: number };
+  summary: { matches: string[]; gaps: string[]; suggestions: string[] };
+}
+
+export const a2aPreviewScripts: A2APreviewMock[] = [
+  {
+    jobId: "j-001",
+    poolSize: 200,
+    dialogue: [
+      {
+        from: "platform",
+        text: "我这边有 200 名简历库内候选人。你这次招聘的核心要求是什么？",
+      },
+      {
+        from: "enterprise",
+        text: "优先有 SaaS 项目经验、3 年以上、能远程协作。",
+      },
+      {
+        from: "platform",
+        text: "已扫描全部 200 人，按硬指标初筛通过 47 名，进度对齐到 30%。",
+      },
+      {
+        from: "enterprise",
+        text: "再加一项软指标：能独立拆需求，主动汇报。",
+      },
+      {
+        from: "platform",
+        text: "按软指标二轮命中 12 名，进度 70%。Top 5 已就位。",
+      },
+      {
+        from: "enterprise",
+        text: "漂亮。把 Top 5 推到候选人列表，我们逐个邀约。",
+      },
+    ],
+    scan: { total: 200, matched: 12, topN: 5 },
+    summary: {
+      matches: ["SaaS 项目经验", "远程协作意愿", "3 年以上对齐"],
+      gaps: ["薪资上限略低于市场中位", "未覆盖海外候选人"],
+      suggestions: ["与 Top 5 在 48h 内发起邀约", "如需扩面，可放宽至 2.5 年经验"],
+    },
+  },
+  {
+    jobId: "j-002",
+    poolSize: 200,
+    dialogue: [
+      {
+        from: "platform",
+        text: "前端协作池里我留了 200 名候选人。你这次的硬要求？",
+      },
+      {
+        from: "enterprise",
+        text: "React 18 + TypeScript，远程，能独立拆 ticket。",
+      },
+      {
+        from: "platform",
+        text: "已扫描 200，硬指标命中 54 名，进度 30%。",
+      },
+      {
+        from: "enterprise",
+        text: "再加：写过开源 / 内部组件库的优先。",
+      },
+      {
+        from: "platform",
+        text: "按这条二轮筛出 9 名，进度 70%。Top 5 推荐已生成。",
+      },
+      {
+        from: "enterprise",
+        text: "好的，按 Top 5 走流程。",
+      },
+    ],
+    scan: { total: 200, matched: 9, topN: 5 },
+    summary: {
+      matches: ["React + TypeScript 主栈", "远程协作经验", "组件库 / 开源加分"],
+      gaps: ["有 2 人薪资期望高于上限 5%"],
+      suggestions: ["先跟 Top 3 沟通，留 Top 4-5 作为备选", "可考虑再开放 1 人 senior 名额"],
+    },
+  },
+];

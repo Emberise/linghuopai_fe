@@ -157,7 +157,9 @@ npm run preview  # 预览构建产物
 - ✅ 个人 AI 助手页 (`/u/assistant`)：单列居中（`max-w-body`）聊天 + 底部浮动输入条；AI 回复嵌入任务时用 `md:grid-cols-2` Bento mini 卡（数据源 `taskHall.matchScore`），followUps 胶囊放气泡外；移动端浮动条用 `bottom-[calc(64px+env(safe-area-inset-bottom))]` 让出底部 Tab。**不要**改回左右分栏 + aside 提示卡。
 - ✅ 看板 / 工作台的 KPI / stat 卡片若有对应列表页，**必须可点击跳转**（`hoverable cursor-pointer onClick={() => navigate(...)}`），不要做成哑卡。已应用：`/b/home`（候选人 / 岗位 / AI 三卡）与 `/admin/dashboard`（4 格全可点击）。
 - ✅ 企业资质锁的实现模式：未认证账号进入受限页（`/b/jobs`、`/b/candidates`）时整页渲染拦截卡（warm Card + 锁图标 + 「前往认证」secondary 按钮），不要让用户看到空列表后再去猜要做什么。`session.qualified` 为唯一来源。
-- ✅ 企业端移动端导航：**只走底部 4 Tab**（工作台 / 岗位 / 候选人 / 企业），不要汉堡按钮 + 抽屉式 SideNav（与底 Tab 重叠 4 个出口是 UX 反模式）。「资质认证」入口走顶部 AppBar 的资质状态条（包成 `<NavLink to="/b/qualification">`，未认证用 `text-amber-600` 提醒）+「企业」Tab → EnterpriseInfoPage 资质状态卡。「退出登录」走 EnterpriseInfoPage 合规卡的「退出企业端」按钮（移动端无需 AppBar 右上角再加 logout 图标）。SideNav 仅 `md:flex` 桌面端显示。
+- ✅ 企业端移动端导航：**只走底部 4 Tab**（工作台 / 岗位 / 候选人 / 企业），不要汉堡按钮 + 抽屉式 SideNav（与底 Tab 重叠 4 个出口是 UX 反模式）。「资质认证」入口走顶部 AppBar 的资质状态条（包成 `<NavLink to="/b/qualification">`，未认证用 `text-amber-600` 提醒）+「企业」Tab → EnterpriseInfoPage 资质状态卡。「退出登录」走 EnterpriseInfoPage 合规卡的「退出企业端」按钮（移动端无需 AppBar 右上角再加 logout 图标）。SideNav 仅 `md:flex` 桌面端显示。**移动端「AI 助手」快捷入口**走顶部 AppBar 右侧 `md:hidden` 的 `smart_toy` 圆形按钮跳 `/b/assistant`（与资质状态条共存）。
+- ✅ **A2A 配对预演**：作为 `enterprise/AssistantPage` 的 `mode: 'preview'` state 切换实现，不开独立路由 / 不做 modal。脚本 + 数据可视化 + 总结从 `mock/data.ts` 的 `a2aPreviewScripts` 读取；演示语义为「聚合池 vs 单岗位」（左：平台 Agent misty-slate，右：企业 Agent linghuo-amber，DESIGN.md 第 2 节）。动效全 CSS keyframe + Tailwind（`@keyframes confetti-fall` / `@keyframes a2a-cursor-blink` 在 `globals.css`），**本次不引 lottie-react**；大屏独立 URL / 音效 / 降级 / 1000 并发节流推迟到下版本（spec 10.5）。
+- ✅ **双气泡聊天 UI** 是产品 AI 交互的默认形式（个人端 / 企业端 AssistantPage、ScreeningPage 都在用），不要把 A2A（双 Agent 协商演示）和双气泡聊天混为一谈。ScreeningPage = 任务级 AI 面试 = 候选人 vs 单 AI 面试官（spec 10 节独立机制），与 A2A 不同。
 
 ### 一定不要做
 
@@ -257,6 +259,7 @@ type CandidateSubStage = "邀约沟通" | "负面反馈" | "暂不推进";  // I
 | `/b/jobs` | `pages/enterprise/JobsPage.tsx` | 岗位列表（未认证整页拦截卡 + 引导到 `/b/qualification`） |
 | `/b/jobs/new` | `pages/enterprise/JobPublishPage.tsx` | AI 主导发布岗位（左：快捷模板 chip + AI 润色 + 字段；右：AI 优化建议 aside —— 信息完善 / 关键词识别 / 市场参考） |
 | `/b/candidates` | `pages/enterprise/CandidatesPage.tsx` | 候选人管理（仅初筛后，右上角 score badge；未认证企业整页拦截卡，引导到 `/b/qualification`） |
+| `/b/assistant` | `pages/enterprise/AssistantPage.tsx` | 企业端 AI 助手（双气泡聊天 + 浮动输入条 + 候选人 mini Bento 卡 + Agent 配对预演 mode 切换） |
 | `/b/me` | `pages/enterprise/EnterpriseInfoPage.tsx` | 企业信息（Logo + 资质文件 + 企业智能洞察） |
 | `/admin/dashboard` | `pages/admin/DashboardPage.tsx` | 运营看板（4 KPI 卡可点击跳到对应列表页） |
 | `/admin/users` | `pages/admin/UsersPage.tsx` | 个人用户管理 |
