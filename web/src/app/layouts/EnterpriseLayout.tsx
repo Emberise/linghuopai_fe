@@ -1,12 +1,12 @@
 /**
  * 企业端布局：
- * - PC：左侧固定 SideNav + 顶部 AppBar
- * - Pad：可折叠 SideNav
- * - Mobile：底部 Tab
+ * - PC / Pad：左侧固定 SideNav + 顶部 AppBar
+ * - Mobile：仅底部 Tab（无汉堡 / 无抽屉，避免与底 Tab 重叠）
  *
- * spec：企业端没有消息中心、没有顶部提醒入口。
+ * spec：企业端没有消息中心、没有顶部提醒入口；
+ * 移动端「资质认证」入口走顶部状态条（可点击）+ 「企业」Tab → EnterpriseInfoPage 资质状态卡；
+ * 移动端「退出登录」走 EnterpriseInfoPage 合规卡的「退出企业端」按钮。
  */
-import { useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { Icon } from "@/shared/ui/Icon";
 import { useAuth } from "@/shared/auth/store";
@@ -30,19 +30,12 @@ const mobileTabs = [
 export function EnterpriseLayout() {
   const { session, logout } = useAuth();
   const enterprise = session?.realm === "enterprise" ? session : null;
-  const [navOpen, setNavOpen] = useState(false);
   const location = useLocation();
 
   return (
     <div className="min-h-screen bg-bone-cream text-deep-char flex">
-      {/* Sidebar PC + Pad */}
-      <aside
-        className={cn(
-          "fixed inset-y-0 left-0 z-50 w-64 bg-[#F2F0EB] border-r border-ash-veil flex flex-col transition-transform duration-300 ease-out-quart",
-          "md:translate-x-0",
-          navOpen ? "translate-x-0" : "-translate-x-full",
-        )}
-      >
+      {/* SideNav 仅 PC / Pad 显示 */}
+      <aside className="hidden md:flex fixed inset-y-0 left-0 z-50 w-64 bg-[#F2F0EB] border-r border-ash-veil flex-col">
         <div className="px-lg py-lg">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-linghuo-amber text-white flex items-center justify-center">
@@ -54,7 +47,13 @@ export function EnterpriseLayout() {
               </h2>
               <p className="text-[11px] text-graphite mt-0.5">
                 资质状态：
-                <span className={enterprise?.qualified ? "text-emerald-600" : "text-amber-600"}>
+                <span
+                  className={
+                    enterprise?.qualified
+                      ? "text-emerald-600"
+                      : "text-amber-600"
+                  }
+                >
                   {enterprise?.qualified ? "已认证" : "待认证"}
                 </span>
               </p>
@@ -66,7 +65,6 @@ export function EnterpriseLayout() {
             <NavLink
               key={it.to}
               to={it.to}
-              onClick={() => setNavOpen(false)}
               className={({ isActive }) =>
                 cn(
                   "flex items-center gap-3 px-md py-sm rounded-lg text-[13px] font-medium transition-all",
@@ -91,32 +89,25 @@ export function EnterpriseLayout() {
         </button>
       </aside>
 
-      {/* Backdrop for mobile drawer */}
-      {navOpen ? (
-        <div
-          className="fixed inset-0 z-40 bg-deep-char/30 md:hidden"
-          onClick={() => setNavOpen(false)}
-        />
-      ) : null}
-
       <div className="flex-1 md:ml-64 flex flex-col min-w-0">
         <header className="sticky top-0 z-30 h-16 bg-bone-cream/95 backdrop-blur border-b border-ash-veil flex items-center justify-between px-md md:px-lg">
           <div className="flex items-center gap-3 min-w-0">
-            <button
-              type="button"
-              onClick={() => setNavOpen(true)}
-              className="md:hidden p-2 rounded-lg text-graphite hover:bg-bone-cream-dim"
-              aria-label="打开导航"
-            >
-              <Icon name="menu" />
-            </button>
             <div className="min-w-0">
               <h1 className="font-headline text-[16px] md:text-[18px] text-deep-char tracking-tight truncate">
                 {enterprise?.enterpriseName ?? "企业端"}
               </h1>
-              <p className="text-[11px] text-graphite truncate">
+              <NavLink
+                to="/b/qualification"
+                className={cn(
+                  "inline-flex items-center gap-1 text-[11px] truncate transition-colors",
+                  enterprise?.qualified
+                    ? "text-graphite hover:text-linghuo-amber"
+                    : "text-amber-600 hover:text-linghuo-amber",
+                )}
+              >
                 {enterprise?.qualified ? "资质已认证" : "请尽快完成资质认证"}
-              </p>
+                <Icon name="arrow_forward" size={12} />
+              </NavLink>
             </div>
           </div>
         </header>

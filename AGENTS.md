@@ -157,6 +157,7 @@ npm run preview  # 预览构建产物
 - ✅ 个人 AI 助手页 (`/u/assistant`)：单列居中（`max-w-body`）聊天 + 底部浮动输入条；AI 回复嵌入任务时用 `md:grid-cols-2` Bento mini 卡（数据源 `taskHall.matchScore`），followUps 胶囊放气泡外；移动端浮动条用 `bottom-[calc(64px+env(safe-area-inset-bottom))]` 让出底部 Tab。**不要**改回左右分栏 + aside 提示卡。
 - ✅ 看板 / 工作台的 KPI / stat 卡片若有对应列表页，**必须可点击跳转**（`hoverable cursor-pointer onClick={() => navigate(...)}`），不要做成哑卡。已应用：`/b/home`（候选人 / 岗位 / AI 三卡）与 `/admin/dashboard`（4 格全可点击）。
 - ✅ 企业资质锁的实现模式：未认证账号进入受限页（`/b/jobs`、`/b/candidates`）时整页渲染拦截卡（warm Card + 锁图标 + 「前往认证」secondary 按钮），不要让用户看到空列表后再去猜要做什么。`session.qualified` 为唯一来源。
+- ✅ 企业端移动端导航：**只走底部 4 Tab**（工作台 / 岗位 / 候选人 / 企业），不要汉堡按钮 + 抽屉式 SideNav（与底 Tab 重叠 4 个出口是 UX 反模式）。「资质认证」入口走顶部 AppBar 的资质状态条（包成 `<NavLink to="/b/qualification">`，未认证用 `text-amber-600` 提醒）+「企业」Tab → EnterpriseInfoPage 资质状态卡。「退出登录」走 EnterpriseInfoPage 合规卡的「退出企业端」按钮（移动端无需 AppBar 右上角再加 logout 图标）。SideNav 仅 `md:flex` 桌面端显示。
 
 ### 一定不要做
 
