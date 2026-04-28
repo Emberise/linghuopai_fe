@@ -160,6 +160,8 @@ npm run preview  # 预览构建产物
 - ✅ 企业端移动端导航：**只走底部 4 Tab**（工作台 / 岗位 / 候选人 / 企业），不要汉堡按钮 + 抽屉式 SideNav（与底 Tab 重叠 4 个出口是 UX 反模式）。「资质认证」入口走顶部 AppBar 的资质状态条（包成 `<NavLink to="/b/qualification">`，未认证用 `text-amber-600` 提醒）+「企业」Tab → EnterpriseInfoPage 资质状态卡。「退出登录」走 EnterpriseInfoPage 合规卡的「退出企业端」按钮（移动端无需 AppBar 右上角再加 logout 图标）。SideNav 仅 `md:flex` 桌面端显示。**移动端「AI 助手」快捷入口**走顶部 AppBar 右侧 `md:hidden` 的 `smart_toy` 圆形按钮跳 `/b/assistant`（与资质状态条共存）。
 - ✅ **A2A 配对预演**：作为 `enterprise/AssistantPage` 的 `mode: 'preview'` state 切换实现，不开独立路由 / 不做 modal。脚本 + 数据可视化 + 总结从 `mock/data.ts` 的 `a2aPreviewScripts` 读取；演示语义为「聚合池 vs 单岗位」（左：平台 Agent misty-slate，右：企业 Agent linghuo-amber，DESIGN.md 第 2 节）。动效全 CSS keyframe + Tailwind（`@keyframes confetti-fall` / `@keyframes a2a-cursor-blink` 在 `globals.css`），**本次不引 lottie-react**；大屏独立 URL / 音效 / 降级 / 1000 并发节流推迟到下版本（spec 10.5）。
 - ✅ **双气泡聊天 UI** 是产品 AI 交互的默认形式（个人端 / 企业端 AssistantPage、ScreeningPage 都在用），不要把 A2A（双 Agent 协商演示）和双气泡聊天混为一谈。ScreeningPage = 任务级 AI 面试 = 候选人 vs 单 AI 面试官（spec 10 节独立机制），与 A2A 不同。
+- ✅ **任务级 AI 面试页 ScreeningPage**（`/u/screening/:id`）视觉对照 stitch 第 8 张：mobile-first 单列、气泡**无头像**改为气泡上方一行 timestamp meta（`AI 面试官 · HH:mm` / `HH:mm · 你`）、thinking 用 dashed border + 3 个 `bg-linghuo-amber/40 animate-pulse` dot。输入区是 white 卡内嵌（textarea + 左下 mic/image 圆按钮 + 右下 Enter 提示 + 右侧单独 amber 12×12 方形发送按钮）。移动端 aside `hidden lg:block`，主区 `h-[calc(100dvh-160px)] lg:h-[70vh]` 撑满 viewport 让面试居中；滚动用内层容器 `el.scrollTop = el.scrollHeight` 而非 `scrollIntoView`，避免把 aside 带进视野。
+- ✅ **三区退出登录按钮规格统一**：使用独立大按钮 `w-full md:w-auto px-md h-11 rounded-lg border border-ash-veil text-graphite hover:text-error hover:bg-error-container/30 flex items-center justify-center gap-1` + `<Icon name="logout" size={16}>`。位置：个人端在 `MePage` 底部、企业端在 `EnterpriseInfoPage` 整个 grid 容器之外底部、桌面端 SideNav / SideBar 内底部按钮形态可保留。**不要**把退出做成藏在某张卡里的 12px 文字链接。
 
 ### 一定不要做
 
@@ -251,7 +253,7 @@ type CandidateSubStage = "邀约沟通" | "负面反馈" | "暂不推进";  // I
 | `/u/applications` | `pages/user/ApplicationsPage.tsx` | 我的报名（sticky Tab + 3 格 stat + 邀约卡） |
 | `/u/posted-tasks` | `pages/user/PostedTasksPage.tsx` | 我发布的任务（个人发） |
 | `/u/assistant` | `pages/user/AssistantPage.tsx` | 个人 AI 助手（`max-w-body` 单列聊天 + 浮动输入条；AI 回复可嵌入 Bento 任务 mini 卡 + 胶囊 followUps；首屏带渐进式上传引导卡，进入对话即让位） |
-| `/u/screening/:sessionId` | `pages/user/ScreeningPage.tsx` | 任务级 AI 面试（Enter 送出 / Shift+Enter 换行） |
+| `/u/screening/:sessionId` | `pages/user/ScreeningPage.tsx` | 任务级 AI 面试（mobile-first 单列、气泡无头像 + timestamp meta + dashed thinking、移动端 aside 隐藏；Enter 送出 / Shift+Enter 换行） |
 | `/u/me` | `pages/user/MePage.tsx` | 我的页 |
 | `/u/me/agreements` | `pages/user/AgreementsPage.tsx` | 我的协议（占位说明页） |
 | `/b/home` | `pages/enterprise/HomePage.tsx` | 企业工作台（AI 数据看板用 RingGauge；KPI 卡可点击跳到候选人 / 岗位列表） |

@@ -234,20 +234,21 @@ export function EnterpriseInfoPage() {
               企业信息将出现在岗位详情、候选人沟通页与资质审核记录中。请确保填写真实，
               不真实将影响认证结果。
             </p>
-            <button
-              type="button"
-              onClick={() => {
-                logout();
-                navigate("/login", { replace: true });
-              }}
-              className="mt-md text-[12px] text-graphite hover:text-error inline-flex items-center gap-1"
-            >
-              <Icon name="logout" size={14} />
-              退出企业端
-            </button>
           </Card>
         </aside>
       </div>
+
+      <button
+        type="button"
+        onClick={() => {
+          logout();
+          navigate("/login", { replace: true });
+        }}
+        className="w-full md:w-auto px-md h-11 rounded-lg border border-ash-veil text-graphite hover:text-error hover:bg-error-container/30 transition-colors flex items-center justify-center gap-1"
+      >
+        <Icon name="logout" size={16} />
+        退出企业端
+      </button>
     </div>
   );
 }
