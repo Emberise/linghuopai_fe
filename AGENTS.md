@@ -154,6 +154,7 @@ npm run preview  # 预览构建产物
 - ✅ 三设备重排：Mobile（底 Tab）/ Pad（折叠侧栏 / 列表-详情）/ PC（侧栏 + 多列）。
 - ✅ 中文标点优先：用逗号、分号、冒号、句号或括号。
 - ✅ 数据可视化优先复用 `RadarPolygon`（雷达，5 维能力画像）和 `RingGauge`（圆环 conic-gradient，gauge 类指标）；不要引第三方图表库。
+- ✅ 个人 AI 助手页 (`/u/assistant`)：单列居中（`max-w-body`）聊天 + 底部浮动输入条；AI 回复嵌入任务时用 `md:grid-cols-2` Bento mini 卡（数据源 `taskHall.matchScore`），followUps 胶囊放气泡外；移动端浮动条用 `bottom-[calc(64px+env(safe-area-inset-bottom))]` 让出底部 Tab。**不要**改回左右分栏 + aside 提示卡。
 
 ### 一定不要做
 
@@ -244,7 +245,7 @@ type CandidateSubStage = "邀约沟通" | "负面反馈" | "暂不推进";  // I
 | `/u/profile` | `pages/user/ResumePortraitPage.tsx` | 简历 + 画像合并页（含 SVG 雷达 + 技能 chip + AI 优化建议） |
 | `/u/applications` | `pages/user/ApplicationsPage.tsx` | 我的报名（sticky Tab + 3 格 stat + 邀约卡） |
 | `/u/posted-tasks` | `pages/user/PostedTasksPage.tsx` | 我发布的任务（个人发） |
-| `/u/assistant` | `pages/user/AssistantPage.tsx` | 个人 AI 助手（AI 回复可嵌入任务 mini 卡） |
+| `/u/assistant` | `pages/user/AssistantPage.tsx` | 个人 AI 助手（`max-w-body` 单列聊天 + 浮动输入条；AI 回复可嵌入 Bento 任务 mini 卡 + 胶囊 followUps；首屏带渐进式上传引导卡，进入对话即让位） |
 | `/u/screening/:sessionId` | `pages/user/ScreeningPage.tsx` | 任务级 AI 面试（Enter 送出 / Shift+Enter 换行） |
 | `/u/me` | `pages/user/MePage.tsx` | 我的页 |
 | `/u/me/agreements` | `pages/user/AgreementsPage.tsx` | 我的协议（占位说明页） |

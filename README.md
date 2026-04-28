@@ -123,7 +123,7 @@ npm run preview    # 预览生产构建
 | `/u/profile` | 简历与能力画像（合并页） |
 | `/u/applications` | 我的报名 / 我的任务 |
 | `/u/posted-tasks` | 我发布的任务 |
-| `/u/assistant` | 个人 AI 助手 |
+| `/u/assistant` | 个人 AI 助手（单列聊天 + 浮动输入条 + Bento 任务 mini 卡） |
 | `/u/screening/:sessionId` | 任务级 AI 面试 |
 | `/u/me` | 我的页 |
 | `/u/me/agreements` | 我的协议（占位说明页） |
